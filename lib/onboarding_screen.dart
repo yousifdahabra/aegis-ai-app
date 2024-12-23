@@ -1,3 +1,4 @@
+import 'package:ai_safety_app/views/intro_screens/intro_page_1.dart';
 import 'package:flutter/material.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
@@ -19,9 +20,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
         PageView(
           controller: controller,
           children: [
-            Container(
-              color: Colors.blue,
-            ),
+            IntroPage1(),
             Container(
               color: Colors.black,
             ),
@@ -31,8 +30,13 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
           ],
         ),
         Container(
-            alignment: Alignment(-0.9, 0.2),
-            child: SmoothPageIndicator(controller: controller, count: 3)),
+            alignment: Alignment(-0.9, 0.9),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                SmoothPageIndicator(controller: controller, count: 3),
+              ],
+            )),
       ],
     ));
   }
