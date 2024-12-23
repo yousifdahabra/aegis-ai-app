@@ -35,6 +35,14 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 SmoothPageIndicator(controller: controller, count: 3),
+                GestureDetector(
+                    onTap: () {
+                      controller.nextPage(
+                        duration: Duration(microseconds: 500),
+                        curve: Curves.easeIn,
+                      );
+                    },
+                    child: Text('Next')),
               ],
             )),
       ],
