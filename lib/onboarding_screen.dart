@@ -34,6 +34,11 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
+                GestureDetector(
+                    onTap: () {
+                      controller.jumpToPage(2);
+                    },
+                    child: Text('Skip')),
                 SmoothPageIndicator(controller: controller, count: 3),
                 GestureDetector(
                     onTap: () {
