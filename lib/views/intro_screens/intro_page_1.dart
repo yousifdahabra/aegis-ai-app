@@ -39,6 +39,22 @@ class IntroPage1 extends StatelessWidget {
                       ),
                     )),
               ),
+              Positioned(
+                top: 120,
+                left: 10,
+                child: Container(
+                  margin: EdgeInsets.only(top: 100),
+                  child: Center(
+                    child: Text(
+                      "Everyone has a weakness, whether it's\nme or others.",
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontSize: 18,
+                      ),
+                    ),
+                  ),
+                ),
+              ),
             ]),
           ),
         ],
