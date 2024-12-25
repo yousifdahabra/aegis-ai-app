@@ -1,3 +1,4 @@
+import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 
 class IntroPage1 extends StatelessWidget {
@@ -5,11 +6,6 @@ class IntroPage1 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      color: Colors.blue,
-      child: Center(
-        child: Text("Page 1"),
-      ),
-    );
+    return Scaffold();
   }
 }
