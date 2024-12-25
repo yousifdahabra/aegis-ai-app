@@ -1,6 +1,7 @@
 import 'package:ai_safety_app/views/auth/login.dart';
 import 'package:ai_safety_app/views/intro_screens/intro_page_1.dart';
 import 'package:ai_safety_app/views/intro_screens/intro_page_2.dart';
+import 'package:ai_safety_app/views/intro_screens/intro_page_3.dart';
 import 'package:flutter/material.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
@@ -31,9 +32,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
           children: [
             IntroPage1(),
             IntroPage2(),
-            Container(
-              color: Colors.red,
-            ),
+            IntroPage3(),
           ],
         ),
         Container(
