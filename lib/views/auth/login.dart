@@ -43,6 +43,19 @@ class Login extends StatelessWidget {
                       ),
                     ),
                   ),
+                  Positioned(
+                    top: 50,
+                    right: 30,
+                    width: 80,
+                    height: 80,
+                    child: Container(
+                      decoration: BoxDecoration(
+                        image: DecorationImage(
+                            image: AssetImage('assets/images/clock.png'),
+                            fit: BoxFit.fill),
+                      ),
+                    ),
+                  ),
                 ],
               ),
             ),
