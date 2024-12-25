@@ -62,18 +62,20 @@ class Login extends StatelessWidget {
                         )),
                   ),
                   Positioned(
-                    child: Container(
-                      margin: EdgeInsets.only(top: 50),
-                      child: Center(
-                        child: Text(
-                          "Login",
-                          style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 40,
-                              fontWeight: FontWeight.bold),
-                        ),
-                      ),
-                    ),
+                    child: FadeInUp(
+                        duration: Duration(milliseconds: 1600),
+                        child: Container(
+                          margin: EdgeInsets.only(top: 50),
+                          child: Center(
+                            child: Text(
+                              "Login",
+                              style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 40,
+                                  fontWeight: FontWeight.bold),
+                            ),
+                          ),
+                        )),
                   ),
                 ],
               ),
