@@ -128,7 +128,22 @@ class Login extends StatelessWidget {
                             Color.fromRGBO(143, 148, 251, .2),
                             Color.fromRGBO(143, 148, 251, .6),
                           ])),
-                    )
+                      child: Center(
+                        child: Text('Login',
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontWeight: FontWeight.bold)),
+                      ),
+                    ),
+                    SizedBox(
+                      height: 70,
+                    ),
+                    Text(
+                      'Forget Password',
+                      style: TextStyle(
+                          color: Color.fromRGBO(143, 148, 251, .2),
+                          fontWeight: FontWeight.bold),
+                    ),
                   ],
                 ))
           ],
