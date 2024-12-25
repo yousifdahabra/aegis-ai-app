@@ -18,6 +18,27 @@ class IntroPage3 extends StatelessWidget {
                   fit: BoxFit.cover),
             ),
           ),
+          SizedBox(
+            height: 300,
+            child: Stack(children: <Widget>[
+              Positioned(
+                top: 0,
+                left: 10,
+                child: Container(
+                  margin: EdgeInsets.only(top: 100),
+                  child: Center(
+                    child: Text(
+                      "You're ready to take control.",
+                      style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold),
+                    ),
+                  ),
+                ),
+              ),
+            ]),
+          ),
         ],
       ),
     );
