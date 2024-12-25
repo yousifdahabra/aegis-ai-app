@@ -81,6 +81,25 @@ class Login extends StatelessWidget {
                       decoration: BoxDecoration(
                           color: Colors.white,
                           borderRadius: BorderRadius.circular(10)),
+                      child: Column(
+                        children: <Widget>[
+                          Container(
+                            padding: EdgeInsets.all(8.0),
+                            decoration: BoxDecoration(
+                              border: Border(
+                                bottom: BorderSide(color: Colors.grey),
+                              ),
+                            ),
+                            child: TextField(
+                              decoration: InputDecoration(
+                                  border: InputBorder.none,
+                                  hintText: "Enter your Email",
+                                  hintStyle:
+                                      TextStyle(color: Colors.grey[400])),
+                            ),
+                          )
+                        ],
+                      ),
                     )
                   ],
                 ))
