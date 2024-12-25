@@ -80,7 +80,13 @@ class Login extends StatelessWidget {
                       padding: EdgeInsets.all(5),
                       decoration: BoxDecoration(
                           color: Colors.white,
-                          borderRadius: BorderRadius.circular(10)),
+                          borderRadius: BorderRadius.circular(10),
+                          boxShadow: [
+                            BoxShadow(
+                                color: Color.fromRGBO(143, 148, 251, .2),
+                                blurRadius: 20.0,
+                                offset: Offset(0, 10))
+                          ]),
                       child: Column(
                         children: <Widget>[
                           Container(
@@ -94,6 +100,16 @@ class Login extends StatelessWidget {
                               decoration: InputDecoration(
                                   border: InputBorder.none,
                                   hintText: "Enter your Email",
+                                  hintStyle:
+                                      TextStyle(color: Colors.grey[400])),
+                            ),
+                          ),
+                          Container(
+                            padding: EdgeInsets.all(8.0),
+                            child: TextField(
+                              decoration: InputDecoration(
+                                  border: InputBorder.none,
+                                  hintText: "Enter your Password",
                                   hintStyle:
                                       TextStyle(color: Colors.grey[400])),
                             ),
