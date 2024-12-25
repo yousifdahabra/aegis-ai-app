@@ -31,6 +31,18 @@ class Login extends StatelessWidget {
                       ),
                     ),
                   ),
+                  Positioned(
+                    left: 140,
+                    width: 80,
+                    height: 150,
+                    child: Container(
+                      decoration: BoxDecoration(
+                        image: DecorationImage(
+                            image: AssetImage('assets/images/light-2.png'),
+                            fit: BoxFit.fill),
+                      ),
+                    ),
+                  ),
                 ],
               ),
             ),
