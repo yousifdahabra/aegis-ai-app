@@ -42,18 +42,20 @@ class IntroPage2 extends StatelessWidget {
               Positioned(
                 top: 120,
                 left: 10,
-                child: Container(
-                  margin: EdgeInsets.only(top: 100),
-                  child: Center(
-                    child: Text(
-                      "Understanding your risks is the first\nstep to staying safe.",
-                      style: TextStyle(
-                        color: Colors.black,
-                        fontSize: 18,
+                child: FadeInUp(
+                    duration: Duration(milliseconds: 1600),
+                    child: Container(
+                      margin: EdgeInsets.only(top: 100),
+                      child: Center(
+                        child: Text(
+                          "Understanding your risks is the first\nstep to staying safe.",
+                          style: TextStyle(
+                            color: Colors.black,
+                            fontSize: 18,
+                          ),
+                        ),
                       ),
-                    ),
-                  ),
-                ),
+                    )),
               ),
             ]),
           ),
