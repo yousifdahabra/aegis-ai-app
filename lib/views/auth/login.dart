@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:animate_do/animate_do.dart';
 
 class Login extends StatelessWidget {
   const Login({super.key});
