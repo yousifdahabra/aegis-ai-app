@@ -42,18 +42,20 @@ class IntroPage3 extends StatelessWidget {
               Positioned(
                 top: 110,
                 left: 10,
-                child: Container(
-                  margin: EdgeInsets.only(top: 100),
-                  child: Center(
-                    child: Text(
-                      "Questions tailored to your answers.\nStart your journey to becoming smarter\nand safer today!",
-                      style: TextStyle(
-                        color: Colors.black,
-                        fontSize: 18,
+                child: FadeInUp(
+                    duration: Duration(milliseconds: 1600),
+                    child: Container(
+                      margin: EdgeInsets.only(top: 100),
+                      child: Center(
+                        child: Text(
+                          "Questions tailored to your answers.\nStart your journey to becoming smarter\nand safer today!",
+                          style: TextStyle(
+                            color: Colors.black,
+                            fontSize: 18,
+                          ),
+                        ),
                       ),
-                    ),
-                  ),
-                ),
+                    )),
               ),
             ]),
           ),
