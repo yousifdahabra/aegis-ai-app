@@ -52,11 +52,14 @@ class Login extends StatelessWidget {
                     right: 30,
                     width: 80,
                     height: 80,
-                    child: Container(
-                      decoration: BoxDecoration(
-                          image: DecorationImage(
-                              image: AssetImage('assets/images/clock.png'))),
-                    ),
+                    child: FadeInDown(
+                        duration: Duration(milliseconds: 1300),
+                        child: Container(
+                          decoration: BoxDecoration(
+                              image: DecorationImage(
+                                  image:
+                                      AssetImage('assets/images/clock.png'))),
+                        )),
                   ),
                   Positioned(
                     child: Container(
