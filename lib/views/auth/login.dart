@@ -25,13 +25,14 @@ class Login extends StatelessWidget {
                     left: 30,
                     width: 80,
                     height: 200,
-                    child: Container(
-                      decoration: BoxDecoration(
-                        image: DecorationImage(
-                            image: AssetImage('assets/images/light-1.png'),
-                            fit: BoxFit.fill),
-                      ),
-                    ),
+                    child: FadeInDown(
+                        duration: Duration(seconds: 1),
+                        child: Container(
+                          decoration: BoxDecoration(
+                              image: DecorationImage(
+                                  image:
+                                      AssetImage('assets/images/light-1.png'))),
+                        )),
                   ),
                   Positioned(
                     left: 140,
@@ -39,10 +40,8 @@ class Login extends StatelessWidget {
                     height: 150,
                     child: Container(
                       decoration: BoxDecoration(
-                        image: DecorationImage(
-                            image: AssetImage('assets/images/light-2.png'),
-                            fit: BoxFit.fill),
-                      ),
+                          image: DecorationImage(
+                              image: AssetImage('assets/images/light-2.png'))),
                     ),
                   ),
                   Positioned(
@@ -52,23 +51,23 @@ class Login extends StatelessWidget {
                     height: 80,
                     child: Container(
                       decoration: BoxDecoration(
-                        image: DecorationImage(
-                            image: AssetImage('assets/images/clock.png'),
-                            fit: BoxFit.fill),
-                      ),
+                          image: DecorationImage(
+                              image: AssetImage('assets/images/clock.png'))),
                     ),
                   ),
                   Positioned(
                     child: Container(
-                        margin: EdgeInsets.only(top: 50),
-                        child: Center(
-                            child: Text(
+                      margin: EdgeInsets.only(top: 50),
+                      child: Center(
+                        child: Text(
                           "Login",
                           style: TextStyle(
                               color: Colors.white,
                               fontSize: 40,
                               fontWeight: FontWeight.bold),
-                        ))),
+                        ),
+                      ),
+                    ),
                   ),
                 ],
               ),
@@ -82,6 +81,8 @@ class Login extends StatelessWidget {
                       decoration: BoxDecoration(
                           color: Colors.white,
                           borderRadius: BorderRadius.circular(10),
+                          border: Border.all(
+                              color: Color.fromRGBO(143, 148, 251, 1)),
                           boxShadow: [
                             BoxShadow(
                                 color: Color.fromRGBO(143, 148, 251, .2),
@@ -93,26 +94,27 @@ class Login extends StatelessWidget {
                           Container(
                             padding: EdgeInsets.all(8.0),
                             decoration: BoxDecoration(
-                              border: Border(
-                                bottom: BorderSide(color: Colors.grey),
-                              ),
-                            ),
+                                border: Border(
+                                    bottom: BorderSide(
+                                        color:
+                                            Color.fromRGBO(143, 148, 251, 1)))),
                             child: TextField(
                               decoration: InputDecoration(
                                   border: InputBorder.none,
-                                  hintText: "Enter your Email",
+                                  hintText: "Email or Phone number",
                                   hintStyle:
-                                      TextStyle(color: Colors.grey[400])),
+                                      TextStyle(color: Colors.grey[700])),
                             ),
                           ),
                           Container(
                             padding: EdgeInsets.all(8.0),
                             child: TextField(
+                              obscureText: true,
                               decoration: InputDecoration(
                                   border: InputBorder.none,
-                                  hintText: "Enter your Password",
+                                  hintText: "Password",
                                   hintStyle:
-                                      TextStyle(color: Colors.grey[400])),
+                                      TextStyle(color: Colors.grey[700])),
                             ),
                           )
                         ],
@@ -126,24 +128,23 @@ class Login extends StatelessWidget {
                       decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(10),
                           gradient: LinearGradient(colors: [
-                            Color.fromRGBO(143, 148, 251, .2),
+                            Color.fromRGBO(143, 148, 251, 1),
                             Color.fromRGBO(143, 148, 251, .6),
                           ])),
                       child: Center(
-                        child: Text('Login',
-                            style: TextStyle(
-                                color: Colors.white,
-                                fontWeight: FontWeight.bold)),
+                        child: Text(
+                          "Login",
+                          style: TextStyle(
+                              color: Colors.white, fontWeight: FontWeight.bold),
+                        ),
                       ),
                     ),
                     SizedBox(
                       height: 70,
                     ),
                     Text(
-                      'Forget Password',
-                      style: TextStyle(
-                          color: Color.fromRGBO(143, 148, 251, .2),
-                          fontWeight: FontWeight.bold),
+                      "Forgot Password?",
+                      style: TextStyle(color: Color.fromRGBO(143, 148, 251, 1)),
                     ),
                   ],
                 ))
