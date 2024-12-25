@@ -24,18 +24,20 @@ class IntroPage3 extends StatelessWidget {
               Positioned(
                 top: 0,
                 left: 10,
-                child: Container(
-                  margin: EdgeInsets.only(top: 100),
-                  child: Center(
-                    child: Text(
-                      "You're ready to take control.",
-                      style: TextStyle(
-                          color: Colors.black,
-                          fontSize: 20,
-                          fontWeight: FontWeight.bold),
-                    ),
-                  ),
-                ),
+                child: FadeInDown(
+                    duration: Duration(milliseconds: 1600),
+                    child: Container(
+                      margin: EdgeInsets.only(top: 100),
+                      child: Center(
+                        child: Text(
+                          "You're ready to take control.",
+                          style: TextStyle(
+                              color: Colors.black,
+                              fontSize: 20,
+                              fontWeight: FontWeight.bold),
+                        ),
+                      ),
+                    )),
               ),
             ]),
           ),
