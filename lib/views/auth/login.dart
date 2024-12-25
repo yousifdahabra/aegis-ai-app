@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 
 class Login extends StatelessWidget {
   const Login({super.key});
@@ -72,8 +73,17 @@ class Login extends StatelessWidget {
               ),
             ),
             Padding(
-              padding: EdgeInsets.all(30.0),
-            )
+                padding: EdgeInsets.all(30.0),
+                child: Column(
+                  children: <Widget>[
+                    Container(
+                      padding: EdgeInsets.all(5),
+                      decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(10)),
+                    )
+                  ],
+                ))
           ],
         ),
       ),
