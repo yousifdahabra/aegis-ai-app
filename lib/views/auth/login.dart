@@ -20,15 +20,17 @@ class Login extends StatelessWidget {
               child: Stack(
                 children: <Widget>[
                   Positioned(
-                      width: 80,
-                      height: 200,
-                      child: Container(
-                        decoration: BoxDecoration(
-                          image: DecorationImage(
-                              image: AssetImage('assets/images/light-1.png'),
-                              fit: BoxFit.fill),
-                        ),
-                      ))
+                    left: 30,
+                    width: 80,
+                    height: 200,
+                    child: Container(
+                      decoration: BoxDecoration(
+                        image: DecorationImage(
+                            image: AssetImage('assets/images/light-1.png'),
+                            fit: BoxFit.fill),
+                      ),
+                    ),
+                  ),
                 ],
               ),
             ),
