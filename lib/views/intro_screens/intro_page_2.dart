@@ -30,11 +30,8 @@ class IntroPage2 extends StatelessWidget {
                       margin: EdgeInsets.only(top: 100),
                       child: Center(
                         child: Text(
-                          "Discover how to protect yourself.",
-                          style: TextStyle(
-                              color: Colors.black,
-                              fontSize: 20,
-                              fontWeight: FontWeight.bold),
+                          "Discover how to protect\nyourself.",
+                          style: Theme.of(context).textTheme.displayLarge,
                         ),
                       ),
                     )),
@@ -49,10 +46,7 @@ class IntroPage2 extends StatelessWidget {
                       child: Center(
                         child: Text(
                           "Understanding your risks is the first\nstep to staying safe.",
-                          style: TextStyle(
-                            color: Colors.black,
-                            fontSize: 18,
-                          ),
+                          style: Theme.of(context).textTheme.titleSmall,
                         ),
                       ),
                     )),
