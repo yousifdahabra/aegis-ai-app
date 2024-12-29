@@ -25,3 +25,8 @@ flutter:
   assets:
   - assets/images/
   - assets/images/intro/
+  fonts:
+    - family: Syne
+      fonts:
+        - asset: assets/fonts/Syne-Medium.ttf
+
