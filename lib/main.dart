@@ -1,4 +1,5 @@
 import 'package:ai_safety_app/onboarding_screen.dart';
+import 'package:ai_safety_app/theme/app_theme.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -12,6 +13,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'AegisAI',
+      theme: AppTheme.lightTheme,
       home: OnboardingScreen(),
     );
   }
