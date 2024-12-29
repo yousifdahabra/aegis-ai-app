@@ -1,5 +1,11 @@
 import 'package:flutter/material.dart';
+import 'app_colors.dart';
 
-ThemeData appTheme() {
-  return ThemeData();
+class AppTheme {
+  static ThemeData get lightTheme {
+    return ThemeData(
+      primaryColor: AppColors.mainTitleColor,
+      scaffoldBackgroundColor: AppColors.backgroundPageColor,
+    );
+  }
 }
