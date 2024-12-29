@@ -50,6 +50,21 @@ class AppTheme {
           ),
         ),
       ),
+      inputDecorationTheme: InputDecorationTheme(
+        fillColor: AppColors.fillInputsColor,
+        filled: true,
+        labelStyle: TextStyle(
+          fontFamily: AppFonts.subTitleFont,
+          fontSize: 20,
+          color: AppColors.labelColor,
+        ),
+        border: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(10.0),
+          borderSide: BorderSide(
+            color: AppColors.fillInputsColor,
+          ),
+        ),
+      ),
     );
   }
 }
