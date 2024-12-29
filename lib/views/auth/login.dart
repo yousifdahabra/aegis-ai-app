@@ -15,7 +15,7 @@ class Login extends StatelessWidget {
       body: Column(
         children: <Widget>[
           Container(
-            height: 400,
+            height: 300,
             decoration: BoxDecoration(
               image: DecorationImage(
                   image: AssetImage('assets/images/background.png'),
@@ -164,8 +164,7 @@ class Login extends StatelessWidget {
                     },
                     child: Text(
                       "Forgot Password?",
-                      style: TextStyle(
-                          color: Colors.redAccent, fontWeight: FontWeight.w500),
+                      style: Theme.of(context).textTheme.bodyMedium,
                     ),
                   ),
                 ),
@@ -185,11 +184,17 @@ class Login extends StatelessWidget {
                         ),
                       );
                     },
-                    child: Text(
-                      "Don't have an account? Sign Up",
-                      style: TextStyle(
-                          color: Color.fromRGBO(143, 148, 251, 1),
-                          fontWeight: FontWeight.bold),
+                    child: Text.rich(
+                      TextSpan(
+                        text: "Don't have an account? ",
+                        style: Theme.of(context).textTheme.titleMedium,
+                        children: [
+                          TextSpan(
+                            text: "Sign Up",
+                            style: Theme.of(context).textTheme.bodyMedium,
+                          ),
+                        ],
+                      ),
                     ),
                   ),
                 ),
