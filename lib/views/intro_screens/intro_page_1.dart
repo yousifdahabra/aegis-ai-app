@@ -31,10 +31,7 @@ class IntroPage1 extends StatelessWidget {
                       child: Center(
                         child: Text(
                           "You must know your weakness \nbefore anyone.",
-                          style: TextStyle(
-                              color: Colors.black,
-                              fontSize: 20,
-                              fontWeight: FontWeight.bold),
+                          style: Theme.of(context).textTheme.displayLarge,
                         ),
                       ),
                     )),
@@ -49,10 +46,7 @@ class IntroPage1 extends StatelessWidget {
                       child: Center(
                         child: Text(
                           "Everyone has a weakness, whether it's\nme or others.",
-                          style: TextStyle(
-                            color: Colors.black,
-                            fontSize: 18,
-                          ),
+                          style: Theme.of(context).textTheme.titleSmall,
                         ),
                       ),
                     )),
