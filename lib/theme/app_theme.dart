@@ -26,6 +26,12 @@ class AppTheme {
           fontWeight: FontWeight.w600,
           color: AppColors.mainTitleColor,
         ),
+        bodyLarge: TextStyle(
+          fontFamily: AppFonts.subTitleFont,
+          fontSize: 16,
+          fontWeight: FontWeight.normal,
+          color: AppColors.fillTextInputColor,
+        ),
       ),
     );
   }
