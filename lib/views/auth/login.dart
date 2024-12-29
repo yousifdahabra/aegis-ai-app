@@ -172,6 +172,27 @@ class Login extends StatelessWidget {
                 SizedBox(
                   height: 50,
                 ),
+                FadeInUp(
+                  duration: Duration(milliseconds: 2000),
+                  child: GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) {
+                            return Signup();
+                          },
+                        ),
+                      );
+                    },
+                    child: Text(
+                      "Don't have an account? Sign Up",
+                      style: TextStyle(
+                          color: Color.fromRGBO(143, 148, 251, 1),
+                          fontWeight: FontWeight.bold),
+                    ),
+                  ),
+                ),
               ],
             ),
           )
