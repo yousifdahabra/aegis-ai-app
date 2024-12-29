@@ -14,6 +14,12 @@ class AppTheme {
           fontWeight: FontWeight.bold,
           color: AppColors.mainTitleColor,
         ),
+        headlineSmall: TextStyle(
+          fontFamily: AppFonts.subTitleFont,
+          fontSize: 16,
+          fontWeight: FontWeight.normal,
+          color: AppColors.mainTitleColor,
+        ),
       ),
     );
   }
