@@ -20,6 +20,12 @@ class AppTheme {
           fontWeight: FontWeight.normal,
           color: AppColors.mainTitleColor,
         ),
+        labelSmall: TextStyle(
+          fontFamily: AppFonts.subTitleFont,
+          fontSize: 10,
+          fontWeight: FontWeight.w600,
+          color: AppColors.mainTitleColor,
+        ),
       ),
     );
   }
