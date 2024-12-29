@@ -13,28 +13,40 @@ class AppTheme {
           fontSize: 24,
           fontWeight: FontWeight.bold,
           color: AppColors.mainTitleColor,
-        ),
+        ), //intro title app
         headlineSmall: TextStyle(
           fontFamily: AppFonts.subTitleFont,
-          fontSize: 16,
+          fontSize: 20,
           fontWeight: FontWeight.normal,
-          color: AppColors.mainTitleColor,
-        ),
+          color: AppColors.labelColor,
+        ), //Label
         labelSmall: TextStyle(
           fontFamily: AppFonts.subTitleFont,
           fontSize: 10,
           fontWeight: FontWeight.w600,
-          color: AppColors.mainTitleColor,
-        ),
+          color: AppColors.labelColor,
+        ), //active navbar
         bodyLarge: TextStyle(
           fontFamily: AppFonts.subTitleFont,
           fontSize: 16,
           fontWeight: FontWeight.normal,
           color: AppColors.fillTextInputColor,
-        ),
+        ), //inside input
         bodyMedium: TextStyle(
           fontFamily: AppFonts.subTitleFont,
-          fontSize: 20,
+          fontSize: 15,
+          fontWeight: FontWeight.w600,
+          color: AppColors.linksColor,
+        ), // link
+        bodySmall: TextStyle(
+          fontFamily: AppFonts.subTitleFont,
+          fontSize: 10,
+          fontWeight: FontWeight.w600,
+          color: AppColors.fillTextInputColor,
+        ), //not active navbar
+        titleMedium: TextStyle(
+          fontFamily: AppFonts.subTitleFont,
+          fontSize: 15,
           fontWeight: FontWeight.w600,
           color: AppColors.labelColor,
         ),
