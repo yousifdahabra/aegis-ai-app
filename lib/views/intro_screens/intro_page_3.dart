@@ -31,10 +31,7 @@ class IntroPage3 extends StatelessWidget {
                       child: Center(
                         child: Text(
                           "You're ready to take control.",
-                          style: TextStyle(
-                              color: Colors.black,
-                              fontSize: 20,
-                              fontWeight: FontWeight.bold),
+                          style: Theme.of(context).textTheme.displayLarge,
                         ),
                       ),
                     )),
@@ -49,10 +46,7 @@ class IntroPage3 extends StatelessWidget {
                       child: Center(
                         child: Text(
                           "Questions tailored to your answers.\nStart your journey to becoming smarter\nand safer today!",
-                          style: TextStyle(
-                            color: Colors.black,
-                            fontSize: 18,
-                          ),
+                          style: Theme.of(context).textTheme.titleSmall,
                         ),
                       ),
                     )),
