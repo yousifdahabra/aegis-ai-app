@@ -39,6 +39,17 @@ class AppTheme {
           color: AppColors.labelColor,
         ),
       ),
+      elevatedButtonTheme: ElevatedButtonThemeData(
+        style: ElevatedButton.styleFrom(
+          backgroundColor: AppColors.fillButtonColor,
+          foregroundColor: AppColors.fillTextInputColor,
+          textStyle: TextStyle(
+            fontFamily: AppFonts.subTitleFont,
+            fontSize: 16,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+      ),
     );
   }
 }
