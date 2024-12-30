@@ -9,7 +9,8 @@ class Login extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("data"),
+        title: Text("Login"),
+        elevation: 2.0,
       ),
       backgroundColor: Colors.white,
       body: Column(
@@ -24,42 +25,44 @@ class Login extends StatelessWidget {
             child: Stack(
               children: <Widget>[
                 Positioned(
+                  top: 10,
                   left: 30,
-                  width: 80,
+                  width: 100,
                   height: 200,
                   child: FadeInDown(
                       duration: Duration(seconds: 1),
                       child: Container(
                         decoration: BoxDecoration(
                             image: DecorationImage(
-                                image:
-                                    AssetImage('assets/images/light-1.png'))),
+                                image: AssetImage('assets/images/robot.png'))),
                       )),
                 ),
                 Positioned(
-                  left: 140,
-                  width: 80,
-                  height: 150,
+                  left: 150,
+                  top: 84,
+                  width: 100,
+                  height: 200,
                   child: FadeInDown(
                       duration: Duration(milliseconds: 1200),
                       child: Container(
                         decoration: BoxDecoration(
                             image: DecorationImage(
-                                image:
-                                    AssetImage('assets/images/light-2.png'))),
+                                image: AssetImage(
+                                    'assets/images/fingerprint.png'))),
                       )),
                 ),
                 Positioned(
-                  top: 50,
+                  top: 65,
                   right: 30,
                   width: 80,
-                  height: 80,
+                  height: 100,
                   child: FadeInDown(
                       duration: Duration(milliseconds: 1300),
                       child: Container(
                         decoration: BoxDecoration(
                             image: DecorationImage(
-                                image: AssetImage('assets/images/clock.png'))),
+                                image: AssetImage(
+                                    'assets/images/robot-phone.png'))),
                       )),
                 ),
                 Positioned(
@@ -70,10 +73,7 @@ class Login extends StatelessWidget {
                         child: Center(
                           child: Text(
                             "Login",
-                            style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 40,
-                                fontWeight: FontWeight.bold),
+                            style: Theme.of(context).textTheme.displayLarge,
                           ),
                         ),
                       )),
@@ -111,10 +111,11 @@ class Login extends StatelessWidget {
                                             Color.fromRGBO(143, 148, 251, 1)))),
                             child: TextField(
                               decoration: InputDecoration(
-                                  border: InputBorder.none,
-                                  hintText: "Email or Phone number",
-                                  hintStyle:
-                                      TextStyle(color: Colors.grey[700])),
+                                border: InputBorder.none,
+                                hintText: "Email or Phone number",
+                                hintStyle:
+                                    Theme.of(context).textTheme.bodyLarge,
+                              ),
                             ),
                           ),
                           Container(
@@ -122,10 +123,11 @@ class Login extends StatelessWidget {
                             child: TextField(
                               obscureText: true,
                               decoration: InputDecoration(
-                                  border: InputBorder.none,
-                                  hintText: "Password",
-                                  hintStyle:
-                                      TextStyle(color: Colors.grey[700])),
+                                border: InputBorder.none,
+                                hintText: "Password",
+                                hintStyle:
+                                    Theme.of(context).textTheme.bodyLarge,
+                              ),
                             ),
                           )
                         ],
