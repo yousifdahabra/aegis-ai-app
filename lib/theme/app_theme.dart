@@ -20,6 +20,12 @@ class AppTheme {
           fontWeight: FontWeight.bold,
           color: AppColors.mainTitleColor,
         ), //title
+        displaySmall: TextStyle(
+          fontFamily: AppFonts.subTitleFont,
+          fontSize: 16,
+          fontWeight: FontWeight.normal,
+          color: AppColors.fillButtonColor,
+        ), //btn
         headlineSmall: TextStyle(
           fontFamily: AppFonts.subTitleFont,
           fontSize: 20,
