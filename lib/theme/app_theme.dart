@@ -10,10 +10,16 @@ class AppTheme {
       textTheme: TextTheme(
         displayLarge: TextStyle(
           fontFamily: AppFonts.mainTitleFont,
-          fontSize: 22,
+          fontSize: 25,
           fontWeight: FontWeight.bold,
           color: AppColors.mainTitleColor,
         ), //intro title app
+        displayMedium: TextStyle(
+          fontFamily: AppFonts.mainTitleFont,
+          fontSize: 40,
+          fontWeight: FontWeight.bold,
+          color: AppColors.mainTitleColor,
+        ), //title
         headlineSmall: TextStyle(
           fontFamily: AppFonts.subTitleFont,
           fontSize: 20,
@@ -55,7 +61,7 @@ class AppTheme {
           fontSize: 15,
           fontWeight: FontWeight.w600,
           color: AppColors.subIntroColor,
-        ), //for intro
+        ), //for sub intro
       ),
       elevatedButtonTheme: ElevatedButtonThemeData(
         style: ElevatedButton.styleFrom(
