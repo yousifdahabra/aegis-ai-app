@@ -1,3 +1,4 @@
+import 'package:ai_safety_app/common_widget/custom_button.dart';
 import 'package:ai_safety_app/views/auth/signup.dart';
 import 'package:flutter/material.dart';
 import 'package:animate_do/animate_do.dart';
@@ -138,22 +139,13 @@ class Login extends StatelessWidget {
                 ),
                 FadeInUp(
                     duration: Duration(milliseconds: 1900),
-                    child: Container(
-                      height: 50,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(10),
-                        gradient: LinearGradient(colors: [
-                          Color.fromRGBO(143, 148, 251, 1),
-                          Color.fromRGBO(143, 148, 251, .6),
-                        ]),
-                      ),
-                      child: Center(
-                        child: Text(
-                          "Login",
-                          style: TextStyle(
-                              color: Colors.white, fontWeight: FontWeight.bold),
-                        ),
-                      ),
+                    child: CustomButton(
+                      padding:
+                          EdgeInsets.symmetric(horizontal: 135, vertical: 20),
+                      onPressed: () {
+                        print('Custom Button Pressed!');
+                      },
+                      text: 'Submit',
                     )),
                 SizedBox(
                   height: 20,
