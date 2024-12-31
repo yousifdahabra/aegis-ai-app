@@ -1,7 +1,14 @@
 import 'package:flutter/material.dart';
 
 class CustomInput extends StatelessWidget {
-  const CustomInput({super.key});
+  const CustomInput({
+    Key? key,
+    required this.label,
+    required this.hint,
+  }) : super(key: key);
+
+  final String label;
+  final String hint;
 
   @override
   Widget build(BuildContext context) {
