@@ -30,6 +30,13 @@ class Signup extends StatelessWidget {
                 ),
               ],
             ),
+            SizedBox(
+              height: 10,
+            ),
+            CustomButton(
+              onPressed: () {},
+              text: 'Sign Up',
+            ),
           ],
         ),
       ),
