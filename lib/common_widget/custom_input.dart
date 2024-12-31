@@ -11,6 +11,8 @@ class CustomInput extends StatelessWidget {
         labelStyle: Theme.of(context).textTheme.headlineSmall,
         hintText: 'Please enter your username',
         hintStyle: Theme.of(context).textTheme.bodyLarge,
+        prefixIcon: Icon(Icons.email),
+        border: OutlineInputBorder(),
       ),
     );
   }
