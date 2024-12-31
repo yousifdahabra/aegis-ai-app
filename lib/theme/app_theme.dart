@@ -32,6 +32,19 @@ class AppTheme {
           fontWeight: FontWeight.normal,
           color: AppColors.labelColor,
         ), //Label
+        headlineMedium: TextStyle(
+          fontFamily: AppFonts.subTitleFont,
+          fontSize: 12,
+          fontWeight: FontWeight.normal,
+          color: AppColors.labelColor,
+        ), //data table
+        labelLarge: TextStyle(
+          fontFamily: AppFonts.subTitleFont,
+          fontSize: 10,
+          fontWeight: FontWeight.w600,
+          color: AppColors.fillTextInputColor,
+        ), //for table title
+
         labelSmall: TextStyle(
           fontFamily: AppFonts.subTitleFont,
           fontSize: 10,
