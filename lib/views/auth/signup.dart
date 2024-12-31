@@ -46,6 +46,12 @@ class Signup extends StatelessWidget {
                 SizedBox(
                   height: 20,
                 ),
+                CustomInput(
+                  label: 'Password',
+                  hint: 'Enter your Password',
+                  icon: Icon(Icons.password),
+                  scure: true,
+                ),
               ],
             ),
             SizedBox(
