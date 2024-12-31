@@ -16,6 +16,10 @@ class CustomInput extends StatelessWidget {
         enabledBorder: OutlineInputBorder(
           borderSide: BorderSide(color: Colors.blue),
         ),
+        focusedBorder: OutlineInputBorder(
+          borderSide: BorderSide(color: Colors.green),
+          borderRadius: BorderRadius.circular(10.0),
+        ),
       ),
     );
   }
