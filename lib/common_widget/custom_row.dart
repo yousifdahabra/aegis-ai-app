@@ -8,24 +8,10 @@ class CustomRow extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        Flexible(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                'data',
-                style: Theme.of(context).textTheme.headlineMedium,
-                textAlign: TextAlign.start,
-              ),
-              const SizedBox(height: 4),
-              Text(
-                'title',
-                style: Theme.of(context).textTheme.labelLarge,
-                textAlign: TextAlign.start,
-              ),
-            ],
-          ),
-        ),
+        _buildColumn(context, "Test Title", "Title"),
+        _buildColumn(context, "75%", "Security"),
+        _buildColumn(context, "Done", "Status"),
+        _buildColumn(context, "10", "Questions"),
       ],
     );
   }
@@ -36,13 +22,13 @@ class CustomRow extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            'data',
+            data,
             style: Theme.of(context).textTheme.headlineMedium,
             textAlign: TextAlign.start,
           ),
           const SizedBox(height: 4),
           Text(
-            'title',
+            title,
             style: Theme.of(context).textTheme.labelLarge,
             textAlign: TextAlign.start,
           ),
