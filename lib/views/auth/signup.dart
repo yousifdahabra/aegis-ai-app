@@ -28,6 +28,15 @@ class Signup extends StatelessWidget {
                 SizedBox(
                   height: 20,
                 ),
+                CustomInput(
+                  label: 'Email',
+                  hint: 'Enter your Email',
+                  icon: Icon(Icons.email),
+                  type: TextInputType.emailAddress,
+                ),
+                SizedBox(
+                  height: 20,
+                ),
               ],
             ),
             SizedBox(
