@@ -10,13 +10,13 @@ class AppTheme {
       textTheme: TextTheme(
         displayLarge: TextStyle(
           fontFamily: AppFonts.mainTitleFont,
-          fontSize: 25,
+          fontSize: 22,
           fontWeight: FontWeight.bold,
           color: AppColors.mainTitleColor,
         ), //intro title app
         displayMedium: TextStyle(
           fontFamily: AppFonts.mainTitleFont,
-          fontSize: 40,
+          fontSize: 30,
           fontWeight: FontWeight.bold,
           color: AppColors.mainTitleColor,
         ), //title
