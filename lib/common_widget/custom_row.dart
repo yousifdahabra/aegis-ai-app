@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
 
 class CustomRow extends StatelessWidget {
-  const CustomRow({super.key});
+  const CustomRow({
+    super.key,
+    required this.data,
+  });
+  final Map<String, String> data;
 
   @override
   Widget build(BuildContext context) {
