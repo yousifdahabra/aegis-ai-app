@@ -6,15 +6,15 @@ class CustomInput extends StatelessWidget {
     required this.label,
     required this.hint,
     required this.icon,
-    this.keyboardType = TextInputType.text,
-    this.obscureText = false,
+    this.type = TextInputType.text,
+    this.scure = false,
   }) : super(key: key);
 
   final String label;
   final String hint;
   final Icon icon;
-  final TextInputType keyboardType;
-  final bool obscureText;
+  final TextInputType type;
+  final bool scure;
 
   @override
   Widget build(BuildContext context) {
@@ -28,6 +28,8 @@ class CustomInput extends StatelessWidget {
         }
         return null;
       },
+      obscureText: scure,
+      keyboardType: type,
       decoration: InputDecoration(
         labelText: label,
         labelStyle: Theme.of(context).textTheme.headlineSmall,
