@@ -12,10 +12,10 @@ class CustomRow extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        _buildColumn(context, "Test Title", "Title"),
-        _buildColumn(context, "75%", "Security"),
-        _buildColumn(context, "Done", "Status"),
-        _buildColumn(context, "10", "Questions"),
+        _buildColumn(context, data['title'] ?? '', "Title"),
+        _buildColumn(context, data['security'] ?? '', "Security"),
+        _buildColumn(context, data['status'] ?? '', "Status"),
+        _buildColumn(context, data['questions'] ?? '', "Questions"),
         IconButton(
           icon: const Icon(Icons.arrow_forward),
           onPressed: () {},
