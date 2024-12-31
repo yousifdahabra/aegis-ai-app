@@ -5,6 +5,11 @@ class CustomInput extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return TextFormField(
+      decoration: InputDecoration(
+        labelText: 'Username',
+        hintText: 'Please enter your username',
+      ),
+    );
   }
 }
