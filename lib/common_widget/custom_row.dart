@@ -12,6 +12,10 @@ class CustomRow extends StatelessWidget {
         _buildColumn(context, "75%", "Security"),
         _buildColumn(context, "Done", "Status"),
         _buildColumn(context, "10", "Questions"),
+        IconButton(
+          icon: const Icon(Icons.arrow_forward),
+          onPressed: () {},
+        ),
       ],
     );
   }
