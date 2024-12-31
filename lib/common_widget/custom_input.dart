@@ -8,7 +8,9 @@ class CustomInput extends StatelessWidget {
     return TextFormField(
       decoration: InputDecoration(
         labelText: 'Username',
+        labelStyle: Theme.of(context).textTheme.headlineSmall,
         hintText: 'Please enter your username',
+        hintStyle: Theme.of(context).textTheme.bodyLarge,
       ),
     );
   }
