@@ -37,6 +37,15 @@ class Signup extends StatelessWidget {
                 SizedBox(
                   height: 20,
                 ),
+                CustomInput(
+                  label: 'Age',
+                  hint: 'Enter your age',
+                  icon: Icon(Icons.date_range),
+                  type: TextInputType.datetime,
+                ),
+                SizedBox(
+                  height: 20,
+                ),
               ],
             ),
             SizedBox(
