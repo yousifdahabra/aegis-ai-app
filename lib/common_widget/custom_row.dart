@@ -10,7 +10,20 @@ class CustomRow extends StatelessWidget {
       children: [
         Flexible(
           child: Column(
-            children: [],
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                'data',
+                style: Theme.of(context).textTheme.headlineMedium,
+                textAlign: TextAlign.start,
+              ),
+              const SizedBox(height: 4),
+              Text(
+                'title',
+                style: Theme.of(context).textTheme.labelLarge,
+                textAlign: TextAlign.start,
+              ),
+            ],
           ),
         ),
       ],
