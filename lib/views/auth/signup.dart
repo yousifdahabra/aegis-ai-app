@@ -15,11 +15,23 @@ class Signup extends StatelessWidget {
       body: Container(
         padding: EdgeInsets.all(16.0),
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             Column(
               children: [
+                Container(
+                  margin: EdgeInsets.only(top: 40),
+                  child: Center(
+                    child: Text(
+                      "Get Started Now!",
+                      style: Theme.of(context).textTheme.displayMedium,
+                    ),
+                  ),
+                ),
+                SizedBox(
+                  height: 120,
+                ),
                 CustomInput(
                   label: 'Name',
                   hint: 'Enter your Name',
