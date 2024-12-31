@@ -40,7 +40,7 @@ class Login extends StatelessWidget {
                 ),
                 Positioned(
                   left: 150,
-                  top: 84,
+                  top: 110,
                   width: 100,
                   height: 200,
                   child: FadeInDown(
@@ -70,10 +70,10 @@ class Login extends StatelessWidget {
                   child: FadeInUp(
                       duration: Duration(milliseconds: 1600),
                       child: Container(
-                        margin: EdgeInsets.only(top: 50),
+                        margin: EdgeInsets.only(top: 120),
                         child: Center(
                           child: Text(
-                            "Login",
+                            "Welcome Back!",
                             style: Theme.of(context).textTheme.displayMedium,
                           ),
                         ),
