@@ -1,3 +1,4 @@
+import 'package:ai_safety_app/common_widget/custom_row.dart';
 import 'package:flutter/material.dart';
 
 class TestList extends StatelessWidget {
@@ -26,7 +27,12 @@ class TestList extends StatelessWidget {
       body: ListView.builder(
         padding: const EdgeInsets.all(8.0),
         itemCount: data.length,
-        itemBuilder: (context, index) {},
+        itemBuilder: (context, index) {
+          return Padding(
+            padding: const EdgeInsets.only(bottom: 10.0),
+            child: CustomRow(data: data[index]),
+          );
+        },
       ),
     );
   }
