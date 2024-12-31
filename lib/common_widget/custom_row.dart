@@ -26,79 +26,28 @@ class CustomRow extends StatelessWidget {
             ],
           ),
         ),
-        Flexible(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                'data',
-                style: Theme.of(context).textTheme.headlineMedium,
-                textAlign: TextAlign.start,
-              ),
-              const SizedBox(height: 4),
-              Text(
-                'title',
-                style: Theme.of(context).textTheme.labelLarge,
-                textAlign: TextAlign.start,
-              ),
-            ],
-          ),
-        ),
-        Flexible(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                'data',
-                style: Theme.of(context).textTheme.headlineMedium,
-                textAlign: TextAlign.start,
-              ),
-              const SizedBox(height: 4),
-              Text(
-                'title',
-                style: Theme.of(context).textTheme.labelLarge,
-                textAlign: TextAlign.start,
-              ),
-            ],
-          ),
-        ),
-        Flexible(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                'data',
-                style: Theme.of(context).textTheme.headlineMedium,
-                textAlign: TextAlign.start,
-              ),
-              const SizedBox(height: 4),
-              Text(
-                'title',
-                style: Theme.of(context).textTheme.labelLarge,
-                textAlign: TextAlign.start,
-              ),
-            ],
-          ),
-        ),
-        Flexible(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                'data',
-                style: Theme.of(context).textTheme.headlineMedium,
-                textAlign: TextAlign.start,
-              ),
-              const SizedBox(height: 4),
-              Text(
-                'title',
-                style: Theme.of(context).textTheme.labelLarge,
-                textAlign: TextAlign.start,
-              ),
-            ],
-          ),
-        ),
       ],
+    );
+  }
+
+  Widget _buildColumn(BuildContext context, String data, String title) {
+    return Flexible(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            'data',
+            style: Theme.of(context).textTheme.headlineMedium,
+            textAlign: TextAlign.start,
+          ),
+          const SizedBox(height: 4),
+          Text(
+            'title',
+            style: Theme.of(context).textTheme.labelLarge,
+            textAlign: TextAlign.start,
+          ),
+        ],
+      ),
     );
   }
 }
