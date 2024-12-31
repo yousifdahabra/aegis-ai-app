@@ -13,6 +13,9 @@ class CustomInput extends StatelessWidget {
         hintStyle: Theme.of(context).textTheme.bodyLarge,
         prefixIcon: Icon(Icons.email),
         border: OutlineInputBorder(),
+        enabledBorder: OutlineInputBorder(
+          borderSide: BorderSide(color: Colors.blue),
+        ),
       ),
     );
   }
