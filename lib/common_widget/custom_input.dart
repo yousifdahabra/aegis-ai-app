@@ -6,6 +6,15 @@ class CustomInput extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      validator: (value) {
+        if (value == null || value.isEmpty) {
+          return 'Please enter some text';
+        }
+        if (!value.contains('@')) {
+          return 'Please enter a valid email';
+        }
+        return null;
+      },
       decoration: InputDecoration(
         labelText: 'Username',
         labelStyle: Theme.of(context).textTheme.headlineSmall,
