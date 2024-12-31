@@ -73,7 +73,7 @@ class Login extends StatelessWidget {
                         child: Center(
                           child: Text(
                             "Login",
-                            style: Theme.of(context).textTheme.displayLarge,
+                            style: Theme.of(context).textTheme.displayMedium,
                           ),
                         ),
                       )),
