@@ -21,7 +21,11 @@ class _NavigationMenuState extends State<NavigationMenu> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      body: _pages[_selectedIndex],
       bottomNavigationBar: NavigationBar(
+        backgroundColor: Colors.white,
+        selectedIndex: _selectedIndex,
+        onDestinationSelected: (int index) {},
         destinations: [
           NavigationDestination(
             icon: Icon(Icons.list),
