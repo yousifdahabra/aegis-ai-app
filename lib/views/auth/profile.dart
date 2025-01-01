@@ -1,3 +1,4 @@
+import 'package:ai_safety_app/common_widget/custom_button.dart';
 import 'package:ai_safety_app/common_widget/custom_input.dart';
 import 'package:flutter/material.dart';
 
@@ -63,6 +64,13 @@ class Profile extends StatelessWidget {
                 hint: 'Enter your New password',
                 icon: Icon(Icons.password),
                 scure: true,
+              ),
+              SizedBox(
+                height: 10,
+              ),
+              CustomButton(
+                onPressed: () {},
+                text: 'Update',
               ),
             ],
           )),
