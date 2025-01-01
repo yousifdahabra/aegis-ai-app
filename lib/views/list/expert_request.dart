@@ -5,6 +5,21 @@ class ExpertRequest extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final List<Map<String, String>> data = [
+      {
+        'title': 'Request Title',
+        'questions': '10',
+        'security': '75%',
+        'status': 'Done',
+      },
+      {
+        'title': 'Another Request',
+        'questions': '12',
+        'security': '-',
+        'status': 'Start',
+      },
+    ];
+
     return Scaffold(
       appBar: AppBar(
         toolbarHeight: 80,
@@ -19,7 +34,7 @@ class ExpertRequest extends StatelessWidget {
       ),
       body: ListView.builder(
         padding: const EdgeInsets.all(8.0),
-        itemCount: 10,
+        itemCount: data.length,
         itemBuilder: (context, index) {
           return Padding(
             padding: const EdgeInsets.only(bottom: 10.0),
