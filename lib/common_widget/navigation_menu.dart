@@ -1,3 +1,4 @@
+import 'package:ai_safety_app/views/list/expert_request.dart';
 import 'package:ai_safety_app/views/list/test_list.dart';
 import 'package:flutter/material.dart';
 
@@ -13,7 +14,7 @@ class _NavigationMenuState extends State<NavigationMenu> {
 
   final List<Widget> _pages = [
     Center(child: TestList()),
-    Center(child: Text('Expert Page')),
+    Center(child: ExpertRequest()),
     Center(child: Text('New Test Page')),
     Center(child: Text('Profile Page')),
   ];
