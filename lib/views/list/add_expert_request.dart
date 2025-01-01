@@ -35,7 +35,15 @@ class AddExpertRequest extends StatelessWidget {
             ),
             CustomInput(
               label: 'Have you been scammed?',
-              hint: 'yes, how or no, what will do if face a scammer',
+              hint: 'yes, how or no, what will you do if you face a scammer',
+              icon: Icon(Icons.draw),
+            ),
+            SizedBox(
+              height: 10,
+            ),
+            CustomInput(
+              label: 'Social Links',
+              hint: 'links',
               icon: Icon(Icons.draw),
             ),
             SizedBox(
