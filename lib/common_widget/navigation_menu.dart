@@ -25,7 +25,11 @@ class _NavigationMenuState extends State<NavigationMenu> {
       bottomNavigationBar: NavigationBar(
         backgroundColor: Colors.white,
         selectedIndex: _selectedIndex,
-        onDestinationSelected: (int index) {},
+        onDestinationSelected: (int index) {
+          setState(() {
+            _selectedIndex = index;
+          });
+        },
         destinations: [
           NavigationDestination(
             icon: Icon(Icons.list),
