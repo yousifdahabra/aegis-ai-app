@@ -1,3 +1,4 @@
+import 'package:ai_safety_app/views/auth/profile.dart';
 import 'package:ai_safety_app/views/list/expert_request.dart';
 import 'package:ai_safety_app/views/list/test_list.dart';
 import 'package:flutter/material.dart';
@@ -16,7 +17,7 @@ class _NavigationMenuState extends State<NavigationMenu> {
     Center(child: TestList()),
     Center(child: ExpertRequest()),
     Center(child: Text('New Test Page')),
-    Center(child: Text('Profile Page')),
+    Center(child: Profile()),
   ];
 
   @override
