@@ -29,6 +29,14 @@ class Profile extends StatelessWidget {
                 hint: 'Jack Jeak',
                 icon: Icon(Icons.person),
               ),
+              SizedBox(
+                height: 10,
+              ),
+              CustomInput(
+                label: 'Email Address',
+                hint: 'jack_jeak_2025@gmail.com',
+                icon: Icon(Icons.email),
+              ),
             ],
           )),
     );
