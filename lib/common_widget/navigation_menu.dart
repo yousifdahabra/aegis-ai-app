@@ -12,6 +12,10 @@ class NavigationMenu extends StatelessWidget {
             icon: Icon(Icons.list),
             label: 'Test List',
           ),
+          NavigationDestination(
+            icon: Icon(Icons.person_search),
+            label: 'Expert',
+          ),
         ],
       ),
     );
