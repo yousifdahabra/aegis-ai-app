@@ -37,6 +37,15 @@ class Profile extends StatelessWidget {
                 hint: 'jack_jeak_2025@gmail.com',
                 icon: Icon(Icons.email),
               ),
+              SizedBox(
+                height: 10,
+              ),
+              CustomInput(
+                label: 'Age',
+                hint: '25',
+                icon: Icon(Icons.date_range),
+                type: TextInputType.datetime,
+              ),
             ],
           )),
     );
