@@ -1,3 +1,4 @@
+import 'package:ai_safety_app/common_widget/custom_input.dart';
 import 'package:flutter/material.dart';
 
 class AddExpertRequest extends StatelessWidget {
@@ -21,7 +22,18 @@ class AddExpertRequest extends StatelessWidget {
       body: Container(
         padding: EdgeInsets.all(16.0),
         child: Column(
-          children: [],
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            CustomInput(
+              label: 'Tell me about you',
+              hint: 'Study, works, or experience',
+              icon: Icon(Icons.draw),
+            ),
+            SizedBox(
+              height: 10,
+            ),
+          ],
         ),
       ),
     );
