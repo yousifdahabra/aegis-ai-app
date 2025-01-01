@@ -1,3 +1,4 @@
+import 'package:ai_safety_app/common_widget/custom_input.dart';
 import 'package:flutter/material.dart';
 
 class Profile extends StatelessWidget {
@@ -22,7 +23,13 @@ class Profile extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [],
+            children: [
+              CustomInput(
+                label: 'Name',
+                hint: 'Jack Jeak',
+                icon: Icon(Icons.person),
+              ),
+            ],
           )),
     );
   }
