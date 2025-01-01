@@ -9,15 +9,15 @@ class TestList extends StatelessWidget {
     final List<Map<String, String>> data = [
       {
         'title': 'Test Title',
+        'questions': '10',
         'security': '75%',
         'status': 'Done',
-        'questions': '10',
       },
       {
         'title': 'Another Test',
-        'security': '80%',
-        'status': 'Completed',
         'questions': '12',
+        'security': '80%',
+        'status': 'Done',
       },
     ];
     return Scaffold(

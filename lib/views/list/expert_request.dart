@@ -1,3 +1,4 @@
+import 'package:ai_safety_app/common_widget/custom_row.dart';
 import 'package:flutter/material.dart';
 
 class ExpertRequest extends StatelessWidget {
@@ -38,7 +39,7 @@ class ExpertRequest extends StatelessWidget {
         itemBuilder: (context, index) {
           return Padding(
             padding: const EdgeInsets.only(bottom: 10.0),
-            child: Text('data'),
+            child: CustomRow(data: data[index]),
           );
         },
       ),

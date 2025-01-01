@@ -13,9 +13,9 @@ class CustomRow extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         _buildColumn(context, data['title'] ?? '', "Title"),
+        _buildColumn(context, data['questions'] ?? '', "Questions"),
         _buildColumn(context, data['security'] ?? '', "Security"),
         _buildColumn(context, data['status'] ?? '', "Status"),
-        _buildColumn(context, data['questions'] ?? '', "Questions"),
         IconButton(
           icon: const Icon(Icons.arrow_forward),
           onPressed: () {},
