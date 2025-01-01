@@ -17,6 +17,13 @@ class Profile extends StatelessWidget {
           ],
         ),
       ),
+      body: Container(
+          padding: EdgeInsets.all(16.0),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [],
+          )),
     );
   }
 }
