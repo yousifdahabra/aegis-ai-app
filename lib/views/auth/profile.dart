@@ -55,6 +55,15 @@ class Profile extends StatelessWidget {
                 icon: Icon(Icons.password),
                 scure: true,
               ),
+              SizedBox(
+                height: 20,
+              ),
+              CustomInput(
+                label: 'New password',
+                hint: 'Enter your New password',
+                icon: Icon(Icons.password),
+                scure: true,
+              ),
             ],
           )),
     );
