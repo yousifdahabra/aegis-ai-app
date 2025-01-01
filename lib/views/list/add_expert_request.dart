@@ -1,3 +1,4 @@
+import 'package:ai_safety_app/common_widget/custom_button.dart';
 import 'package:ai_safety_app/common_widget/custom_input.dart';
 import 'package:flutter/material.dart';
 
@@ -48,6 +49,10 @@ class AddExpertRequest extends StatelessWidget {
             ),
             SizedBox(
               height: 10,
+            ),
+            CustomButton(
+              onPressed: () {},
+              text: 'Add',
             ),
           ],
         ),
