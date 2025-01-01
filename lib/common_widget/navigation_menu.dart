@@ -20,6 +20,10 @@ class NavigationMenu extends StatelessWidget {
             icon: Icon(Icons.create),
             label: 'New Test',
           ),
+          NavigationDestination(
+            icon: Icon(Icons.person),
+            label: 'Profile',
+          ),
         ],
       ),
     );
