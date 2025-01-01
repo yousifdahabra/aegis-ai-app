@@ -5,6 +5,18 @@ class Profile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Scaffold(
+      appBar: AppBar(
+        toolbarHeight: 80,
+        title: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: const [
+            Text("Profile", style: TextStyle(fontSize: 22)),
+            SizedBox(height: 4),
+            Text("Update your profile", style: TextStyle(fontSize: 14)),
+          ],
+        ),
+      ),
+    );
   }
 }
