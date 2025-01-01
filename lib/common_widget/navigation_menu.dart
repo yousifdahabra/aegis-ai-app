@@ -8,7 +8,10 @@ class NavigationMenu extends StatelessWidget {
     return Scaffold(
       bottomNavigationBar: NavigationBar(
         destinations: [
-          Container(),
+          NavigationDestination(
+            icon: Icon(Icons.list),
+            label: 'Test List',
+          ),
         ],
       ),
     );
