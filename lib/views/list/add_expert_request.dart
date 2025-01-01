@@ -30,6 +30,7 @@ class AddExpertRequest extends StatelessWidget {
               label: 'Tell me about you',
               hint: 'Study, works, or experience',
               icon: Icon(Icons.draw),
+              multiLine: true,
             ),
             SizedBox(
               height: 10,
@@ -37,7 +38,8 @@ class AddExpertRequest extends StatelessWidget {
             CustomInput(
               label: 'Have you been scammed?',
               hint: 'yes, how or no, what will you do if you face a scammer',
-              icon: Icon(Icons.draw),
+              icon: Icon(Icons.help),
+              multiLine: true,
             ),
             SizedBox(
               height: 10,
@@ -45,7 +47,8 @@ class AddExpertRequest extends StatelessWidget {
             CustomInput(
               label: 'Social Links',
               hint: 'links',
-              icon: Icon(Icons.draw),
+              icon: Icon(Icons.link),
+              multiLine: true,
             ),
             SizedBox(
               height: 10,
