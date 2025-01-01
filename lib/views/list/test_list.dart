@@ -22,7 +22,13 @@ class TestList extends StatelessWidget {
     ];
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Test List"),
+        toolbarHeight: 80,
+        title: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: const [
+            Text("Test List", style: TextStyle(fontSize: 22)),
+          ],
+        ),
       ),
       body: ListView.builder(
         padding: const EdgeInsets.all(8.0),
