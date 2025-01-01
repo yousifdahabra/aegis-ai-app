@@ -46,6 +46,15 @@ class Profile extends StatelessWidget {
                 icon: Icon(Icons.date_range),
                 type: TextInputType.datetime,
               ),
+              SizedBox(
+                height: 20,
+              ),
+              CustomInput(
+                label: 'Old Password',
+                hint: 'Enter your Old Password',
+                icon: Icon(Icons.password),
+                scure: true,
+              ),
             ],
           )),
     );
