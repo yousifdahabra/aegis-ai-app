@@ -8,6 +8,7 @@ class CustomInput extends StatelessWidget {
     required this.icon,
     this.type = TextInputType.text,
     this.scure = false,
+    this.multiLine = false,
   }) : super(key: key);
 
   final String label;
@@ -15,6 +16,7 @@ class CustomInput extends StatelessWidget {
   final Icon icon;
   final TextInputType type;
   final bool scure;
+  final bool multiLine;
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +31,11 @@ class CustomInput extends StatelessWidget {
         return null;
       },
       obscureText: scure,
-      keyboardType: type,
+      keyboardType: multiLine
+          ? TextInputType.multiline
+          : (scure ? TextInputType.text : type),
+      minLines: multiLine ? 3 : (scure ? 1 : null),
+      maxLines: multiLine ? 5 : (scure ? 1 : null),
       decoration: InputDecoration(
         labelText: label,
         labelStyle: Theme.of(context).textTheme.headlineSmall,
