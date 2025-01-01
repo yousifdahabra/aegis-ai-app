@@ -1,3 +1,4 @@
+import 'package:ai_safety_app/views/list/test_list.dart';
 import 'package:flutter/material.dart';
 
 class NavigationMenu extends StatefulWidget {
@@ -8,6 +9,15 @@ class NavigationMenu extends StatefulWidget {
 }
 
 class _NavigationMenuState extends State<NavigationMenu> {
+  int _selectedIndex = 0;
+
+  final List<Widget> _pages = [
+    Center(child: TestList()),
+    Center(child: Text('Expert Page')),
+    Center(child: Text('New Test Page')),
+    Center(child: Text('Profile Page')),
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
