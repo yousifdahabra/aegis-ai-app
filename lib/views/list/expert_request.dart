@@ -1,4 +1,5 @@
 import 'package:ai_safety_app/common_widget/custom_row.dart';
+import 'package:ai_safety_app/views/list/add_expert_request.dart';
 import 'package:flutter/material.dart';
 
 class ExpertRequest extends StatelessWidget {
@@ -35,7 +36,16 @@ class ExpertRequest extends StatelessWidget {
         actions: [
           IconButton(
             icon: const Icon(Icons.add_moderator),
-            onPressed: () {},
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) {
+                    return AddExpertRequest();
+                  },
+                ),
+              );
+            },
           ),
         ],
       ),
