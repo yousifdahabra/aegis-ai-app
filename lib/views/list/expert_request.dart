@@ -32,6 +32,12 @@ class ExpertRequest extends StatelessWidget {
             Text("All request here", style: TextStyle(fontSize: 14)),
           ],
         ),
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.add_moderator),
+            onPressed: () {},
+          ),
+        ],
       ),
       body: ListView.builder(
         padding: const EdgeInsets.all(8.0),
