@@ -10,6 +10,13 @@ class CustomCheckbox extends StatefulWidget {
 class _CustomCheckboxState extends State<CustomCheckbox> {
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Checkbox Selection'),
+      ),
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
+      ),
+    );
   }
 }
