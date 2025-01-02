@@ -1,3 +1,4 @@
+import 'package:ai_safety_app/common_widget/questions/custom_radio_button.dart';
 import 'package:ai_safety_app/views/auth/profile.dart';
 import 'package:ai_safety_app/views/list/expert_request.dart';
 import 'package:ai_safety_app/views/list/test_list.dart';
@@ -16,7 +17,7 @@ class _NavigationMenuState extends State<NavigationMenu> {
   final List<Widget> _pages = [
     Center(child: TestList()),
     Center(child: ExpertRequest()),
-    Center(child: Text('New Test Page')),
+    Center(child: CustomRadioButton()),
     Center(child: Profile()),
   ];
 

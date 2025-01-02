@@ -11,10 +11,17 @@ class _CustomRadioButtonState extends State<CustomRadioButton> {
   String selectedOption = 'None Select';
   @override
   Widget build(BuildContext context) {
-    return RadioMenuButton(
+    return SizedBox(
+      width: 300,
+      child: RadioMenuButton(
         value: "question1",
         groupValue: selectedOption,
         onChanged: (selectOption) {},
-        child: Text('question1'));
+        child: Text(
+          "question1",
+          style: Theme.of(context).textTheme.headlineSmall,
+        ),
+      ),
+    );
   }
 }
