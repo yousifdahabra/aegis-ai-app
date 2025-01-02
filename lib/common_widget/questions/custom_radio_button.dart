@@ -17,6 +17,16 @@ class _CustomRadioButtonState extends State<CustomRadioButton> {
         value: "question1",
         groupValue: selectedOption,
         onChanged: (selectOption) {},
+        style: ButtonStyle(
+            shape: WidgetStatePropertyAll(
+              RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(
+                  10,
+                ),
+              ),
+            ),
+            elevation: const WidgetStatePropertyAll(2),
+            backgroundColor: const WidgetStatePropertyAll(Colors.amber)),
         child: Text(
           "question1",
           style: Theme.of(context).textTheme.headlineSmall,
