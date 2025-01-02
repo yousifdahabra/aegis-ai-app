@@ -30,6 +30,30 @@ class _CustomCheckboxState extends State<CustomCheckbox> {
               value: "Option 2",
               label: "Option 2",
             ),
+            SizedBox(
+              height: 20,
+            ),
+            _checkboxOption(
+              context,
+              value: "Option 1",
+              label: "Option 1",
+            ),
+            SizedBox(
+              height: 20,
+            ),
+            _checkboxOption(
+              context,
+              value: "Option 3",
+              label: "Option 3",
+            ),
+            SizedBox(
+              height: 20,
+            ),
+            _checkboxOption(
+              context,
+              value: "Option 4",
+              label: "Option 4",
+            ),
           ],
         ),
       ),
@@ -88,9 +112,8 @@ class _CustomCheckboxState extends State<CustomCheckbox> {
               activeColor: Colors.white,
               checkColor:
                   selectedOptions.contains(value) ? Colors.black : Colors.white,
-              fillColor: WidgetStateProperty.all(selectedOptions.contains(value)
-                  ? Colors.white
-                  : Colors.black),
+              fillColor: WidgetStateProperty.all(
+                  selectedOptions.contains(value) ? Colors.white : Colors.grey),
             ),
             const SizedBox(width: 8),
             Text(
