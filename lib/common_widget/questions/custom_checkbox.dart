@@ -42,6 +42,15 @@ class _CustomCheckboxState extends State<CustomCheckbox> {
     required String label,
   }) {
     return InkWell(
+      onTap: () {
+        setState(() {
+          if (selectedOptions.contains(value)) {
+            selectedOptions.remove(value);
+          } else {
+            selectedOptions.add(value);
+          }
+        });
+      },
       child: Container(
         padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 16),
         decoration: BoxDecoration(
