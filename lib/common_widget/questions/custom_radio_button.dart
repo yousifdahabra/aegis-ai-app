@@ -8,8 +8,13 @@ class CustomRadioButton extends StatefulWidget {
 }
 
 class _CustomRadioButtonState extends State<CustomRadioButton> {
+  String selectedOption = 'None Select';
   @override
   Widget build(BuildContext context) {
-    return RadioMenuButton();
+    return RadioMenuButton(
+        value: "question1",
+        groupValue: selectedOption,
+        onChanged: (selectOption) {},
+        child: Text('question1'));
   }
 }
