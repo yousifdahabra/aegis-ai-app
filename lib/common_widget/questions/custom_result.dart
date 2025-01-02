@@ -20,6 +20,18 @@ class _CustomResultState extends State<CustomResult> {
       appBar: AppBar(
         title: const Text('Result'),
       ),
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            Text(
+              "Your result",
+              style: Theme.of(context).textTheme.headlineSmall,
+            ),
+          ],
+        ),
+      ),
     );
   }
 }
