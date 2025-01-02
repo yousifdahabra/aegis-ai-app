@@ -21,7 +21,14 @@ class _CustomEmailState extends State<CustomEmail> {
         padding: const EdgeInsets.all(16.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
-          children: [],
+          children: [
+            CustomInput(
+              label: 'what you do when see the email',
+              hint: 'write here',
+              icon: Icon(Icons.link),
+              multiLine: true,
+            ),
+          ],
         ),
       ),
     );
