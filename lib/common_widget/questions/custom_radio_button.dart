@@ -12,10 +12,12 @@ class _CustomRadioButtonState extends State<CustomRadioButton> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: const Text('Radio Button'),
+      ),
       body: Padding(
-        padding: const EdgeInsets.all(8.0),
+        padding: const EdgeInsets.all(16.0),
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
@@ -23,33 +25,27 @@ class _CustomRadioButtonState extends State<CustomRadioButton> {
               style: Theme.of(context).textTheme.headlineSmall,
             ),
             SizedBox(
-              height: 30,
+              height: 20,
             ),
-            SizedBox(
-              width: 300,
-              child: RadioMenuButton(
-                value: "question1",
-                groupValue: selectedOption,
-                onChanged: (selectValue) {
-                  setState(() => selectedOption = selectValue!);
-                },
-                style: ButtonStyle(
-                    shape: WidgetStatePropertyAll(
-                      RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(
-                          10,
-                        ),
-                      ),
-                    ),
-                    elevation: const WidgetStatePropertyAll(2),
-                    backgroundColor:
-                        const WidgetStatePropertyAll(Colors.amber)),
-                child: Text(
-                  "question1",
-                  style: Theme.of(context).textTheme.headlineSmall,
+            InkWell(
+                child: Container(
+              padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 16),
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(10),
+                boxShadow: [
+                  BoxShadow(
+                    color: Color.fromARGB(66, 0, 0, 0),
+                    blurRadius: 6,
+                    offset: const Offset(0, 3),
+                  ),
+                ],
+                border: Border.all(
+                  color: Colors.grey,
+                  width: 1,
                 ),
               ),
-            ),
+            ))
           ],
         ),
       ),
