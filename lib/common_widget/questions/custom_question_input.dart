@@ -18,6 +18,20 @@ class _CustomQuestionInputState extends State<CustomQuestionInput> {
       appBar: AppBar(
         title: const Text('Question'),
       ),
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            CustomInput(
+              label: 'question here',
+              hint: 'write here',
+              icon: Icon(Icons.email),
+              multiLine: true,
+            ),
+          ],
+        ),
+      ),
     );
   }
 }
