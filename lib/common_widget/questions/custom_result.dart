@@ -29,6 +29,22 @@ class _CustomResultState extends State<CustomResult> {
               "Your result",
               style: Theme.of(context).textTheme.headlineSmall,
             ),
+            SizedBox(
+              height: 20,
+            ),
+            CustomButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) {
+                      return NavigationMenu();
+                    },
+                  ),
+                );
+              },
+              text: 'Back',
+            ),
           ],
         ),
       ),
