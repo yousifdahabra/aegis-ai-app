@@ -16,6 +16,18 @@ class _CustomCheckboxState extends State<CustomCheckbox> {
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              "Select Options",
+              style: Theme.of(context).textTheme.headlineSmall,
+            ),
+            InkWell(
+              child: Container(),
+            ),
+          ],
+        ),
       ),
     );
   }
