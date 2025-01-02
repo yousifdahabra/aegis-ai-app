@@ -1,3 +1,5 @@
+import 'package:ai_safety_app/common_widget/custom_button.dart';
+import 'package:ai_safety_app/common_widget/questions/custom_email.dart';
 import 'package:flutter/material.dart';
 
 class CustomCheckbox extends StatefulWidget {
@@ -24,6 +26,9 @@ class _CustomCheckboxState extends State<CustomCheckbox> {
             Text(
               "Select Options",
               style: Theme.of(context).textTheme.headlineSmall,
+            ),
+            SizedBox(
+              height: 40,
             ),
             _checkboxOption(
               context,
@@ -53,6 +58,22 @@ class _CustomCheckboxState extends State<CustomCheckbox> {
               context,
               value: "Option 4",
               label: "Option 4",
+            ),
+            SizedBox(
+              height: 20,
+            ),
+            CustomButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) {
+                      return CustomEmail();
+                    },
+                  ),
+                );
+              },
+              text: 'Next',
             ),
           ],
         ),
