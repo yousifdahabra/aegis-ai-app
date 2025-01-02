@@ -28,24 +28,26 @@ class _CustomRadioButtonState extends State<CustomRadioButton> {
               height: 20,
             ),
             InkWell(
-                child: Container(
-              padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 16),
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(10),
-                boxShadow: [
-                  BoxShadow(
-                    color: Color.fromARGB(66, 0, 0, 0),
-                    blurRadius: 6,
-                    offset: const Offset(0, 3),
+              child: Container(
+                padding:
+                    const EdgeInsets.symmetric(vertical: 12, horizontal: 16),
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(10),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Color.fromARGB(66, 0, 0, 0),
+                      blurRadius: 6,
+                      offset: const Offset(0, 3),
+                    ),
+                  ],
+                  border: Border.all(
+                    color: Colors.grey,
+                    width: 1,
                   ),
-                ],
-                border: Border.all(
-                  color: Colors.grey,
-                  width: 1,
                 ),
               ),
-            ))
+            ),
           ],
         ),
       ),
