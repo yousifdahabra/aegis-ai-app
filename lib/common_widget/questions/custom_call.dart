@@ -18,6 +18,23 @@ class _CustomCallState extends State<CustomCall> {
       appBar: AppBar(
         title: const Text('Send Call'),
       ),
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            CustomInput(
+              label: 'what do you do when recive calling',
+              hint: 'write here',
+              icon: Icon(Icons.email),
+              multiLine: true,
+            ),
+            SizedBox(
+              height: 20,
+            ),
+          ],
+        ),
+      ),
     );
   }
 }
