@@ -1,5 +1,6 @@
 import 'package:ai_safety_app/common_widget/custom_button.dart';
 import 'package:ai_safety_app/common_widget/custom_input.dart';
+import 'package:ai_safety_app/common_widget/questions/custom_result.dart';
 import 'package:flutter/material.dart';
 
 class CustomQuestionInput extends StatefulWidget {
@@ -26,7 +27,7 @@ class _CustomQuestionInputState extends State<CustomQuestionInput> {
             CustomInput(
               label: 'question here',
               hint: 'write here',
-              icon: Icon(Icons.email),
+              icon: Icon(Icons.question_answer),
               multiLine: true,
             ),
             SizedBox(
@@ -38,7 +39,7 @@ class _CustomQuestionInputState extends State<CustomQuestionInput> {
                   context,
                   MaterialPageRoute(
                     builder: (context) {
-                      return CustomQuestionInput();
+                      return CustomResult();
                     },
                   ),
                 );
