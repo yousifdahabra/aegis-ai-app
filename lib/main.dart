@@ -1,4 +1,4 @@
-import 'package:ai_safety_app/onboarding_screen.dart';
+import 'package:ai_safety_app/views/intro_screens/onboarding_screen.dart';
 import 'package:ai_safety_app/theme/app_theme.dart';
 import 'package:flutter/material.dart';
 

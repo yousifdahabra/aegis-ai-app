@@ -21,10 +21,10 @@ class _CustomCheckboxState extends State<CustomCheckbox> {
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             Text(
-              "Select Options",
+              "Question",
               style: Theme.of(context).textTheme.headlineSmall,
             ),
             SizedBox(
