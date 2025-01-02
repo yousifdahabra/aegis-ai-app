@@ -23,37 +23,47 @@ class _CustomCheckboxState extends State<CustomCheckbox> {
               "Select Options",
               style: Theme.of(context).textTheme.headlineSmall,
             ),
-            InkWell(
-              child: Container(
-                padding:
-                    const EdgeInsets.symmetric(vertical: 12, horizontal: 16),
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(10),
-                  boxShadow: [
-                    const BoxShadow(
-                      color: Color.fromARGB(66, 0, 0, 0),
-                      blurRadius: 6,
-                      offset: Offset(0, 3),
-                    ),
-                  ],
-                  border: Border.all(
-                    color: Colors.grey,
-                    width: 1,
+            _checkboxOption()
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _checkboxOption() {
+    return InkWell(
+      child: Container(
+        padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 16),
+        decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(10),
+          boxShadow: [
+            const BoxShadow(
+              color: Color.fromARGB(66, 0, 0, 0),
+              blurRadius: 6,
+              offset: Offset(0, 3),
+            ),
+          ],
+          border: Border.all(
+            color: Colors.grey,
+            width: 1,
+          ),
+        ),
+        child: Row(
+          children: [
+            Checkbox(
+              value: true,
+              onChanged: (newValue) {},
+              activeColor: Colors.white,
+              checkColor: Colors.white,
+              fillColor: WidgetStateProperty.all(Colors.black),
+            ),
+            const SizedBox(width: 8),
+            Text(
+              'label',
+              style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+                    color: Colors.black,
                   ),
-                ),
-                child: Row(
-                  children: [
-                    Checkbox(
-                      value: true,
-                      onChanged: (newValue) {},
-                      activeColor: Colors.white,
-                      checkColor: Colors.white,
-                      fillColor: WidgetStateProperty.all(Colors.black),
-                    ),
-                  ],
-                ),
-              ),
             ),
           ],
         ),
