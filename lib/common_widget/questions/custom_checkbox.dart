@@ -42,6 +42,17 @@ class _CustomCheckboxState extends State<CustomCheckbox> {
                     width: 1,
                   ),
                 ),
+                child: Row(
+                  children: [
+                    Checkbox(
+                      value: true,
+                      onChanged: (newValue) {},
+                      activeColor: Colors.white,
+                      checkColor: Colors.white,
+                      fillColor: WidgetStateProperty.all(Colors.black),
+                    ),
+                  ],
+                ),
               ),
             ),
           ],
