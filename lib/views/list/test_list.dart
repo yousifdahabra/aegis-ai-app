@@ -32,15 +32,18 @@ class TestList extends StatelessWidget {
           ],
         ),
       ),
-      body: ListView.builder(
+      body: Padding(
         padding: const EdgeInsets.all(8.0),
-        itemCount: data.length,
-        itemBuilder: (context, index) {
-          return Padding(
-            padding: const EdgeInsets.only(bottom: 10.0),
-            child: CustomRow(data: data[index]),
-          );
-        },
+        child: ListView.builder(
+          padding: const EdgeInsets.all(8.0),
+          itemCount: data.length,
+          itemBuilder: (context, index) {
+            return Padding(
+              padding: const EdgeInsets.only(bottom: 10.0),
+              child: CustomRow(data: data[index]),
+            );
+          },
+        ),
       ),
     );
   }
