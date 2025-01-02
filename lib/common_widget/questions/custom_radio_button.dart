@@ -46,6 +46,21 @@ class _CustomRadioButtonState extends State<CustomRadioButton> {
                     width: 1,
                   ),
                 ),
+                child: Row(
+                  children: [
+                    Radio<String>(
+                      value: 'question1',
+                      groupValue: selectedOption,
+                      onChanged: (selectValue) {
+                        setState(() {
+                          selectedOption = selectValue!;
+                        });
+                      },
+                      activeColor: Colors.white,
+                      fillColor: WidgetStateProperty.all(Color(0xFF000000)),
+                    ),
+                  ],
+                ),
               ),
             ),
           ],
