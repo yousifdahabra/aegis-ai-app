@@ -1,3 +1,4 @@
+import 'package:ai_safety_app/common_widget/custom_button.dart';
 import 'package:ai_safety_app/common_widget/custom_input.dart';
 import 'package:flutter/material.dart';
 
@@ -27,6 +28,19 @@ class _CustomEmailState extends State<CustomEmail> {
               hint: 'write here',
               icon: Icon(Icons.link),
               multiLine: true,
+            ),
+            CustomButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) {
+                      return CustomEmail();
+                    },
+                  ),
+                );
+              },
+              text: 'Next',
             ),
           ],
         ),
