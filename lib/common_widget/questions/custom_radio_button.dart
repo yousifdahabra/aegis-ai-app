@@ -27,24 +27,43 @@ class _CustomRadioButtonState extends State<CustomRadioButton> {
             SizedBox(
               height: 20,
             ),
-            buildRadioOption()
+            _radioOption(
+              context,
+              value: "Option 2",
+              groupValue: selectedOption,
+              label: "Option 2",
+            ),
+            SizedBox(
+              height: 20,
+            ),
+            _radioOption(
+              context,
+              value: "Option 1",
+              groupValue: selectedOption,
+              label: "Option 1",
+            ),
           ],
         ),
       ),
     );
   }
 
-  Widget buildRadioOption(
+  Widget _radioOption(
     BuildContext context, {
     required String value,
     required String groupValue,
     required String label,
   }) {
     return InkWell(
+      onTap: () {
+        setState(() {
+          selectedOption = value;
+        });
+      },
       child: Container(
         padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 16),
         decoration: BoxDecoration(
-          color: Colors.white,
+          color: groupValue == value ? Color(0xFF16354D) : Colors.white,
           borderRadius: BorderRadius.circular(10),
           boxShadow: [
             BoxShadow(
@@ -54,27 +73,30 @@ class _CustomRadioButtonState extends State<CustomRadioButton> {
             ),
           ],
           border: Border.all(
-            color: Colors.grey,
+            color: groupValue == value ? Color(0xFF16354D) : Colors.grey,
             width: 1,
           ),
         ),
         child: Row(
           children: [
             Radio<String>(
-              value: 'question1',
-              groupValue: selectedOption,
-              onChanged: (selectValue) {
+              value: value,
+              groupValue: groupValue,
+              onChanged: (newValue) {
                 setState(() {
-                  selectedOption = selectValue!;
+                  selectedOption = newValue!;
                 });
               },
               activeColor: Colors.white,
-              fillColor: WidgetStateProperty.all(Color(0xFF000000)),
+              fillColor: WidgetStateProperty.all(
+                  groupValue == value ? Colors.white : Colors.black),
             ),
             const SizedBox(width: 8),
             Text(
-              'question1',
-              style: Theme.of(context).textTheme.bodyLarge,
+              label,
+              style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+                    color: groupValue == value ? Colors.white : Colors.black,
+                  ),
             ),
           ],
         ),
