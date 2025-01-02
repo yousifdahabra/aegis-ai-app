@@ -1,5 +1,6 @@
 import 'package:ai_safety_app/common_widget/custom_button.dart';
 import 'package:ai_safety_app/common_widget/custom_input.dart';
+import 'package:ai_safety_app/common_widget/questions/custom_call.dart';
 import 'package:flutter/material.dart';
 
 class CustomEmail extends StatefulWidget {
@@ -21,13 +22,16 @@ class _CustomEmailState extends State<CustomEmail> {
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             CustomInput(
-              label: 'what you do when see the email',
+              label: 'what do you do when see the email',
               hint: 'write here',
-              icon: Icon(Icons.link),
+              icon: Icon(Icons.email),
               multiLine: true,
+            ),
+            SizedBox(
+              height: 20,
             ),
             CustomButton(
               onPressed: () {
@@ -35,7 +39,7 @@ class _CustomEmailState extends State<CustomEmail> {
                   context,
                   MaterialPageRoute(
                     builder: (context) {
-                      return CustomEmail();
+                      return CustomCall();
                     },
                   ),
                 );
