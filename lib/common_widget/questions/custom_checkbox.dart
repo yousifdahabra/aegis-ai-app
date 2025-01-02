@@ -8,6 +8,8 @@ class CustomCheckbox extends StatefulWidget {
 }
 
 class _CustomCheckboxState extends State<CustomCheckbox> {
+  final List<String> selectedOptions = [];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -43,7 +45,9 @@ class _CustomCheckboxState extends State<CustomCheckbox> {
       child: Container(
         padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 16),
         decoration: BoxDecoration(
-          color: Colors.white,
+          color: selectedOptions.contains(value)
+              ? Color(0xFF16354D)
+              : Colors.white,
           borderRadius: BorderRadius.circular(10),
           boxShadow: [
             const BoxShadow(
@@ -53,24 +57,39 @@ class _CustomCheckboxState extends State<CustomCheckbox> {
             ),
           ],
           border: Border.all(
-            color: Colors.grey,
+            color: selectedOptions.contains(value)
+                ? Color(0xFF16354D)
+                : Colors.grey,
             width: 1,
           ),
         ),
         child: Row(
           children: [
             Checkbox(
-              value: true,
-              onChanged: (newValue) {},
+              value: selectedOptions.contains(value),
+              onChanged: (bool? newValue) {
+                setState(() {
+                  if (newValue == true) {
+                    selectedOptions.add(value);
+                  } else {
+                    selectedOptions.remove(value);
+                  }
+                });
+              },
               activeColor: Colors.white,
-              checkColor: Colors.white,
-              fillColor: WidgetStateProperty.all(Colors.black),
+              checkColor:
+                  selectedOptions.contains(value) ? Colors.black : Colors.white,
+              fillColor: WidgetStateProperty.all(selectedOptions.contains(value)
+                  ? Colors.white
+                  : Colors.black),
             ),
             const SizedBox(width: 8),
             Text(
-              'label',
+              label,
               style: Theme.of(context).textTheme.bodyLarge?.copyWith(
-                    color: Colors.black,
+                    color: selectedOptions.contains(value)
+                        ? Colors.white
+                        : Colors.black,
                   ),
             ),
           ],
