@@ -23,14 +23,22 @@ class _CustomCheckboxState extends State<CustomCheckbox> {
               "Select Options",
               style: Theme.of(context).textTheme.headlineSmall,
             ),
-            _checkboxOption()
+            _checkboxOption(
+              context,
+              value: "Option 2",
+              label: "Option 2",
+            ),
           ],
         ),
       ),
     );
   }
 
-  Widget _checkboxOption() {
+  Widget _checkboxOption(
+    BuildContext context, {
+    required String value,
+    required String label,
+  }) {
     return InkWell(
       child: Container(
         padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 16),
