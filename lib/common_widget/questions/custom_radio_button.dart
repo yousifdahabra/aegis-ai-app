@@ -1,3 +1,5 @@
+import 'package:ai_safety_app/common_widget/custom_button.dart';
+import 'package:ai_safety_app/common_widget/questions/custom_checkbox.dart';
 import 'package:flutter/material.dart';
 
 class CustomRadioButton extends StatefulWidget {
@@ -18,7 +20,7 @@ class _CustomRadioButtonState extends State<CustomRadioButton> {
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             Text(
               "question1",
@@ -41,6 +43,22 @@ class _CustomRadioButtonState extends State<CustomRadioButton> {
               value: "Option 1",
               groupValue: selectedOption,
               label: "Option 1",
+            ),
+            SizedBox(
+              height: 20,
+            ),
+            CustomButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) {
+                      return CustomCheckbox();
+                    },
+                  ),
+                );
+              },
+              text: 'Next',
             ),
           ],
         ),
