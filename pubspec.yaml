@@ -1,6 +1,6 @@
 name: ai_safety_app
 description: "A new Flutter project."
-publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+publish_to: "none" # Remove this line if you wish to publish to pub.dev
 
 version: 1.0.0+1
 
@@ -8,14 +8,14 @@ environment:
   sdk: ^3.6.0
 
 dependencies:
+  animate_do: ^3.1.2
+  bloc: ^8.1.4
   cupertino_icons: ^1.0.8
   flutter:
     sdk: flutter
   smooth_page_indicator: ^1.2.0+3
-  animate_do: ^3.1.2
 
 dev_dependencies:
-
   flutter_lints: ^5.0.0
   flutter_test:
     sdk: flutter
@@ -23,8 +23,8 @@ dev_dependencies:
 flutter:
   uses-material-design: true
   assets:
-  - assets/images/
-  - assets/images/intro/
+    - assets/images/
+    - assets/images/intro/
   fonts:
     - family: Syne
       fonts:
@@ -32,4 +32,3 @@ flutter:
     - family: IBM Plex Sans
       fonts:
         - asset: assets/fonts/IBMPlexSans-Regular.ttf
-
