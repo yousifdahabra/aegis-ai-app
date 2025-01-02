@@ -34,7 +34,12 @@ class _CustomRadioButtonState extends State<CustomRadioButton> {
     );
   }
 
-  Widget buildRadioOption() {
+  Widget buildRadioOption(
+    BuildContext context, {
+    required String value,
+    required String groupValue,
+    required String label,
+  }) {
     return InkWell(
       child: Container(
         padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 16),
