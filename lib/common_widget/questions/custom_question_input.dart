@@ -29,6 +29,22 @@ class _CustomQuestionInputState extends State<CustomQuestionInput> {
               icon: Icon(Icons.email),
               multiLine: true,
             ),
+            SizedBox(
+              height: 20,
+            ),
+            CustomButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) {
+                      return CustomQuestionInput();
+                    },
+                  ),
+                );
+              },
+              text: 'Finish',
+            ),
           ],
         ),
       ),
