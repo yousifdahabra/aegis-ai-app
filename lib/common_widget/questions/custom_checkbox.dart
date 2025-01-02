@@ -24,7 +24,25 @@ class _CustomCheckboxState extends State<CustomCheckbox> {
               style: Theme.of(context).textTheme.headlineSmall,
             ),
             InkWell(
-              child: Container(),
+              child: Container(
+                padding:
+                    const EdgeInsets.symmetric(vertical: 12, horizontal: 16),
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(10),
+                  boxShadow: [
+                    const BoxShadow(
+                      color: Color.fromARGB(66, 0, 0, 0),
+                      blurRadius: 6,
+                      offset: Offset(0, 3),
+                    ),
+                  ],
+                  border: Border.all(
+                    color: Colors.grey,
+                    width: 1,
+                  ),
+                ),
+              ),
             ),
           ],
         ),
