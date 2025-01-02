@@ -32,6 +32,19 @@ class _CustomCallState extends State<CustomCall> {
             SizedBox(
               height: 20,
             ),
+            CustomButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) {
+                      return CustomQuestionInput();
+                    },
+                  ),
+                );
+              },
+              text: 'Next',
+            ),
           ],
         ),
       ),
