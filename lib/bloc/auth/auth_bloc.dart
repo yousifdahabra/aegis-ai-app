@@ -1,13 +1,20 @@
+import 'package:ai_safety_app/data/repositories/auth_repository.dart';
 import 'package:bloc/bloc.dart';
 import 'package:meta/meta.dart';
+import '../../data/models/user_model.dart';
+import 'package:equatable/equatable.dart';
 
 part 'auth_event.dart';
 part 'auth_state.dart';
 
 class AuthBloc extends Bloc<AuthEvent, AuthState> {
-  AuthBloc() : super(AuthInitial()) {
-    on<AuthEvent>((event, emit) {
-      // TODO: implement event handler
-    });
+  final AuthRepository authRepository;
+
+  AuthBloc(this.authRepository) : super(AuthInitial()) {
+    on<SignupEvent>(_onSignup);
+  }
+
+  Future<void> _onSignup(SignupEvent event, Emitter<AuthState> emit) async {
+    emit(AuthLoading());
   }
 }
