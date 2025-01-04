@@ -1,26 +1,37 @@
-import 'package:ai_safety_app/data/repositories/auth_repository.dart';
+import 'package:ai_safety_app/data/api/api_endpoints.dart';
 import 'package:bloc/bloc.dart';
+import 'package:dio/dio.dart';
 import 'package:meta/meta.dart';
-import '../../data/models/user_model.dart';
 import 'package:equatable/equatable.dart';
 
 part 'auth_event.dart';
 part 'auth_state.dart';
 
 class AuthBloc extends Bloc<AuthEvent, AuthState> {
-  final AuthRepository authRepository;
+  final Dio dio;
 
-  AuthBloc(this.authRepository) : super(AuthInitial()) {
-    on<SignupEvent>(_onSignup);
-  }
+  AuthBloc(this.dio) : super(AuthInitial()) {
+    on<SignupEvent>((event, emit) async {
+      emit(AuthLoading());
+      try {
+        final response = await dio.post(
+          ApiEndpoints.signup,
+          data: {
+            'name': event.name,
+            'email': event.email,
+            'password': event.password,
+            'phone_number': '234324234234',
+          },
+        );
+        print(response.data);
 
-  Future<void> _onSignup(SignupEvent event, Emitter<AuthState> emit) async {
-    emit(AuthLoading());
-    try {
-      await authRepository.signup(event.user);
-      emit(AuthSuccess('Signup Successful'));
-    } catch (e) {
-      emit(AuthFailure(e.toString()));
-    }
+        emit(AuthSuccess(response.data['message']));
+      } catch (error) {
+        print('Response: ${error}');
+        print('Error Message: ${error}');
+
+        emit(AuthFailure(error.toString()));
+      }
+    });
   }
 }
