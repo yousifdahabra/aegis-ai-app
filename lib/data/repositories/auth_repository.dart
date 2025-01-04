@@ -16,7 +16,11 @@ class AuthRepository {
       );
 
       if (response['success']) {
-        return response['message'];
+        return {
+          'data': null,
+          'success': true,
+          'message': response['message'],
+        };
       } else {
         return {
           'data': null,
@@ -28,7 +32,7 @@ class AuthRepository {
       return {
         'data': null,
         'success': false,
-        'message': 'An unexpected error occurred.',
+        'message': 'An unexpected error occurred. $e',
       };
     }
   }
