@@ -1,4 +1,5 @@
 import 'package:ai_safety_app/bloc/auth/auth_bloc.dart';
+import 'package:ai_safety_app/common_widget/custom_alert_dialog.dart';
 import 'package:ai_safety_app/common_widget/custom_button.dart';
 import 'package:ai_safety_app/common_widget/custom_input.dart';
 import 'package:ai_safety_app/common_widget/navigation_menu.dart';
@@ -24,15 +25,17 @@ class Signup extends StatelessWidget {
       body: BlocListener<AuthBloc, AuthState>(
         listener: (context, state) {
           if (state is AuthSuccess) {
+            showCustomAlert(
+              context,
+              title: 'Success',
+              message: state.message,
+              isSuccess: true,
+            );
             Navigator.pushReplacement(
               context,
               MaterialPageRoute(builder: (context) => const NavigationMenu()),
             );
-          } else if (state is AuthFailure) {
-            ScaffoldMessenger.of(context).showSnackBar(
-              SnackBar(content: Text(state.error)),
-            );
-          }
+          } else if (state is AuthFailure) {}
         },
         child: Container(
           padding: const EdgeInsets.all(16.0),
