@@ -1,89 +1,84 @@
+import 'package:ai_safety_app/bloc/auth/auth_bloc.dart';
 import 'package:ai_safety_app/common_widget/custom_button.dart';
 import 'package:ai_safety_app/common_widget/custom_input.dart';
 import 'package:ai_safety_app/common_widget/navigation_menu.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class Signup extends StatelessWidget {
   const Signup({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final formKey = GlobalKey<FormState>();
+
     return Scaffold(
       appBar: AppBar(
-        title: Text("Signup"),
+        title: const Text("Signup"),
         elevation: 2.0,
       ),
-      body: Container(
-        padding: EdgeInsets.all(16.0),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            Column(
+      body: BlocListener<AuthBloc, AuthState>(
+        listener: (context, state) {
+          if (state is AuthSuccess) {
+            Navigator.pushReplacement(
+              context,
+              MaterialPageRoute(builder: (context) => const NavigationMenu()),
+            );
+          } else if (state is AuthFailure) {
+            ScaffoldMessenger.of(context).showSnackBar(
+              SnackBar(content: Text(state.error)),
+            );
+          }
+        },
+        child: Container(
+          padding: const EdgeInsets.all(16.0),
+          child: Form(
+            key: formKey,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
-                Container(
-                  margin: EdgeInsets.only(top: 40),
-                  child: Center(
-                    child: Text(
-                      "Get Started Now!",
-                      style: Theme.of(context).textTheme.displayMedium,
-                    ),
+                const SizedBox(height: 40),
+                Center(
+                  child: Text(
+                    "Get Started Now!",
+                    style: Theme.of(context).textTheme.displayMedium,
                   ),
                 ),
-                SizedBox(
-                  height: 120,
-                ),
+                const SizedBox(height: 120),
                 CustomInput(
                   label: 'Name',
                   hint: 'Enter your Name',
-                  icon: Icon(Icons.person),
+                  icon: const Icon(Icons.person),
                 ),
-                SizedBox(
-                  height: 20,
-                ),
+                const SizedBox(height: 20),
                 CustomInput(
                   label: 'Email',
                   hint: 'Enter your Email',
-                  icon: Icon(Icons.email),
+                  icon: const Icon(Icons.email),
                   type: TextInputType.emailAddress,
                 ),
-                SizedBox(
-                  height: 20,
-                ),
+                const SizedBox(height: 20),
                 CustomInput(
                   label: 'Age',
-                  hint: 'Enter your age',
-                  icon: Icon(Icons.date_range),
-                  type: TextInputType.datetime,
+                  hint: 'Enter your Age',
+                  icon: const Icon(Icons.date_range),
                 ),
-                SizedBox(
-                  height: 20,
-                ),
+                const SizedBox(height: 20),
                 CustomInput(
                   label: 'Password',
                   hint: 'Enter your Password',
-                  icon: Icon(Icons.password),
+                  icon: const Icon(Icons.password),
                   scure: true,
+                ),
+                const SizedBox(height: 20),
+                CustomButton(
+                  onPressed: () {},
+                  text: 'Sign Up',
                 ),
               ],
             ),
-            SizedBox(
-              height: 10,
-            ),
-            CustomButton(
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) {
-                      return NavigationMenu();
-                    },
-                  ),
-                );
-              },
-              text: 'Sign Up',
-            ),
-          ],
+          ),
         ),
       ),
     );
