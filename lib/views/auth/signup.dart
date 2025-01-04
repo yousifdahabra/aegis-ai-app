@@ -35,7 +35,14 @@ class Signup extends StatelessWidget {
               context,
               MaterialPageRoute(builder: (context) => const NavigationMenu()),
             );
-          } else if (state is AuthFailure) {}
+          } else if (state is AuthFailure) {
+            showCustomAlert(
+              context,
+              title: 'Error',
+              message: state.error,
+              isSuccess: false,
+            );
+          }
         },
         child: Container(
           padding: const EdgeInsets.all(16.0),
