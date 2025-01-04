@@ -44,3 +44,5 @@ class CustomAlertDialog extends StatelessWidget {
     );
   }
 }
+
+void showCustomAlert() {}
