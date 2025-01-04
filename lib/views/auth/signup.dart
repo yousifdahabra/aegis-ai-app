@@ -13,6 +13,7 @@ class Signup extends StatelessWidget {
     final formKey = GlobalKey<FormState>();
     final nameController = TextEditingController();
     final emailController = TextEditingController();
+    final ageController = TextEditingController();
 
     return Scaffold(
       appBar: AppBar(
@@ -79,6 +80,14 @@ class Signup extends StatelessWidget {
                   label: 'Age',
                   hint: 'Enter your Age',
                   icon: const Icon(Icons.date_range),
+                  controller: ageController,
+                  type: TextInputType.number,
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return 'Age is required';
+                    }
+                    return null;
+                  },
                 ),
                 const SizedBox(height: 20),
                 CustomInput(
