@@ -45,4 +45,9 @@ class CustomAlertDialog extends StatelessWidget {
   }
 }
 
-void showCustomAlert() {}
+void showCustomAlert(
+  BuildContext context, {
+  required String title,
+  required String message,
+  required bool isSuccess,
+}) {}
