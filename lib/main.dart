@@ -23,8 +23,8 @@ class MyApp extends StatelessWidget {
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'AegisAI',
-        theme: AppTheme.lightTheme, // Use AppTheme.lightTheme
-        home: const OnboardingScreen(), // Update to OnboardingScreen
+        theme: AppTheme.lightTheme,
+        home: const OnboardingScreen(),
       ),
     );
   }

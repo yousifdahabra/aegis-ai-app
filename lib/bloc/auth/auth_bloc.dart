@@ -3,6 +3,7 @@ import 'package:bloc/bloc.dart';
 import 'package:dio/dio.dart';
 import 'package:meta/meta.dart';
 import 'package:equatable/equatable.dart';
+import '../../utils/error_handler.dart';
 
 part 'auth_event.dart';
 part 'auth_state.dart';
@@ -23,14 +24,14 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
             'phone_number': '234324234234',
           },
         );
-        print(response.data);
-
         emit(AuthSuccess(response.data['message']));
       } catch (error) {
-        print('Response: ${error}');
-        print('Error Message: ${error}');
-
-        emit(AuthFailure(error.toString()));
+        if (error is DioException) {
+          final errorMessage = handleDioError(error);
+          emit(AuthFailure(errorMessage));
+        } else {
+          emit(AuthFailure('An unexpected error occurred.'));
+        }
       }
     });
   }
