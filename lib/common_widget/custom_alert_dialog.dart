@@ -30,6 +30,17 @@ class CustomAlertDialog extends StatelessWidget {
           fontSize: 16,
         ),
       ),
+      actions: [
+        TextButton(
+          onPressed: onPressed,
+          child: Text(
+            'OK',
+            style: TextStyle(
+              color: isSuccess ? Colors.green : Colors.red,
+            ),
+          ),
+        ),
+      ],
     );
   }
 }
