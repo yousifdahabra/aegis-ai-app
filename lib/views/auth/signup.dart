@@ -108,7 +108,17 @@ class Signup extends StatelessWidget {
                 ),
                 const SizedBox(height: 20),
                 CustomButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    if (formKey.currentState!.validate()) {
+                      BlocProvider.of<AuthBloc>(context).add(
+                        SignupEvent(
+                          name: nameController.text,
+                          email: emailController.text,
+                          password: passwordController.text,
+                        ),
+                      );
+                    }
+                  },
                   text: 'Sign Up',
                 ),
               ],
