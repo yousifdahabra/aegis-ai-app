@@ -13,6 +13,15 @@ class AuthRepository {
       method: 'POST',
       body: user.toJson(),
     );
-    return response;
+
+    if (response['success']) {
+      return response['message'];
+    } else {
+      return {
+        'data': null,
+        'success': false,
+        'message': response['message'],
+      };
+    }
   }
 }
