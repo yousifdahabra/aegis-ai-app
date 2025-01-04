@@ -50,4 +50,18 @@ void showCustomAlert(
   required String title,
   required String message,
   required bool isSuccess,
-}) {}
+}) {
+  showDialog(
+    context: context,
+    builder: (BuildContext context) {
+      return CustomAlertDialog(
+        title: title,
+        message: message,
+        isSuccess: isSuccess,
+        onPressed: () {
+          Navigator.pop(context);
+        },
+      );
+    },
+  );
+}
