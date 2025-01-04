@@ -11,6 +11,7 @@ class Signup extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final formKey = GlobalKey<FormState>();
+    final nameController = TextEditingController();
 
     return Scaffold(
       appBar: AppBar(
@@ -50,6 +51,13 @@ class Signup extends StatelessWidget {
                   label: 'Name',
                   hint: 'Enter your Name',
                   icon: const Icon(Icons.person),
+                  controller: nameController,
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return 'Name is required';
+                    }
+                    return null;
+                  },
                 ),
                 const SizedBox(height: 20),
                 CustomInput(
