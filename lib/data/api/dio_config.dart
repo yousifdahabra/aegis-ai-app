@@ -6,11 +6,12 @@ class DioConfig {
   DioConfig()
       : _dio = Dio(
           BaseOptions(
-            baseUrl: 'http://127.0.0.1:8000/api',
-            connectTimeout: Duration(seconds: 5),
-            receiveTimeout: Duration(seconds: 3),
+            baseUrl: 'https://yousif.info/api/',
             responseType: ResponseType.json,
-            contentType: 'application/json',
+            headers: {
+              'accept': 'application/json',
+              'content-type': 'application/json',
+            },
           ),
         );
 
