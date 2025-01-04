@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:ai_safety_app/bloc/auth/auth_bloc.dart';
 import 'package:ai_safety_app/data/api/dio_config.dart';
+import 'utils/request_api.dart';
 
 void main() {
   runApp(const MyApp());
@@ -17,7 +18,7 @@ class MyApp extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider<AuthBloc>(
-          create: (context) => AuthBloc(DioConfig().dio),
+          create: (context) => AuthBloc(DioConfig().api),
         ),
       ],
       child: MaterialApp(
