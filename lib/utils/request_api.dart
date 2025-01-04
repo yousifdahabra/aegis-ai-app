@@ -32,6 +32,13 @@ class RequestAPI {
         'success': true,
         'message': 'Request successful',
       };
+    } on DioException catch (error) {
+      final errorMessage = _handleDioError(error);
+      return {
+        'data': null,
+        'success': false,
+        'message': errorMessage,
+      };
     } catch (error) {
       return {
         'data': null,
