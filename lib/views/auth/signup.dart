@@ -12,6 +12,7 @@ class Signup extends StatelessWidget {
   Widget build(BuildContext context) {
     final formKey = GlobalKey<FormState>();
     final nameController = TextEditingController();
+    final emailController = TextEditingController();
 
     return Scaffold(
       appBar: AppBar(
@@ -64,7 +65,14 @@ class Signup extends StatelessWidget {
                   label: 'Email',
                   hint: 'Enter your Email',
                   icon: const Icon(Icons.email),
+                  controller: emailController,
                   type: TextInputType.emailAddress,
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return 'Email is required';
+                    }
+                    return null;
+                  },
                 ),
                 const SizedBox(height: 20),
                 CustomInput(
