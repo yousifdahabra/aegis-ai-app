@@ -11,5 +11,23 @@ class RequestAPI {
     Map<String, dynamic>? body,
     String header = 'application/json',
     String? token,
-  }) async {}
+  }) async {
+    try {
+      final options = Options(
+        method: method,
+        headers: {
+          'Content-Type': header,
+          if (token != null) 'Authorization': 'Bearer $token',
+        },
+      );
+
+      return {};
+    } catch (error) {
+      return {
+        'data': null,
+        'success': false,
+        'message': 'An unexpected error occurred.',
+      };
+    }
+  }
 }
