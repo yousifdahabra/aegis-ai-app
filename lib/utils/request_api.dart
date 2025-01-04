@@ -21,7 +21,17 @@ class RequestAPI {
         },
       );
 
-      return {};
+      final response = await dio.request(
+        route,
+        data: body,
+        options: options,
+      );
+
+      return {
+        'data': response.data,
+        'success': true,
+        'message': 'Request successful',
+      };
     } catch (error) {
       return {
         'data': null,
