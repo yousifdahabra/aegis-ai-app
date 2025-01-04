@@ -1,16 +1,13 @@
 part of 'auth_bloc.dart';
 
 @immutable
-sealed class AuthEvent {
-  @override
-  List<Object> get props => [];
-}
+abstract class AuthEvent {}
 
 class SignupEvent extends AuthEvent {
-  final UserModel user;
+  final String name;
+  final String email;
+  final String password;
 
-  SignupEvent(this.user);
-
-  @override
-  List<Object> get props => [user];
+  SignupEvent(
+      {required this.name, required this.email, required this.password});
 }
