@@ -14,6 +14,7 @@ class Signup extends StatelessWidget {
     final nameController = TextEditingController();
     final emailController = TextEditingController();
     final ageController = TextEditingController();
+    final passwordController = TextEditingController();
 
     return Scaffold(
       appBar: AppBar(
@@ -95,6 +96,15 @@ class Signup extends StatelessWidget {
                   hint: 'Enter your Password',
                   icon: const Icon(Icons.password),
                   scure: true,
+                  controller: passwordController,
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return 'Password is required';
+                    } else if (value.length < 6) {
+                      return 'Password must be at least 6 characters';
+                    }
+                    return null;
+                  },
                 ),
                 const SizedBox(height: 20),
                 CustomButton(
