@@ -6,7 +6,7 @@ part 'user_model.g.dart';
 class UserModel {
   final String name;
   final String email;
-  final String phoneNumber;
+  final String phone_number;
   final String links;
   final String extraInformations;
   final String password;
@@ -15,7 +15,7 @@ class UserModel {
   UserModel({
     required this.name,
     required this.email,
-    required this.phoneNumber,
+    required this.phone_number,
     required this.links,
     required this.extraInformations,
     required this.password,
