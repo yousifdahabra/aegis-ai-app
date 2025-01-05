@@ -48,90 +48,93 @@ class Signup extends StatelessWidget {
           padding: const EdgeInsets.all(16.0),
           child: Form(
             key: formKey,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: [
-                const SizedBox(height: 40),
-                Center(
-                  child: Text(
-                    "Get Started Now!",
-                    style: Theme.of(context).textTheme.displayMedium,
+            child: SingleChildScrollView(
+              reverse: true,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  const SizedBox(height: 40),
+                  Center(
+                    child: Text(
+                      "Get Started Now!",
+                      style: Theme.of(context).textTheme.displayMedium,
+                    ),
                   ),
-                ),
-                const SizedBox(height: 120),
-                CustomInput(
-                  label: 'Name',
-                  hint: 'Enter your Name',
-                  icon: const Icon(Icons.person),
-                  controller: nameController,
-                  validator: (value) {
-                    if (value == null || value.isEmpty) {
-                      return 'Name is required';
-                    }
-                    return null;
-                  },
-                ),
-                const SizedBox(height: 20),
-                CustomInput(
-                  label: 'Email',
-                  hint: 'Enter your Email',
-                  icon: const Icon(Icons.email),
-                  controller: emailController,
-                  type: TextInputType.emailAddress,
-                  validator: (value) {
-                    if (value == null || value.isEmpty) {
-                      return 'Email is required';
-                    }
-                    return null;
-                  },
-                ),
-                const SizedBox(height: 20),
-                CustomInput(
-                  label: 'Age',
-                  hint: 'Enter your Age',
-                  icon: const Icon(Icons.date_range),
-                  controller: ageController,
-                  type: TextInputType.number,
-                  validator: (value) {
-                    if (value == null || value.isEmpty) {
-                      return 'Age is required';
-                    }
-                    return null;
-                  },
-                ),
-                const SizedBox(height: 20),
-                CustomInput(
-                  label: 'Password',
-                  hint: 'Enter your Password',
-                  icon: const Icon(Icons.password),
-                  scure: true,
-                  controller: passwordController,
-                  validator: (value) {
-                    if (value == null || value.isEmpty) {
-                      return 'Password is required';
-                    } else if (value.length < 6) {
-                      return 'Password must be at least 6 characters';
-                    }
-                    return null;
-                  },
-                ),
-                const SizedBox(height: 20),
-                CustomButton(
-                  onPressed: () {
-                    if (formKey.currentState!.validate()) {
-                      BlocProvider.of<AuthBloc>(context).add(
-                        SignupEvent(
-                          name: nameController.text,
-                          email: emailController.text,
-                          password: passwordController.text,
-                        ),
-                      );
-                    }
-                  },
-                  text: 'Sign Up',
-                ),
-              ],
+                  const SizedBox(height: 120),
+                  CustomInput(
+                    label: 'Name',
+                    hint: 'Enter your Name',
+                    icon: const Icon(Icons.person),
+                    controller: nameController,
+                    validator: (value) {
+                      if (value == null || value.isEmpty) {
+                        return 'Name is required';
+                      }
+                      return null;
+                    },
+                  ),
+                  const SizedBox(height: 20),
+                  CustomInput(
+                    label: 'Email',
+                    hint: 'Enter your Email',
+                    icon: const Icon(Icons.email),
+                    controller: emailController,
+                    type: TextInputType.emailAddress,
+                    validator: (value) {
+                      if (value == null || value.isEmpty) {
+                        return 'Email is required';
+                      }
+                      return null;
+                    },
+                  ),
+                  const SizedBox(height: 20),
+                  CustomInput(
+                    label: 'Age',
+                    hint: 'Enter your Age',
+                    icon: const Icon(Icons.date_range),
+                    controller: ageController,
+                    type: TextInputType.number,
+                    validator: (value) {
+                      if (value == null || value.isEmpty) {
+                        return 'Age is required';
+                      }
+                      return null;
+                    },
+                  ),
+                  const SizedBox(height: 20),
+                  CustomInput(
+                    label: 'Password',
+                    hint: 'Enter your Password',
+                    icon: const Icon(Icons.password),
+                    scure: true,
+                    controller: passwordController,
+                    validator: (value) {
+                      if (value == null || value.isEmpty) {
+                        return 'Password is required';
+                      } else if (value.length < 6) {
+                        return 'Password must be at least 6 characters';
+                      }
+                      return null;
+                    },
+                  ),
+                  const SizedBox(height: 20),
+                  CustomButton(
+                    onPressed: () {
+                      if (formKey.currentState!.validate()) {
+                        BlocProvider.of<AuthBloc>(context).add(
+                          SignupEvent(
+                            name: nameController.text,
+                            email: emailController.text,
+                            password: passwordController.text,
+                          ),
+                        );
+                      }
+                    },
+                    text: 'Sign Up',
+                  ),
+                ],
+              ),
             ),
           ),
         ),
