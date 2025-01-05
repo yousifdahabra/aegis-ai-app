@@ -13,10 +13,13 @@ class RequestAPI {
     String header = 'application/json',
   }) async {
     try {
+      final token = await _getToken();
+
       final options = Options(
         method: method,
         headers: {
           'Content-Type': header,
+          if (token != null) 'Authorization': 'Bearer $token',
         },
       );
 
