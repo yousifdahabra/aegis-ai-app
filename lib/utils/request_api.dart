@@ -65,7 +65,7 @@ class RequestAPI {
         return message;
       }
     } else {
-      return error.message ?? 'An unknown network error occurred.';
+      return error.message ?? 'An unknown network error occurred. $error';
     }
   }
 }
