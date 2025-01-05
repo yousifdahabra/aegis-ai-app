@@ -18,6 +18,12 @@ class LoginBloc extends Bloc<AuthLoginEvent, LoginState> {
           password: event.password,
         ),
       );
+
+      if (message['success']) {
+        emit(LoginSuccess(message['message']));
+      } else {
+        emit(LoginFailure(message['message']));
+      }
     });
   }
 }
