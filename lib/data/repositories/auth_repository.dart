@@ -131,4 +131,9 @@ class AuthRepository {
     final prefs = await SharedPreferences.getInstance();
     await prefs.clear();
   }
+
+  Future<bool> checkLoginStatus() async {
+    final prefs = await SharedPreferences.getInstance();
+    return prefs.getBool('isLoggedIn') ?? false;
+  }
 }
