@@ -26,6 +26,13 @@ class Login extends StatelessWidget {
               message: state.message,
               isSuccess: true,
             );
+          } else if (state is LoginFailure) {
+            showCustomAlert(
+              context,
+              title: 'Error',
+              message: state.error,
+              isSuccess: false,
+            );
           }
         },
         child: SingleChildScrollView(
