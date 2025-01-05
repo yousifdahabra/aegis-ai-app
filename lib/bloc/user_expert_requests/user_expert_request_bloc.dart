@@ -1,3 +1,4 @@
+import 'package:ai_safety_app/data/models/add_user_expert_requests_model.dart';
 import 'package:ai_safety_app/data/repositories/user_expert_requests_repository.dart';
 import 'package:bloc/bloc.dart';
 import 'package:meta/meta.dart';
@@ -7,13 +8,24 @@ part 'user_expert_request_event.dart';
 part 'user_expert_request_state.dart';
 
 class UserExpertRequestBloc
-    extends Bloc<UserExpertRequestBloc, UserExpertRequestState> {
+    extends Bloc<AddUserExpertRequestEvent, UserExpertRequestState> {
   final UserExpertRequestRepository userExpertRequestRepository;
 
   UserExpertRequestBloc(this.userExpertRequestRepository)
       : super(AddUserExpertRequestInitial()) {
-    on<UserExpertRequestBloc>((event, emit) async {
+    on<AddUserExpertRequestEvent>((event, emit) async {
       emit(AddUserExpertRequestLoading());
+      final message = await userExpertRequestRepository
+          .addUserExpertRequest(AddUserExpertRequestModel(
+        about_user: event.aboutUser,
+        user_note: event.userNote,
+        links: event.links,
+      ));
+      if (message['success']) {
+        emit(UserExpertRequestSuccess(message['message']));
+      } else {
+        emit(UserExpertRequestFailure(message['message']));
+      }
     });
   }
 }
