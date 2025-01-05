@@ -160,15 +160,14 @@ class Login extends StatelessWidget {
                       height: 30,
                     ),
                     FadeInUp(
-                        duration: Duration(milliseconds: 1900),
-                        child: CustomButton(
-                          padding: EdgeInsets.symmetric(
-                              horizontal: 135, vertical: 20),
-                          onPressed: () {
-                            print('Custom Button Pressed!');
-                          },
-                          text: 'Submit',
-                        )),
+                      duration: Duration(milliseconds: 1900),
+                      child: CustomButton(
+                        onPressed: () {
+                          if (formKey.currentState!.validate()) {}
+                        },
+                        text: 'Sign Up',
+                      ),
+                    ),
                     const SizedBox(
                       height: 20,
                     ),
