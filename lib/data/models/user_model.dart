@@ -4,20 +4,20 @@ part 'user_model.g.dart';
 
 @JsonSerializable()
 class UserModel {
-  final String name;
+  final String? name;
   final String email;
-  final String phone_number;
-  final String links;
-  final String extraInformations;
+  final String? phone_number;
+  final String? links;
+  final String? extraInformations;
   final String password;
   final int? age;
 
   UserModel({
-    required this.name,
+    this.name,
     required this.email,
-    required this.phone_number,
-    required this.links,
-    required this.extraInformations,
+    this.phone_number,
+    this.links,
+    this.extraInformations,
     required this.password,
     this.age,
   });
