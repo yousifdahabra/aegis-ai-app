@@ -110,4 +110,9 @@ class AuthRepository {
       };
     }
   }
+
+  Future<void> logout() async {
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.clear();
+  }
 }
