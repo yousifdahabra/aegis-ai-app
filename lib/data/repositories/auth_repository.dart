@@ -50,6 +50,9 @@ class AuthRepository {
       );
 
       if (response['success']) {
+        await _storeLoginStatus(true);
+        await _storeToken(response['data']['token']);
+        await _storeEmail(user.email);
         return {
           'data': null,
           'success': true,
