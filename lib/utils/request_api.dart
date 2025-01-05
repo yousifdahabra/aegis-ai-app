@@ -1,4 +1,5 @@
 import 'package:dio/dio.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class RequestAPI {
   final Dio dio;
@@ -10,14 +11,12 @@ class RequestAPI {
     String method = 'GET',
     Map<String, dynamic>? body,
     String header = 'application/json',
-    String? token,
   }) async {
     try {
       final options = Options(
         method: method,
         headers: {
           'Content-Type': header,
-          if (token != null) 'Authorization': 'Bearer $token',
         },
       );
 
@@ -43,9 +42,14 @@ class RequestAPI {
       return {
         'data': null,
         'success': false,
-        'message': 'An unexpected error occurred.',
+        'message': 'An unexpected error occurred. $error',
       };
     }
+  }
+
+  Future<String?> _getToken() async {
+    final prefs = await SharedPreferences.getInstance();
+    return prefs.getString('auth_token');
   }
 
   String _handleDioError(DioException error) {
