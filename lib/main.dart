@@ -1,3 +1,4 @@
+import 'package:ai_safety_app/bloc/login/login_bloc.dart';
 import 'package:ai_safety_app/theme/app_theme.dart';
 import 'package:ai_safety_app/views/intro_screens/onboarding_screen.dart';
 import 'package:flutter/material.dart';
@@ -18,6 +19,9 @@ class MyApp extends StatelessWidget {
       providers: [
         BlocProvider<AuthBloc>(
           create: (context) => AuthBloc(AuthRepository()),
+        ),
+        BlocProvider<LoginBloc>(
+          create: (context) => LoginBloc(AuthRepository()),
         ),
       ],
       child: MaterialApp(
