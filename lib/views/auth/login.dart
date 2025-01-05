@@ -120,62 +120,43 @@ class Login extends StatelessWidget {
                         duration: Duration(milliseconds: 1800),
                         child: Container(
                           padding: EdgeInsets.all(5),
-                          decoration: BoxDecoration(
-                              color: Colors.white,
-                              borderRadius: BorderRadius.circular(10),
-                              border: Border.all(
-                                  color: Color.fromRGBO(143, 148, 251, 1)),
-                              boxShadow: [
-                                BoxShadow(
-                                    color: Color.fromRGBO(143, 148, 251, .2),
-                                    blurRadius: 20.0,
-                                    offset: Offset(0, 10))
-                              ]),
                           child: Column(
                             children: <Widget>[
-                              Container(
-                                padding: EdgeInsets.all(8.0),
-                                decoration: BoxDecoration(
-                                    border: Border(
-                                        bottom: BorderSide(
-                                            color: Color.fromRGBO(
-                                                143, 148, 251, 1)))),
-                                child: CustomInput(
-                                  label: 'Email',
-                                  hint: 'Enter your Email',
-                                  icon: const Icon(Icons.email),
-                                  type: TextInputType.emailAddress,
-                                  controller: emailController,
-                                  validator: (value) {
-                                    if (value == null || value.isEmpty) {
-                                      return 'Email is required';
-                                    }
-                                    return null;
-                                  },
-                                ),
+                              CustomInput(
+                                label: 'Email',
+                                hint: 'Enter your Email',
+                                icon: const Icon(Icons.email),
+                                type: TextInputType.emailAddress,
+                                controller: emailController,
+                                validator: (value) {
+                                  if (value == null || value.isEmpty) {
+                                    return 'Email is required';
+                                  }
+                                  return null;
+                                },
                               ),
-                              Container(
-                                padding: EdgeInsets.all(8.0),
-                                child: CustomInput(
-                                  label: 'Password',
-                                  hint: 'Enter your Password',
-                                  icon: const Icon(Icons.password),
-                                  scure: true,
-                                  controller: passwordController,
-                                  validator: (value) {
-                                    if (value == null || value.isEmpty) {
-                                      return 'Password is required';
-                                    } else if (value.length < 6) {
-                                      return 'Password must be at least 6 characters';
-                                    }
-                                    return null;
-                                  },
-                                ),
+                              const SizedBox(
+                                height: 10,
+                              ),
+                              CustomInput(
+                                label: 'Password',
+                                hint: 'Enter your Password',
+                                icon: const Icon(Icons.password),
+                                scure: true,
+                                controller: passwordController,
+                                validator: (value) {
+                                  if (value == null || value.isEmpty) {
+                                    return 'Password is required';
+                                  } else if (value.length < 6) {
+                                    return 'Password must be at least 6 characters';
+                                  }
+                                  return null;
+                                },
                               )
                             ],
                           ),
                         )),
-                    SizedBox(
+                    const SizedBox(
                       height: 30,
                     ),
                     FadeInUp(
@@ -188,7 +169,7 @@ class Login extends StatelessWidget {
                           },
                           text: 'Submit',
                         )),
-                    SizedBox(
+                    const SizedBox(
                       height: 20,
                     ),
                     FadeInUp(
@@ -203,7 +184,7 @@ class Login extends StatelessWidget {
                         ),
                       ),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 50,
                     ),
                     FadeInUp(
