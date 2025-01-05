@@ -115,6 +115,7 @@ class Login extends StatelessWidget {
               Padding(
                   padding: EdgeInsets.all(30.0),
                   child: Form(
+                    key: formKey,
                     child: Column(
                       children: <Widget>[
                         FadeInUp(
@@ -130,6 +131,11 @@ class Login extends StatelessWidget {
                                   validator: (value) {
                                     if (value == null || value.isEmpty) {
                                       return 'Email is required';
+                                    }
+                                    final emailRegex = RegExp(
+                                        r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$');
+                                    if (!emailRegex.hasMatch(value)) {
+                                      return 'Please enter a valid email address';
                                     }
                                     return null;
                                   },
@@ -170,26 +176,11 @@ class Login extends StatelessWidget {
                                 );
                               }
                             },
-                            text: 'SignUp',
+                            text: 'Login',
                           ),
                         ),
                         const SizedBox(
                           height: 20,
-                        ),
-                        FadeInUp(
-                          duration: Duration(milliseconds: 2000),
-                          child: GestureDetector(
-                            onTap: () {
-                              Navigator.pushNamed(context, '/forgotPassword');
-                            },
-                            child: Text(
-                              "Forgot Password?",
-                              style: Theme.of(context).textTheme.bodyMedium,
-                            ),
-                          ),
-                        ),
-                        const SizedBox(
-                          height: 50,
                         ),
                         FadeInUp(
                           duration: Duration(milliseconds: 2000),
