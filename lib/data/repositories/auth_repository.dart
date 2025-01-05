@@ -68,7 +68,12 @@ class AuthRepository {
     }
   }
 
-  Future<Map<String, dynamic>> newToken() async {
+  Future<void> _storeToken(String token) async {
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.setString('auth_token', token);
+  }
+
+  Future<Map<String, dynamic>> refreshToken() async {
     final prefs = await SharedPreferences.getInstance();
     final email = prefs.getString('email');
     final password = prefs.getString('password');
@@ -78,6 +83,30 @@ class AuthRepository {
         'data': null,
         'success': false,
         'message': 'User not authenticated.',
+      };
+    }
+
+    final response = await _dioClient.api.makeRequest(
+      route: ApiEndpoints.login,
+      method: 'POST',
+      body: {
+        'email': email,
+        'password': password,
+      },
+    );
+
+    if (response['success']) {
+      await _storeToken(response['data']['token']);
+      return {
+        'data': null,
+        'success': true,
+        'message': 'Token refreshed successfully.',
+      };
+    } else {
+      return {
+        'data': null,
+        'success': false,
+        'message': 'Failed to refresh token.',
       };
     }
   }
