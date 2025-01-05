@@ -113,109 +113,112 @@ class Login extends StatelessWidget {
                 ),
               ),
               Padding(
-                padding: EdgeInsets.all(30.0),
-                child: Column(
-                  children: <Widget>[
-                    FadeInUp(
-                        duration: Duration(milliseconds: 1800),
-                        child: Container(
-                          padding: EdgeInsets.all(5),
-                          child: Column(
-                            children: <Widget>[
-                              CustomInput(
-                                label: 'Email',
-                                hint: 'Enter your Email',
-                                icon: const Icon(Icons.email),
-                                type: TextInputType.emailAddress,
-                                controller: emailController,
-                                validator: (value) {
-                                  if (value == null || value.isEmpty) {
-                                    return 'Email is required';
-                                  }
-                                  return null;
-                                },
+                  padding: EdgeInsets.all(30.0),
+                  child: Form(
+                    key: formKey,
+                    child: Column(
+                      children: <Widget>[
+                        FadeInUp(
+                            duration: Duration(milliseconds: 1800),
+                            child: Container(
+                              padding: EdgeInsets.all(5),
+                              child: Column(
+                                children: <Widget>[
+                                  CustomInput(
+                                    label: 'Email',
+                                    hint: 'Enter your Email',
+                                    icon: const Icon(Icons.email),
+                                    type: TextInputType.emailAddress,
+                                    controller: emailController,
+                                    validator: (value) {
+                                      if (value == null || value.isEmpty) {
+                                        return 'Email is required';
+                                      }
+                                      return null;
+                                    },
+                                  ),
+                                  const SizedBox(
+                                    height: 10,
+                                  ),
+                                  CustomInput(
+                                    label: 'Password',
+                                    hint: 'Enter your Password',
+                                    icon: const Icon(Icons.password),
+                                    scure: true,
+                                    controller: passwordController,
+                                    validator: (value) {
+                                      if (value == null || value.isEmpty) {
+                                        return 'Password is required';
+                                      } else if (value.length < 6) {
+                                        return 'Password must be at least 6 characters';
+                                      }
+                                      return null;
+                                    },
+                                  )
+                                ],
                               ),
-                              const SizedBox(
-                                height: 10,
-                              ),
-                              CustomInput(
-                                label: 'Password',
-                                hint: 'Enter your Password',
-                                icon: const Icon(Icons.password),
-                                scure: true,
-                                controller: passwordController,
-                                validator: (value) {
-                                  if (value == null || value.isEmpty) {
-                                    return 'Password is required';
-                                  } else if (value.length < 6) {
-                                    return 'Password must be at least 6 characters';
-                                  }
-                                  return null;
-                                },
-                              )
-                            ],
-                          ),
-                        )),
-                    const SizedBox(
-                      height: 30,
-                    ),
-                    FadeInUp(
-                      duration: Duration(milliseconds: 1900),
-                      child: CustomButton(
-                        onPressed: () {
-                          if (formKey.currentState!.validate()) {}
-                        },
-                        text: 'Sign Up',
-                      ),
-                    ),
-                    const SizedBox(
-                      height: 20,
-                    ),
-                    FadeInUp(
-                      duration: Duration(milliseconds: 2000),
-                      child: GestureDetector(
-                        onTap: () {
-                          Navigator.pushNamed(context, '/forgotPassword');
-                        },
-                        child: Text(
-                          "Forgot Password?",
-                          style: Theme.of(context).textTheme.bodyMedium,
+                            )),
+                        const SizedBox(
+                          height: 30,
                         ),
-                      ),
-                    ),
-                    const SizedBox(
-                      height: 50,
-                    ),
-                    FadeInUp(
-                      duration: Duration(milliseconds: 2000),
-                      child: GestureDetector(
-                        onTap: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) {
-                                return Signup();
-                              },
+                        FadeInUp(
+                          duration: Duration(milliseconds: 1900),
+                          child: CustomButton(
+                            onPressed: () {
+                              if (formKey.currentState!.validate()) {}
+                            },
+                            text: 'Sign Up',
+                          ),
+                        ),
+                        const SizedBox(
+                          height: 20,
+                        ),
+                        FadeInUp(
+                          duration: Duration(milliseconds: 2000),
+                          child: GestureDetector(
+                            onTap: () {
+                              Navigator.pushNamed(context, '/forgotPassword');
+                            },
+                            child: Text(
+                              "Forgot Password?",
+                              style: Theme.of(context).textTheme.bodyMedium,
                             ),
-                          );
-                        },
-                        child: Text.rich(
-                          TextSpan(
-                            text: "Don't have an account? ",
-                            style: Theme.of(context).textTheme.titleMedium,
-                            children: [
-                              TextSpan(
-                                text: "Sign Up",
-                                style: Theme.of(context).textTheme.bodyMedium,
-                              ),
-                            ],
                           ),
                         ),
-                      ),
+                        const SizedBox(
+                          height: 50,
+                        ),
+                        FadeInUp(
+                          duration: Duration(milliseconds: 2000),
+                          child: GestureDetector(
+                            onTap: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) {
+                                    return Signup();
+                                  },
+                                ),
+                              );
+                            },
+                            child: Text.rich(
+                              TextSpan(
+                                text: "Don't have an account? ",
+                                style: Theme.of(context).textTheme.titleMedium,
+                                children: [
+                                  TextSpan(
+                                    text: "Sign Up",
+                                    style:
+                                        Theme.of(context).textTheme.bodyMedium,
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
                     ),
-                  ],
-                ),
-              )
+                  ))
             ],
           ),
         ),
