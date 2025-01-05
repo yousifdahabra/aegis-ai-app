@@ -1,6 +1,7 @@
 import '../api/dio_config.dart';
 import '../models/user_model.dart';
 import '../api/api_endpoints.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class AuthRepository {
   final DioConfig _dioClient;
@@ -45,7 +46,11 @@ class AuthRepository {
         body: user.toJson(),
       );
 
-      if (response['success']) {
+      if (response['success'] && response['data'] != null) {
+        final token = response['data']['token'];
+        final prefs = await SharedPreferences.getInstance();
+        await prefs.setString('auth_token', token);
+
         return {
           'data': null,
           'success': true,
