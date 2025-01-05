@@ -1,4 +1,5 @@
 import 'package:ai_safety_app/bloc/login/login_bloc.dart';
+import 'package:ai_safety_app/common_widget/custom_alert_dialog.dart';
 import 'package:ai_safety_app/common_widget/custom_button.dart';
 import 'package:ai_safety_app/views/auth/signup.dart';
 import 'package:flutter/material.dart';
@@ -17,7 +18,16 @@ class Login extends StatelessWidget {
       ),
       backgroundColor: Colors.white,
       body: BlocListener<LoginBloc, LoginState>(
-        listener: (context, state) {},
+        listener: (context, state) {
+          if (state is LoginSuccess) {
+            showCustomAlert(
+              context,
+              title: 'Success',
+              message: state.message,
+              isSuccess: true,
+            );
+          }
+        },
         child: SingleChildScrollView(
           reverse: true,
           child: Column(
