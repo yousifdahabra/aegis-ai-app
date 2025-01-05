@@ -17,6 +17,9 @@ class AuthRepository {
       );
 
       if (response['success']) {
+        await _storeLoginStatus(true);
+        await _storeToken(response['data']['token']);
+        await _storeEmail(user.email);
         return {
           'data': null,
           'success': true,
@@ -68,9 +71,19 @@ class AuthRepository {
     }
   }
 
+  Future<void> _storeLoginStatus(bool isLoggedIn) async {
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.setBool('isLoggedIn', isLoggedIn);
+  }
+
   Future<void> _storeToken(String token) async {
     final prefs = await SharedPreferences.getInstance();
     await prefs.setString('auth_token', token);
+  }
+
+  Future<void> _storeEmail(String email) async {
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.setString('email', email);
   }
 
   Future<Map<String, dynamic>> refreshToken() async {
