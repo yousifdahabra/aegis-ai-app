@@ -19,3 +19,12 @@ class AddUserExpertRequestSuccess extends AddUserExpertRequestState {
   @override
   List<Object> get props => [message];
 }
+
+class AddUserExpertRequestFailure extends AddUserExpertRequestState {
+  final String error;
+
+  AddUserExpertRequestFailure(this.error);
+
+  @override
+  List<Object> get props => [error];
+}
