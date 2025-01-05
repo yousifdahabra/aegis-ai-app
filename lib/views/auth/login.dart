@@ -156,14 +156,20 @@ class Login extends StatelessWidget {
                               ),
                               Container(
                                 padding: EdgeInsets.all(8.0),
-                                child: TextField(
-                                  obscureText: true,
-                                  decoration: InputDecoration(
-                                    border: InputBorder.none,
-                                    hintText: "Password",
-                                    hintStyle:
-                                        Theme.of(context).textTheme.bodyLarge,
-                                  ),
+                                child: CustomInput(
+                                  label: 'Password',
+                                  hint: 'Enter your Password',
+                                  icon: const Icon(Icons.password),
+                                  scure: true,
+                                  controller: passwordController,
+                                  validator: (value) {
+                                    if (value == null || value.isEmpty) {
+                                      return 'Password is required';
+                                    } else if (value.length < 6) {
+                                      return 'Password must be at least 6 characters';
+                                    }
+                                    return null;
+                                  },
                                 ),
                               )
                             ],
