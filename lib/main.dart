@@ -1,4 +1,6 @@
 import 'package:ai_safety_app/bloc/login/login_bloc.dart';
+import 'package:ai_safety_app/bloc/user_expert_requests/user_expert_request_bloc.dart';
+import 'package:ai_safety_app/data/repositories/user_expert_requests_repository.dart';
 import 'package:ai_safety_app/theme/app_theme.dart';
 import 'package:ai_safety_app/views/intro_screens/onboarding_screen.dart';
 import 'package:flutter/material.dart';
@@ -22,6 +24,10 @@ class MyApp extends StatelessWidget {
         ),
         BlocProvider<LoginBloc>(
           create: (context) => LoginBloc(AuthRepository()),
+        ),
+        BlocProvider<UserExpertRequestBloc>(
+          create: (context) =>
+              UserExpertRequestBloc(UserExpertRequestRepository()),
         ),
       ],
       child: MaterialApp(
