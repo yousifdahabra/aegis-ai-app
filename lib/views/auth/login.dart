@@ -2,6 +2,7 @@ import 'package:ai_safety_app/bloc/login/login_bloc.dart';
 import 'package:ai_safety_app/common_widget/custom_alert_dialog.dart';
 import 'package:ai_safety_app/common_widget/custom_button.dart';
 import 'package:ai_safety_app/common_widget/custom_input.dart';
+import 'package:ai_safety_app/common_widget/navigation_menu.dart';
 import 'package:ai_safety_app/views/auth/signup.dart';
 import 'package:flutter/material.dart';
 import 'package:animate_do/animate_do.dart';
@@ -30,6 +31,10 @@ class Login extends StatelessWidget {
               title: 'Success',
               message: state.message,
               isSuccess: true,
+            );
+            Navigator.pushReplacement(
+              context,
+              MaterialPageRoute(builder: (context) => const NavigationMenu()),
             );
           } else if (state is LoginFailure) {
             showCustomAlert(

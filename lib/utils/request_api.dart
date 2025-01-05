@@ -52,7 +52,8 @@ class RequestAPI {
     if (error.response != null) {
       final responseData = error.response?.data;
 
-      final message = responseData['message'] ?? 'Unknown error occurred';
+      final message =
+          responseData['message'] ?? 'Unknown error occurred $error';
 
       if (responseData['errors'] != null) {
         final errors = responseData['errors'] as Map<String, dynamic>;
