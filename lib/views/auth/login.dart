@@ -1,6 +1,7 @@
 import 'package:ai_safety_app/bloc/login/login_bloc.dart';
 import 'package:ai_safety_app/common_widget/custom_alert_dialog.dart';
 import 'package:ai_safety_app/common_widget/custom_button.dart';
+import 'package:ai_safety_app/common_widget/custom_input.dart';
 import 'package:ai_safety_app/views/auth/signup.dart';
 import 'package:flutter/material.dart';
 import 'package:animate_do/animate_do.dart';
@@ -139,13 +140,18 @@ class Login extends StatelessWidget {
                                         bottom: BorderSide(
                                             color: Color.fromRGBO(
                                                 143, 148, 251, 1)))),
-                                child: TextField(
-                                  decoration: InputDecoration(
-                                    border: InputBorder.none,
-                                    hintText: "Email",
-                                    hintStyle:
-                                        Theme.of(context).textTheme.bodyLarge,
-                                  ),
+                                child: CustomInput(
+                                  label: 'Email',
+                                  hint: 'Enter your Email',
+                                  icon: const Icon(Icons.email),
+                                  type: TextInputType.emailAddress,
+                                  controller: emailController,
+                                  validator: (value) {
+                                    if (value == null || value.isEmpty) {
+                                      return 'Email is required';
+                                    }
+                                    return null;
+                                  },
                                 ),
                               ),
                               Container(

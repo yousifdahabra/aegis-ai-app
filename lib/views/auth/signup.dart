@@ -143,8 +143,8 @@ class Signup extends StatelessWidget {
                             label: 'Email',
                             hint: 'Enter your Email',
                             icon: const Icon(Icons.email),
-                            controller: emailController,
                             type: TextInputType.emailAddress,
+                            controller: emailController,
                             validator: (value) {
                               if (value == null || value.isEmpty) {
                                 return 'Email is required';
