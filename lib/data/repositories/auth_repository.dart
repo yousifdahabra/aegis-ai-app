@@ -16,11 +16,7 @@ class AuthRepository {
         body: user.toJson(),
       );
 
-      if (response['success'] && response['data'] != null) {
-        final token = response['data']['token'];
-        final prefs = await SharedPreferences.getInstance();
-        await prefs.setString('auth_token', token);
-
+      if (response['success']) {
         return {
           'data': null,
           'success': true,
@@ -50,11 +46,7 @@ class AuthRepository {
         body: user.toJson(),
       );
 
-      if (response['success'] && response['data'] != null) {
-        final token = response['data']['token'];
-        final prefs = await SharedPreferences.getInstance();
-        await prefs.setString('auth_token', token);
-
+      if (response['success']) {
         return {
           'data': null,
           'success': true,
@@ -72,6 +64,20 @@ class AuthRepository {
         'data': null,
         'success': false,
         'message': 'An unexpected error occurred. $e',
+      };
+    }
+  }
+
+  Future<Map<String, dynamic>> newToken() async {
+    final prefs = await SharedPreferences.getInstance();
+    final email = prefs.getString('email');
+    final password = prefs.getString('password');
+
+    if (email == null || password == null) {
+      return {
+        'data': null,
+        'success': false,
+        'message': 'User not authenticated.',
       };
     }
   }
