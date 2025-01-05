@@ -16,7 +16,11 @@ class AuthRepository {
         body: user.toJson(),
       );
 
-      if (response['success']) {
+      if (response['success'] && response['data'] != null) {
+        final token = response['data']['token'];
+        final prefs = await SharedPreferences.getInstance();
+        await prefs.setString('auth_token', token);
+
         return {
           'data': null,
           'success': true,
