@@ -2,7 +2,6 @@ import 'package:ai_safety_app/bloc/user_expert_requests/user_expert_request_bloc
 import 'package:ai_safety_app/common_widget/custom_alert_dialog.dart';
 import 'package:ai_safety_app/common_widget/custom_button.dart';
 import 'package:ai_safety_app/common_widget/custom_input.dart';
-import 'package:ai_safety_app/common_widget/navigation_menu.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
