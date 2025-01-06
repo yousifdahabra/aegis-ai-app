@@ -1,7 +1,9 @@
 import 'package:dio/dio.dart';
+import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 
 class RequestAPI {
   final Dio dio;
+  final FlutterSecureStorage _secureStorage = FlutterSecureStorage();
 
   RequestAPI({required this.dio});
 
@@ -12,12 +14,13 @@ class RequestAPI {
     String header = 'application/json',
   }) async {
     try {
-      final token = null;
+      final token = await _secureStorage.read(key: 'auth_token');
 
       final options = Options(
         method: method,
         headers: {
           'Content-Type': header,
+          'content-type': 'application/json',
           if (token != null) 'Authorization': 'Bearer $token',
         },
       );
