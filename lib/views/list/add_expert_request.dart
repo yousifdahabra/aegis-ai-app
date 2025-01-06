@@ -26,45 +26,47 @@ class AddExpertRequest extends StatelessWidget {
           listener: (context, state) {},
           child: SingleChildScrollView(
             reverse: true,
-            child: Container(
-              padding: EdgeInsets.all(16.0),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.stretch,
-                children: [
-                  CustomInput(
-                    label: 'Tell me about you',
-                    hint: 'Study, works, or experience',
-                    icon: Icon(Icons.draw),
-                    multiLine: true,
-                  ),
-                  SizedBox(
-                    height: 10,
-                  ),
-                  CustomInput(
-                    label: 'Have you been scammed?',
-                    hint:
-                        'yes, how or no, what will you do if you face a scammer',
-                    icon: Icon(Icons.help),
-                    multiLine: true,
-                  ),
-                  SizedBox(
-                    height: 10,
-                  ),
-                  CustomInput(
-                    label: 'Social Links',
-                    hint: 'links',
-                    icon: Icon(Icons.link),
-                    multiLine: true,
-                  ),
-                  SizedBox(
-                    height: 10,
-                  ),
-                  CustomButton(
-                    onPressed: () {},
-                    text: 'Add',
-                  ),
-                ],
+            child: Form(
+              child: Container(
+                padding: EdgeInsets.all(16.0),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: [
+                    CustomInput(
+                      label: 'Tell me about you',
+                      hint: 'Study, works, or experience',
+                      icon: Icon(Icons.draw),
+                      multiLine: true,
+                    ),
+                    SizedBox(
+                      height: 10,
+                    ),
+                    CustomInput(
+                      label: 'Have you been scammed?',
+                      hint:
+                          'yes, how or no, what will you do if you face a scammer',
+                      icon: Icon(Icons.help),
+                      multiLine: true,
+                    ),
+                    SizedBox(
+                      height: 10,
+                    ),
+                    CustomInput(
+                      label: 'Social Links',
+                      hint: 'links',
+                      icon: Icon(Icons.link),
+                      multiLine: true,
+                    ),
+                    SizedBox(
+                      height: 10,
+                    ),
+                    CustomButton(
+                      onPressed: () {},
+                      text: 'Add',
+                    ),
+                  ],
+                ),
               ),
             ),
           ),
