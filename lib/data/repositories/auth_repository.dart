@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import '../api/dio_config.dart';
 import '../models/user_model.dart';
 import '../api/api_endpoints.dart';
@@ -115,5 +117,10 @@ class AuthRepository {
 
   Future<void> _storeEmail(String email) async {
     await _secureStorage.write(key: 'email', value: email);
+  }
+
+  Future<void> _storeUserData(Map<String, dynamic> userData) async {
+    final userJson = jsonEncode(userData);
+    await _secureStorage.write(key: 'user_data', value: userJson);
   }
 }

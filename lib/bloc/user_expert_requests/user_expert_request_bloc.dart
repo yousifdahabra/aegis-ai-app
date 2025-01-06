@@ -15,11 +15,13 @@ class UserExpertRequestBloc
       : super(AddUserExpertRequestInitial()) {
     on<AddUserExpertRequestEvent>((event, emit) async {
       emit(AddUserExpertRequestLoading());
+
       final message = await userExpertRequestRepository
           .addUserExpertRequest(AddUserExpertRequestModel(
         about_user: event.aboutUser,
         user_note: event.userNote,
         links: event.links,
+        user_id: 1,
       ));
       if (message['success']) {
         emit(UserExpertRequestSuccess(message['message']));
