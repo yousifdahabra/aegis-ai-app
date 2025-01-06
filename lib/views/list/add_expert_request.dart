@@ -9,6 +9,11 @@ class AddExpertRequest extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final formKey = GlobalKey<FormState>();
+    final aboutUserController = TextEditingController();
+    final userNoteController = TextEditingController();
+    final linksController = TextEditingController();
+
     return Scaffold(
         appBar: AppBar(
           toolbarHeight: 80,
@@ -27,6 +32,7 @@ class AddExpertRequest extends StatelessWidget {
           child: SingleChildScrollView(
             reverse: true,
             child: Form(
+              key: formKey,
               child: Container(
                 padding: EdgeInsets.all(16.0),
                 child: Column(
@@ -38,6 +44,15 @@ class AddExpertRequest extends StatelessWidget {
                       hint: 'Study, works, or experience',
                       icon: Icon(Icons.draw),
                       multiLine: true,
+                      controller: aboutUserController,
+                      validator: (value) {
+                        if (value == null || value.isEmpty) {
+                          return 'about is required';
+                        } else if (value.length < 12) {
+                          return 'about must be at least 12 characters';
+                        }
+                        return null;
+                      },
                     ),
                     SizedBox(
                       height: 10,
@@ -48,6 +63,15 @@ class AddExpertRequest extends StatelessWidget {
                           'yes, how or no, what will you do if you face a scammer',
                       icon: Icon(Icons.help),
                       multiLine: true,
+                      controller: userNoteController,
+                      validator: (value) {
+                        if (value == null || value.isEmpty) {
+                          return 'Note is required';
+                        } else if (value.length < 12) {
+                          return 'Note must be at least 12 characters';
+                        }
+                        return null;
+                      },
                     ),
                     SizedBox(
                       height: 10,
@@ -57,6 +81,7 @@ class AddExpertRequest extends StatelessWidget {
                       hint: 'links',
                       icon: Icon(Icons.link),
                       multiLine: true,
+                      controller: linksController,
                     ),
                     SizedBox(
                       height: 10,
