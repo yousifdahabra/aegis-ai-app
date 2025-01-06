@@ -105,7 +105,17 @@ class AddExpertRequest extends StatelessWidget {
                       height: 10,
                     ),
                     CustomButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        if (formKey.currentState!.validate()) {
+                          BlocProvider.of<UserExpertRequestBloc>(context).add(
+                            AddUserExpertRequestEvent(
+                              userNote: aboutUserController.text,
+                              aboutUser: userNoteController.text,
+                              links: linksController.text,
+                            ),
+                          );
+                        }
+                      },
                       text: 'Add',
                     ),
                   ],
