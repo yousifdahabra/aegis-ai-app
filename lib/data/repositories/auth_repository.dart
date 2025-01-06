@@ -15,8 +15,6 @@ class AuthRepository {
       method: 'POST',
       body: user.toJson(),
     );
-    print('Login Response: ');
-    print(response['data']['token']);
 
     if (response['success']) {
       await _storeLoginStatus(true);
@@ -113,19 +111,9 @@ class AuthRepository {
 
   Future<void> _storeToken(String token) async {
     await _secureStorage.write(key: 'auth_token', value: token);
-    debugStoredToken();
   }
 
   Future<void> _storeEmail(String email) async {
     await _secureStorage.write(key: 'email', value: email);
-  }
-
-  Future<void> debugStoredToken() async {
-    final token = await _secureStorage.read(key: 'auth_token');
-    if (token != null) {
-      print('Stored Token: $token'); // Debugging output
-    } else {
-      print('No token found in local storage.');
-    }
   }
 }
