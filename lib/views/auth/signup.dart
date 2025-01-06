@@ -197,6 +197,7 @@ class Signup extends StatelessWidget {
                                     name: nameController.text,
                                     email: emailController.text,
                                     password: passwordController.text,
+                                    age: ageController.text,
                                   ),
                                 );
                               }
