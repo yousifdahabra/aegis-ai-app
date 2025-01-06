@@ -16,7 +16,7 @@ dependencies:
   flutter:
     sdk: flutter
   flutter_bloc: ^8.1.6
-  flutter_secure_storage: ^9.2.3
+  flutter_secure_storage: ^8.0.0
   json_annotation: ^4.9.0
   meta: ^1.15.0
   smooth_page_indicator: ^1.2.0+3
