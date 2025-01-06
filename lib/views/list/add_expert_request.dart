@@ -1,6 +1,8 @@
 import 'package:ai_safety_app/bloc/user_expert_requests/user_expert_request_bloc.dart';
+import 'package:ai_safety_app/common_widget/custom_alert_dialog.dart';
 import 'package:ai_safety_app/common_widget/custom_button.dart';
 import 'package:ai_safety_app/common_widget/custom_input.dart';
+import 'package:ai_safety_app/common_widget/navigation_menu.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -28,7 +30,23 @@ class AddExpertRequest extends StatelessWidget {
           ),
         ),
         body: BlocListener<UserExpertRequestBloc, UserExpertRequestState>(
-          listener: (context, state) {},
+          listener: (context, state) {
+            if (state is UserExpertRequestSuccess) {
+              showCustomAlert(
+                context,
+                title: 'Success',
+                message: state.message,
+                isSuccess: true,
+              );
+            } else if (state is UserExpertRequestFailure) {
+              showCustomAlert(
+                context,
+                title: 'Error',
+                message: state.error,
+                isSuccess: false,
+              );
+            }
+          },
           child: SingleChildScrollView(
             reverse: true,
             child: Form(
