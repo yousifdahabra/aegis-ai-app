@@ -1,5 +1,6 @@
 import 'package:ai_safety_app/bloc/auth/auth_bloc.dart';
 import 'package:ai_safety_app/common_widget/custom_alert_dialog.dart';
+import 'package:ai_safety_app/common_widget/custom_app_bar.dart';
 import 'package:ai_safety_app/common_widget/custom_button.dart';
 import 'package:ai_safety_app/common_widget/custom_input.dart';
 import 'package:ai_safety_app/common_widget/navigation_menu.dart';
@@ -19,9 +20,10 @@ class Signup extends StatelessWidget {
     final passwordController = TextEditingController();
 
     return Scaffold(
-        appBar: AppBar(
-          title: const Text("Signup"),
-          elevation: 2.0,
+        appBar: CustomAppBar(
+          mainTitle: 'Signup',
+          icon: Icons.create,
+          onIconPressed: () {},
         ),
         body: BlocListener<AuthBloc, AuthState>(
           listener: (context, state) {
