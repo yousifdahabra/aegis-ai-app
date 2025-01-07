@@ -1,7 +1,7 @@
-import 'package:ai_safety_app/common_widget/questions/custom_radio_button.dart';
 import 'package:ai_safety_app/views/auth/profile.dart';
 import 'package:ai_safety_app/views/list/expert_request.dart';
 import 'package:ai_safety_app/views/list/test_list.dart';
+import 'package:ai_safety_app/views/test_page.dart';
 import 'package:flutter/material.dart';
 
 class NavigationMenu extends StatefulWidget {
@@ -17,7 +17,7 @@ class _NavigationMenuState extends State<NavigationMenu> {
   final List<Widget> _pages = [
     Center(child: TestList()),
     Center(child: ExpertRequest()),
-    Center(child: CustomRadioButton()),
+    Center(child: TestPage()),
     Center(child: Profile()),
   ];
 
