@@ -6,7 +6,7 @@ class TestsRepository {
 
   TestsRepository() : _dioClient = DioConfig();
 
-  Future<Map<String, dynamic>> getTestList(TestsRepository userRequest) async {
+  Future<Map<String, dynamic>> getTestList() async {
     try {
       final response = await _dioClient.api.makeRequest(
         route: ApiEndpoints.geTesttList,
