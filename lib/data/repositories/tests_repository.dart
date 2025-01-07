@@ -13,11 +13,12 @@ class TestsRepository {
         method: 'GET',
       );
 
+      final data = response['data'];
       if (response['success']) {
         return {
-          'data': null,
+          'data': data['data'],
           'success': true,
-          'message': response['message'],
+          'message': data['message'],
         };
       } else {
         return {
