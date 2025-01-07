@@ -32,7 +32,8 @@ class MyApp extends StatelessWidget {
               UserExpertRequestBloc(UserExpertRequestRepository()),
         ),
         BlocProvider<TestsBloc>(
-          create: (context) => TestsBloc(TestsRepository()),
+          create: (context) =>
+              TestsBloc(TestsRepository())..add(TestsListEvent()),
         ),
       ],
       child: MaterialApp(
