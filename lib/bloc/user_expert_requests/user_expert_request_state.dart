@@ -14,7 +14,7 @@ class AddUserExpertRequestLoading extends UserExpertRequestState {}
 class UserExpertRequestSuccess extends UserExpertRequestState {
   final String message;
 
-  UserExpertRequestSuccess(this.message);
+  const UserExpertRequestSuccess(this.message);
 
   @override
   List<Object> get props => [message];
@@ -23,7 +23,7 @@ class UserExpertRequestSuccess extends UserExpertRequestState {
 class UserExpertRequestFailure extends UserExpertRequestState {
   final String error;
 
-  UserExpertRequestFailure(this.error);
+  const UserExpertRequestFailure(this.error);
 
   @override
   List<Object> get props => [error];

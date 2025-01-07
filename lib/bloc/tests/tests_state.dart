@@ -1,29 +1,29 @@
 part of 'tests_bloc.dart';
 
-sealed class TestsState extends Equatable {
+abstract class TestsState extends Equatable {
   const TestsState();
 
   @override
   List<Object> get props => [];
 }
 
-final class TestsListInitial extends TestsState {}
+class TestsListInitial extends TestsState {}
 
 class TestsListLoading extends TestsState {}
 
 class TestsListSuccess extends TestsState {
-  final String message;
+  final List<dynamic> data;
 
-  TestsListSuccess(this.message);
+  const TestsListSuccess({required this.data});
 
   @override
-  List<Object> get props => [message];
+  List<Object> get props => [data];
 }
 
 class TestsListFailure extends TestsState {
   final String message;
 
-  TestsListFailure(this.message);
+  const TestsListFailure({required this.message});
 
   @override
   List<Object> get props => [message];
