@@ -1,25 +1,14 @@
-import 'package:ai_safety_app/common_widget/custom_row.dart';
+import 'package:ai_safety_app/data/repositories/tests_repository.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:ai_safety_app/common_widget/custom_row.dart';
+import 'package:ai_safety_app/bloc/tests/tests_bloc.dart';
 
 class TestList extends StatelessWidget {
   const TestList({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final List<Map<String, String>> data = [
-      {
-        'title': 'Test Title',
-        'questions': '10',
-        'security': '75%',
-        'status': 'Done',
-      },
-      {
-        'title': 'Another Test',
-        'questions': '12',
-        'security': '80%',
-        'status': 'Done',
-      },
-    ];
     return Scaffold(
       appBar: AppBar(
         toolbarHeight: 80,
@@ -28,22 +17,18 @@ class TestList extends StatelessWidget {
           children: const [
             Text("Test List", style: TextStyle(fontSize: 22)),
             SizedBox(height: 4),
-            Text("All previews test here", style: TextStyle(fontSize: 14)),
+            Text("All previous tests are listed here",
+                style: TextStyle(fontSize: 14)),
           ],
         ),
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: ListView.builder(
-          padding: const EdgeInsets.all(8.0),
-          itemCount: data.length,
-          itemBuilder: (context, index) {
-            return Padding(
-              padding: const EdgeInsets.only(bottom: 10.0),
-              child: CustomRow(data: data[index]),
-            );
-          },
-        ),
+      body: BlocBuilder<TestsBloc, TestsState>(
+        builder: (context, state) {
+          if (state is TestsListLoading) {
+            return const Center(child: CircularProgressIndicator());
+          }
+          return const SizedBox();
+        },
       ),
     );
   }

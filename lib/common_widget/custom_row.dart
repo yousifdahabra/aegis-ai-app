@@ -5,7 +5,7 @@ class CustomRow extends StatelessWidget {
     super.key,
     required this.data,
   });
-  final Map<String, String> data;
+  final Map<String, dynamic> data;
 
   @override
   Widget build(BuildContext context) {
