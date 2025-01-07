@@ -1,3 +1,4 @@
+import 'package:ai_safety_app/common_widget/custom_app_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:ai_safety_app/common_widget/custom_row.dart';
@@ -9,17 +10,11 @@ class TestList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        toolbarHeight: 80,
-        title: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: const [
-            Text("Test List", style: TextStyle(fontSize: 22)),
-            SizedBox(height: 4),
-            Text("All previous tests are listed here",
-                style: TextStyle(fontSize: 14)),
-          ],
-        ),
+      appBar: CustomAppBar(
+        mainTitle: 'Test List',
+        subTitle: 'All previous tests are listed here',
+        icon: Icons.quiz,
+        onIconPressed: () {},
       ),
       body: BlocBuilder<TestsBloc, TestsState>(
         builder: (context, state) {
