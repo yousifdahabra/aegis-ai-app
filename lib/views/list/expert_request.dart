@@ -1,3 +1,4 @@
+import 'package:ai_safety_app/common_widget/custom_app_bar.dart';
 import 'package:ai_safety_app/common_widget/custom_row.dart';
 import 'package:ai_safety_app/views/list/add_expert_request.dart';
 import 'package:flutter/material.dart';
@@ -23,31 +24,20 @@ class ExpertRequest extends StatelessWidget {
     ];
 
     return Scaffold(
-      appBar: AppBar(
-        toolbarHeight: 80,
-        title: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: const [
-            Text("Expert Test", style: TextStyle(fontSize: 22)),
-            SizedBox(height: 4),
-            Text("All Expert Test here", style: TextStyle(fontSize: 14)),
-          ],
-        ),
-        actions: [
-          IconButton(
-            icon: const Icon(Icons.add_moderator),
-            onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) {
-                    return AddExpertRequest();
-                  },
-                ),
-              );
-            },
-          ),
-        ],
+      appBar: CustomAppBar(
+        mainTitle: 'Expert Test',
+        subTitle: 'All Expert Test here are listed here',
+        icon: Icons.add_moderator,
+        onIconPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) {
+                return AddExpertRequest();
+              },
+            ),
+          );
+        },
       ),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
