@@ -49,6 +49,13 @@ class TestList extends StatelessWidget {
                 },
               ),
             );
+          } else if (state is TestsListFailure) {
+            return Center(
+              child: Text(
+                "Failed to load data: ${state.message}",
+                style: const TextStyle(color: Colors.red),
+              ),
+            );
           }
           return const SizedBox();
         },
