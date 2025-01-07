@@ -8,6 +8,12 @@ class AppTheme {
       primaryColor: AppColors.mainTitleColor,
       scaffoldBackgroundColor: AppColors.backgroundPageColor,
       textTheme: TextTheme(
+        headlineLarge: TextStyle(
+          fontFamily: AppFonts.mainTitleFont,
+          fontSize: 22,
+          fontWeight: FontWeight.bold,
+          color: AppColors.barTitle,
+        ), //app bar title color
         displayLarge: TextStyle(
           fontFamily: AppFonts.mainTitleFont,
           fontSize: 22,
