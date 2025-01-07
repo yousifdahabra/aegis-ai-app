@@ -26,6 +26,29 @@ class TestList extends StatelessWidget {
         builder: (context, state) {
           if (state is TestsListLoading) {
             return const Center(child: CircularProgressIndicator());
+          } else if (state is TestsListSuccess) {
+            final List<Map<String, dynamic>> testData = state.data
+                .map((test) => {
+                      'title': test['title'] ?? '',
+                      'questions': test['questions_count'].toString(),
+                      'security': test['security'] ?? '-',
+                      'status': test['test_state'] ?? '',
+                    })
+                .toList();
+
+            return Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: ListView.builder(
+                padding: const EdgeInsets.all(8.0),
+                itemCount: testData.length,
+                itemBuilder: (context, index) {
+                  return Padding(
+                    padding: const EdgeInsets.only(bottom: 10.0),
+                    child: CustomRow(data: testData[index]),
+                  );
+                },
+              ),
+            );
           }
           return const SizedBox();
         },
