@@ -14,6 +14,12 @@ class AppTheme {
           fontWeight: FontWeight.bold,
           color: AppColors.barTitle,
         ), //app bar title color
+        labelMedium: TextStyle(
+          fontFamily: AppFonts.mainTitleFont,
+          fontSize: 14,
+          fontWeight: FontWeight.bold,
+          color: AppColors.barTitle,
+        ), //app bar title color
         displayLarge: TextStyle(
           fontFamily: AppFonts.mainTitleFont,
           fontSize: 22,
