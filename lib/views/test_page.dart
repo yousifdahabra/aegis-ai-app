@@ -36,6 +36,18 @@ class TestPage extends StatelessWidget {
                 textAlign: TextAlign.center,
               ),
               const SizedBox(height: 40),
+              CustomButton(
+                text: 'Start Test',
+                onPressed: () {},
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 50, vertical: 15),
+              ),
+              const SizedBox(height: 20),
+              Text(
+                "Good luck! We believe in you.",
+                style: Theme.of(context).textTheme.bodySmall,
+                textAlign: TextAlign.center,
+              ),
             ],
           ),
         ),
