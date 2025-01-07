@@ -1,5 +1,6 @@
 import 'package:ai_safety_app/bloc/user_expert_requests/user_expert_request_bloc.dart';
 import 'package:ai_safety_app/common_widget/custom_alert_dialog.dart';
+import 'package:ai_safety_app/common_widget/custom_app_bar.dart';
 import 'package:ai_safety_app/common_widget/custom_button.dart';
 import 'package:ai_safety_app/common_widget/custom_input.dart';
 import 'package:flutter/material.dart';
@@ -16,17 +17,11 @@ class AddExpertRequest extends StatelessWidget {
     final linksController = TextEditingController();
 
     return Scaffold(
-        appBar: AppBar(
-          toolbarHeight: 80,
-          title: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: const [
-              Text("New Request", style: TextStyle(fontSize: 22)),
-              SizedBox(height: 4),
-              Text("Better test will be with more information",
-                  style: TextStyle(fontSize: 14)),
-            ],
-          ),
+        appBar: CustomAppBar(
+          mainTitle: 'New Request',
+          subTitle: 'Better test will be with more information',
+          icon: Icons.info,
+          onIconPressed: () {},
         ),
         body: BlocListener<UserExpertRequestBloc, UserExpertRequestState>(
           listener: (context, state) {
