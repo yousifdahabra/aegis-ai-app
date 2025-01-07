@@ -19,3 +19,12 @@ class TestsListSuccess extends TestsState {
   @override
   List<Object> get props => [message];
 }
+
+class TestsListFailure extends TestsState {
+  final String message;
+
+  TestsListFailure(this.message);
+
+  @override
+  List<Object> get props => [message];
+}
