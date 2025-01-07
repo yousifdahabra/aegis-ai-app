@@ -1,3 +1,4 @@
+import 'package:ai_safety_app/common_widget/custom_app_bar.dart';
 import 'package:ai_safety_app/common_widget/custom_button.dart';
 import 'package:ai_safety_app/common_widget/custom_input.dart';
 import 'package:flutter/material.dart';
@@ -8,16 +9,11 @@ class Profile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        toolbarHeight: 80,
-        title: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: const [
-            Text("Profile", style: TextStyle(fontSize: 22)),
-            SizedBox(height: 4),
-            Text("Update your profile", style: TextStyle(fontSize: 14)),
-          ],
-        ),
+      appBar: CustomAppBar(
+        mainTitle: 'Profile',
+        subTitle: 'Update your profile',
+        icon: Icons.person,
+        onIconPressed: () {},
       ),
       body: Container(
           padding: EdgeInsets.all(16.0),
