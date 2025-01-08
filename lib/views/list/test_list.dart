@@ -28,6 +28,20 @@ class TestList extends StatelessWidget {
                     })
                 .toList();
 
+            if (testData.isEmpty) {
+              return Center(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      "No tests available",
+                      style: Theme.of(context).textTheme.headlineMedium,
+                    ),
+                  ],
+                ),
+              );
+            }
+
             return Padding(
               padding: const EdgeInsets.all(8.0),
               child: ListView.builder(
