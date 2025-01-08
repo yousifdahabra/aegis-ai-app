@@ -39,10 +39,32 @@ class TestsRepository {
   }
 
   Future<Map<String, dynamic>> startTest(StartTestModel model) async {
-    final response = await _dioClient.api.makeRequest(
-      route: ApiEndpoints.addTest,
-      method: 'POST',
-      body: model.toJson(),
-    );
+    try {
+      final response = await _dioClient.api.makeRequest(
+        route: ApiEndpoints.addTest,
+        method: 'POST',
+        body: model.toJson(),
+      );
+
+      if (response['success']) {
+        return {
+          'data': response['data'],
+          'success': true,
+          'message': response['message'],
+        };
+      } else {
+        return {
+          'data': null,
+          'success': false,
+          'message': response['message'],
+        };
+      }
+    } catch (e) {
+      return {
+        'data': null,
+        'success': false,
+        'message': 'An unexpected error occurred. $e',
+      };
+    }
   }
 }
