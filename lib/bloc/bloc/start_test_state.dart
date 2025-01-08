@@ -19,3 +19,12 @@ class StartTestSuccess extends StartTestState {
   @override
   List<Object?> get props => [data];
 }
+
+class StartTestFailure extends StartTestState {
+  final String error;
+
+  const StartTestFailure(this.error);
+
+  @override
+  List<Object?> get props => [error];
+}
