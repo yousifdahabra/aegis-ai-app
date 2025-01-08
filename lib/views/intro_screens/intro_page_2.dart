@@ -1,3 +1,4 @@
+import 'package:ai_safety_app/theme/app_colors.dart';
 import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 
@@ -7,53 +8,44 @@ class IntroPage2 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
-      body: Column(
-        children: [
-          Container(
-            height: 400,
-            decoration: BoxDecoration(
-              image: DecorationImage(
-                  image: AssetImage('assets/images/intro/intro-2.png'),
-                  fit: BoxFit.cover),
+      backgroundColor: AppColors.backgroundPageColor,
+      body: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 16.0),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            const Spacer(),
+            FadeInDown(
+              duration: const Duration(milliseconds: 1200),
+              child: SizedBox(
+                height: MediaQuery.of(context).size.height * 0.4,
+                child: Image.asset(
+                  'assets/images/social.gif',
+                  fit: BoxFit.contain,
+                ),
+              ),
             ),
-          ),
-          SizedBox(
-            height: 300,
-            child: Stack(children: <Widget>[
-              Positioned(
-                top: 0,
-                left: 10,
-                child: FadeInDown(
-                    duration: Duration(milliseconds: 1600),
-                    child: Container(
-                      margin: EdgeInsets.only(top: 100),
-                      child: Center(
-                        child: Text(
-                          "Discover how to protect\nyourself.",
-                          style: Theme.of(context).textTheme.displayLarge,
-                        ),
-                      ),
-                    )),
+            const Spacer(),
+            FadeInDown(
+              duration: const Duration(milliseconds: 1600),
+              child: Text(
+                "Discover how to protect\nyourself.",
+                textAlign: TextAlign.center,
+                style: Theme.of(context).textTheme.displayLarge,
               ),
-              Positioned(
-                top: 120,
-                left: 10,
-                child: FadeInUp(
-                    duration: Duration(milliseconds: 1600),
-                    child: Container(
-                      margin: EdgeInsets.only(top: 100),
-                      child: Center(
-                        child: Text(
-                          "Understanding your risks is the first\nstep to staying safe.",
-                          style: Theme.of(context).textTheme.titleSmall,
-                        ),
-                      ),
-                    )),
+            ),
+            const SizedBox(height: 16),
+            FadeInUp(
+              duration: const Duration(milliseconds: 1600),
+              child: Text(
+                "Understanding your risks is the first\nstep to staying safe.",
+                textAlign: TextAlign.center,
+                style: Theme.of(context).textTheme.titleSmall,
               ),
-            ]),
-          ),
-        ],
+            ),
+            const Spacer(),
+          ],
+        ),
       ),
     );
   }

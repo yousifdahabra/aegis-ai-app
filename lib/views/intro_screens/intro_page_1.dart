@@ -11,6 +11,41 @@ class IntroPage1 extends StatelessWidget {
       backgroundColor: AppColors.backgroundPageColor,
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 16.0),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            const Spacer(),
+            FadeInDown(
+              duration: const Duration(milliseconds: 1200),
+              child: SizedBox(
+                height: MediaQuery.of(context).size.height * 0.4,
+                child: Image.asset(
+                  'assets/images/welcome.gif',
+                  fit: BoxFit.contain,
+                ),
+              ),
+            ),
+            const Spacer(),
+            FadeInDown(
+              duration: const Duration(milliseconds: 1600),
+              child: Text(
+                "You must know your weakness \nbefore anyone.",
+                textAlign: TextAlign.center,
+                style: Theme.of(context).textTheme.displayLarge,
+              ),
+            ),
+            const SizedBox(height: 16),
+            FadeInUp(
+              duration: const Duration(milliseconds: 1600),
+              child: Text(
+                "Everyone has a weakness, whether it's\nme or others.",
+                textAlign: TextAlign.center,
+                style: Theme.of(context).textTheme.titleSmall,
+              ),
+            ),
+            const Spacer(),
+          ],
+        ),
       ),
     );
   }
