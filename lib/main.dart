@@ -1,4 +1,5 @@
 import 'package:ai_safety_app/bloc/login/login_bloc.dart';
+import 'package:ai_safety_app/bloc/start_test/start_test_bloc.dart';
 import 'package:ai_safety_app/bloc/tests/tests_bloc.dart';
 import 'package:ai_safety_app/bloc/user_expert_requests/user_expert_request_bloc.dart';
 import 'package:ai_safety_app/data/repositories/tests_repository.dart';
@@ -34,6 +35,9 @@ class MyApp extends StatelessWidget {
         BlocProvider<TestsBloc>(
           create: (context) =>
               TestsBloc(TestsRepository())..add(TestsListEvent()),
+        ),
+        BlocProvider<StartTestBloc>(
+          create: (context) => StartTestBloc(TestsRepository()),
         ),
       ],
       child: MaterialApp(
