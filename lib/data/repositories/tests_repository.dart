@@ -1,3 +1,5 @@
+import 'package:ai_safety_app/data/models/start_test_model.dart';
+
 import '../api/dio_config.dart';
 import '../api/api_endpoints.dart';
 
@@ -34,5 +36,13 @@ class TestsRepository {
         'message': 'An unexpected error occurred. $e',
       };
     }
+  }
+
+  Future<Map<String, dynamic>> startTest(StartTestModel model) async {
+    final response = await _dioClient.api.makeRequest(
+      route: ApiEndpoints.addTest,
+      method: 'POST',
+      body: model.toJson(),
+    );
   }
 }
