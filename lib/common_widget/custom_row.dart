@@ -13,16 +13,8 @@ class CustomRow extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
       decoration: BoxDecoration(
-        color: Theme.of(context).colorScheme.primary.withAlpha(25),
-        borderRadius: BorderRadius.circular(8),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.black.withAlpha(25),
-            blurRadius: 4,
-            offset: const Offset(0, 2),
-          ),
-        ],
-      ),
+          color: Theme.of(context).colorScheme.primary.withAlpha(10),
+          borderRadius: BorderRadius.circular(8)),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
@@ -56,7 +48,7 @@ class CustomRow extends StatelessWidget {
           Text(
             title,
             style: Theme.of(context).textTheme.labelLarge?.copyWith(
-                  color: Theme.of(context).colorScheme.onSurface.withAlpha(25),
+                  color: Theme.of(context).colorScheme.onSurface.withAlpha(90),
                 ),
             textAlign: TextAlign.start,
           ),
