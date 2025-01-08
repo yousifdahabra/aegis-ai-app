@@ -22,6 +22,15 @@ class StartTestBloc extends Bloc<StartTest, StartTestState> {
         emit(StartTestFailure(message: 'User ID not found.'));
         return;
       }
+
+      final response = await testsRepository.startTest(
+        StartTestModel(
+          title: event.title,
+          user_id: userId,
+          expert_id: event.expertId ?? 3,
+          test_state_id: event.testStateId ?? 1,
+        ),
+      );
     });
   }
 }
