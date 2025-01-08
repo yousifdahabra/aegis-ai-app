@@ -58,9 +58,7 @@ class TestPage extends StatelessWidget {
                   text: 'Start Test',
                   onPressed: () {
                     context.read<StartTestBloc>().add(
-                          StartTest(
-                            title: 'Test Title Example',
-                          ),
+                          StartTest(),
                         );
                   },
                   padding:

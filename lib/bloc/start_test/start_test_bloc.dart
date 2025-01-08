@@ -17,6 +17,7 @@ class StartTestBloc extends Bloc<StartTest, StartTestState> {
 
       final userData = await Functions.getUserData();
       final userId = userData?['id'];
+      final name = userData?['name'];
 
       if (userId == null) {
         emit(StartTestFailure(message: 'User ID not found.'));
@@ -26,7 +27,7 @@ class StartTestBloc extends Bloc<StartTest, StartTestState> {
       try {
         final response = await testsRepository.startTest(
           StartTestModel(
-            title: event.title,
+            title: 'Test $name',
             user_id: userId,
             expert_id: event.expertId ?? 3,
             test_state_id: event.testStateId ?? 1,

@@ -4,12 +4,12 @@ part of 'start_test_bloc.dart';
 abstract class StartTestEvent {}
 
 class StartTest extends StartTestEvent {
-  final String title;
+  final String? title;
   final int? expertId;
   final int? testStateId;
 
   StartTest({
-    required this.title,
+    this.title,
     this.expertId = 3,
     this.testStateId = 1,
   });
