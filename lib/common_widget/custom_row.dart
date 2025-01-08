@@ -1,3 +1,4 @@
+import 'package:ai_safety_app/theme/app_colors.dart';
 import 'package:flutter/material.dart';
 
 class CustomRow extends StatelessWidget {
@@ -9,18 +10,35 @@ class CustomRow extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        _buildColumn(context, data['title'] ?? '', "Title"),
-        _buildColumn(context, data['questions'] ?? '', "Questions"),
-        _buildColumn(context, data['security'] ?? '', "Security"),
-        _buildColumn(context, data['status'] ?? '', "Status"),
-        IconButton(
-          icon: const Icon(Icons.arrow_forward),
-          onPressed: () {},
-        ),
-      ],
+    return Container(
+      padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
+      decoration: BoxDecoration(
+        color: Theme.of(context).colorScheme.primary.withAlpha(25),
+        borderRadius: BorderRadius.circular(8),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withAlpha(25),
+            blurRadius: 4,
+            offset: const Offset(0, 2),
+          ),
+        ],
+      ),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          _buildColumn(context, data['title'] ?? '', "Title"),
+          _buildColumn(context, data['questions'] ?? '', "Questions"),
+          _buildColumn(context, data['security'] ?? '', "Security"),
+          _buildColumn(context, data['status'] ?? '', "Status"),
+          IconButton(
+            icon: Icon(
+              Icons.arrow_forward,
+              color: AppColors.linksColor,
+            ),
+            onPressed: () {},
+          ),
+        ],
+      ),
     );
   }
 
@@ -37,7 +55,9 @@ class CustomRow extends StatelessWidget {
           const SizedBox(height: 4),
           Text(
             title,
-            style: Theme.of(context).textTheme.labelLarge,
+            style: Theme.of(context).textTheme.labelLarge?.copyWith(
+                  color: Theme.of(context).colorScheme.onSurface.withAlpha(25),
+                ),
             textAlign: TextAlign.start,
           ),
         ],

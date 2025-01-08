@@ -12,8 +12,6 @@ class Profile extends StatelessWidget {
       appBar: CustomAppBar(
         mainTitle: 'Profile',
         subTitle: 'Update your profile',
-        icon: Icons.person,
-        onIconPressed: () {},
       ),
       body: Container(
           padding: EdgeInsets.all(16.0),

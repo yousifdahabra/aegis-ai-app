@@ -20,8 +20,6 @@ class AddExpertRequest extends StatelessWidget {
         appBar: CustomAppBar(
           mainTitle: 'New Request',
           subTitle: 'Better test will be with more information',
-          icon: Icons.info,
-          onIconPressed: () {},
         ),
         body: BlocListener<UserExpertRequestBloc, UserExpertRequestState>(
           listener: (context, state) {

@@ -22,8 +22,6 @@ class Signup extends StatelessWidget {
     return Scaffold(
         appBar: CustomAppBar(
           mainTitle: 'Signup',
-          icon: Icons.create,
-          onIconPressed: () {},
         ),
         body: BlocListener<AuthBloc, AuthState>(
           listener: (context, state) {
@@ -62,16 +60,15 @@ class Signup extends StatelessWidget {
                       children: <Widget>[
                         Positioned(
                           top: 10,
-                          left: 30,
-                          width: 100,
-                          height: 200,
+                          width: 175,
+                          height: 250,
                           child: FadeInDown(
                               duration: Duration(seconds: 1),
                               child: Container(
                                 decoration: BoxDecoration(
                                     image: DecorationImage(
                                         image: AssetImage(
-                                            'assets/images/robot.png'))),
+                                            'assets/images/robor-check.png'))),
                               )),
                         ),
                         Positioned(

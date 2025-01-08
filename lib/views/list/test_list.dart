@@ -13,8 +13,6 @@ class TestList extends StatelessWidget {
       appBar: CustomAppBar(
         mainTitle: 'Test List',
         subTitle: 'All previous tests are listed here',
-        icon: Icons.quiz,
-        onIconPressed: () {},
       ),
       body: BlocBuilder<TestsBloc, TestsState>(
         builder: (context, state) {

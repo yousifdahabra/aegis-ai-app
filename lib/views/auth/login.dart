@@ -21,8 +21,6 @@ class Login extends StatelessWidget {
     return Scaffold(
       appBar: CustomAppBar(
         mainTitle: 'Login',
-        icon: Icons.login,
-        onIconPressed: () {},
       ),
       backgroundColor: Colors.white,
       body: BlocListener<LoginBloc, LoginState>(
