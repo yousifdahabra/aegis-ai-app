@@ -14,17 +14,17 @@ class StartTestLoading extends StartTestState {}
 class StartTestSuccess extends StartTestState {
   final Map<String, dynamic> data;
 
-  const StartTestSuccess(this.data);
+  const StartTestSuccess({required this.data});
 
   @override
   List<Object?> get props => [data];
 }
 
 class StartTestFailure extends StartTestState {
-  final String error;
+  final String message;
 
-  const StartTestFailure(this.error);
+  const StartTestFailure({required this.message});
 
   @override
-  List<Object?> get props => [error];
+  List<Object?> get props => [message];
 }
