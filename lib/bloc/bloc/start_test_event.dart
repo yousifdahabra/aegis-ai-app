@@ -1,8 +1,16 @@
 part of 'start_test_bloc.dart';
 
-sealed class StartTestEvent extends Equatable {
-  const StartTestEvent();
+@immutable
+abstract class StartTestEvent {}
 
-  @override
-  List<Object> get props => [];
+class StartTest extends StartTestEvent {
+  final String title;
+  final int? expertId;
+  final int? testStateId;
+
+  StartTest({
+    required this.title,
+    this.expertId = 3,
+    this.testStateId = 1,
+  });
 }
