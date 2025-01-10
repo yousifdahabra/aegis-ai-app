@@ -3,8 +3,13 @@ import 'package:flutter/material.dart';
 
 class CustomQuestionInput extends StatefulWidget {
   final Map<String, dynamic> data;
+  final Function(String) onSubmit;
 
-  const CustomQuestionInput({super.key, required this.data});
+  const CustomQuestionInput({
+    super.key,
+    required this.data,
+    required this.onSubmit,
+  });
 
   @override
   State<CustomQuestionInput> createState() => _CustomQuestionInputState();
