@@ -10,3 +10,12 @@ abstract class QuestionState extends Equatable {
 class QuestionInitial extends QuestionState {}
 
 class QuestionLoading extends QuestionState {}
+
+class NextQuestionLoaded extends QuestionState {
+  final Map<String, dynamic> questionData;
+
+  const NextQuestionLoaded({required this.questionData});
+
+  @override
+  List<Object?> get props => [questionData];
+}
