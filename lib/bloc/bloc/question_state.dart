@@ -28,3 +28,12 @@ class QuestionFinished extends QuestionState {
   @override
   List<Object?> get props => [data];
 }
+
+class QuestionError extends QuestionState {
+  final String message;
+
+  const QuestionError({required this.message});
+
+  @override
+  List<Object?> get props => [message];
+}
