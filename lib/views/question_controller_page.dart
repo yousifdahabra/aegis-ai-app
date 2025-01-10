@@ -52,6 +52,18 @@ class QuestionControllerPage extends StatelessWidget {
                 child: CircularProgressIndicator(),
               ),
             );
+          } else if (state is NextQuestionLoaded) {
+            Navigator.pop(context);
+            Navigator.pushReplacement(
+              context,
+              MaterialPageRoute(
+                builder: (context) => QuestionControllerPage(
+                  questionType:
+                      state.questionData['question_type_id'].toString(),
+                  questionData: state.questionData,
+                ),
+              ),
+            );
           }
         },
         child: Padding(
