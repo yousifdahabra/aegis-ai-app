@@ -19,6 +19,13 @@ class _CustomQuestionInputState extends State<CustomQuestionInput> {
   final TextEditingController _controller = TextEditingController();
 
   @override
+  void initState() {
+    super.initState();
+    _controller.addListener(() {
+      widget.onResponse(_controller.text.trim());
+    });
+  }
+
   @override
   void dispose() {
     _controller.dispose();
