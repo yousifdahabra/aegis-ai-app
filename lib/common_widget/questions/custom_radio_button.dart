@@ -38,7 +38,7 @@ class _CustomRadioButtonState extends State<CustomRadioButton> {
               groupValue: selectedOption,
               label: optionTitle,
             );
-          }).toList(),
+          }),
         ],
       ),
     );

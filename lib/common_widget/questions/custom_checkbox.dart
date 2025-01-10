@@ -1,5 +1,3 @@
-import 'package:ai_safety_app/common_widget/custom_button.dart';
-import 'package:ai_safety_app/common_widget/questions/custom_email.dart';
 import 'package:flutter/material.dart';
 
 class CustomCheckbox extends StatefulWidget {
@@ -21,15 +19,25 @@ class _CustomCheckboxState extends State<CustomCheckbox> {
 
   @override
   Widget build(BuildContext context) {
+    final options = widget.data['options'] as List<dynamic>? ?? [];
     return Padding(
       padding: const EdgeInsets.all(16.0),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           Text(
-            "Question",
+            widget.data['title'] ?? 'Question',
             style: Theme.of(context).textTheme.headlineSmall,
           ),
+          const SizedBox(height: 20),
+          ...options.map((option) {
+            final optionTitle = option['title'] ?? 'Option';
+            return _checkboxOption(
+              context,
+              value: optionTitle,
+              label: optionTitle,
+            );
+          }),
         ],
       ),
     );
@@ -48,13 +56,14 @@ class _CustomCheckboxState extends State<CustomCheckbox> {
           } else {
             selectedOptions.add(value);
           }
+          widget.onResponse(selectedOptions.join(','));
         });
       },
       child: Container(
         padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 16),
         decoration: BoxDecoration(
           color: selectedOptions.contains(value)
-              ? Color(0xFF16354D)
+              ? const Color(0xFF16354D)
               : Colors.white,
           borderRadius: BorderRadius.circular(10),
           boxShadow: [
@@ -66,7 +75,7 @@ class _CustomCheckboxState extends State<CustomCheckbox> {
           ],
           border: Border.all(
             color: selectedOptions.contains(value)
-                ? Color(0xFF16354D)
+                ? const Color(0xFF16354D)
                 : Colors.grey,
             width: 1,
           ),
@@ -82,13 +91,10 @@ class _CustomCheckboxState extends State<CustomCheckbox> {
                   } else {
                     selectedOptions.remove(value);
                   }
+                  widget.onResponse(selectedOptions.join(','));
                 });
               },
               activeColor: Colors.white,
-              checkColor:
-                  selectedOptions.contains(value) ? Colors.black : Colors.white,
-              fillColor: WidgetStateProperty.all(
-                  selectedOptions.contains(value) ? Colors.white : Colors.grey),
             ),
             const SizedBox(width: 8),
             Text(
