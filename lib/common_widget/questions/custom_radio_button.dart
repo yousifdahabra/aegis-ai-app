@@ -72,10 +72,10 @@ class _CustomRadioButtonState extends State<CustomRadioButton> {
           color: groupValue == value ? const Color(0xFF16354D) : Colors.white,
           borderRadius: BorderRadius.circular(10),
           boxShadow: [
-            BoxShadow(
-              color: const Color.fromARGB(66, 0, 0, 0),
+            const BoxShadow(
+              color: Color.fromARGB(66, 0, 0, 0),
               blurRadius: 6,
-              offset: const Offset(0, 3),
+              offset: Offset(0, 3),
             ),
           ],
           border: Border.all(
@@ -84,6 +84,7 @@ class _CustomRadioButtonState extends State<CustomRadioButton> {
           ),
         ),
         child: Row(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Radio<String>(
               value: value,
@@ -97,11 +98,15 @@ class _CustomRadioButtonState extends State<CustomRadioButton> {
               activeColor: Colors.white,
             ),
             const SizedBox(width: 8),
-            Text(
-              label,
-              style: Theme.of(context).textTheme.bodyLarge?.copyWith(
-                    color: groupValue == value ? Colors.white : Colors.black,
-                  ),
+            Expanded(
+              child: Text(
+                label,
+                style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+                      color: groupValue == value ? Colors.white : Colors.black,
+                    ),
+                softWrap: true,
+                maxLines: null,
+              ),
             ),
           ],
         ),
