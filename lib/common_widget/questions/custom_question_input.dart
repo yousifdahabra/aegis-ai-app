@@ -3,12 +3,12 @@ import 'package:flutter/material.dart';
 
 class CustomQuestionInput extends StatefulWidget {
   final Map<String, dynamic> data;
-  final Function(String) onSubmit;
+  final Function(String) onResponse;
 
   const CustomQuestionInput({
     super.key,
     required this.data,
-    required this.onSubmit,
+    required this.onResponse,
   });
 
   @override
@@ -19,6 +19,13 @@ class _CustomQuestionInputState extends State<CustomQuestionInput> {
   final TextEditingController _controller = TextEditingController();
 
   @override
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(16.0),
@@ -26,22 +33,16 @@ class _CustomQuestionInputState extends State<CustomQuestionInput> {
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           Text(
-            widget.data['questionText'] ?? 'Question',
+            widget.data['title'] ?? 'Question',
             style: Theme.of(context).textTheme.headlineSmall,
           ),
           const SizedBox(height: 20),
           CustomInput(
+            controller: _controller,
             label: 'Your Answer',
             hint: 'Type your answer here',
             icon: const Icon(Icons.question_answer),
             multiLine: true,
-          ),
-          const SizedBox(height: 20),
-          ElevatedButton(
-            onPressed: () {
-              widget.onSubmit(_controller.text);
-            },
-            child: const Text('Submit Answer'),
           ),
         ],
       ),
