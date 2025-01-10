@@ -6,7 +6,7 @@ import 'package:ai_safety_app/bloc/question/question_bloc.dart';
 import 'package:ai_safety_app/common_widget/custom_button.dart';
 import 'package:ai_safety_app/common_widget/questions/question_widget.dart';
 
-class QuestionControllerPage extends StatelessWidget {
+class QuestionControllerPage extends StatefulWidget {
   final String questionType;
   final Map<String, dynamic> questionData;
 
@@ -16,26 +16,22 @@ class QuestionControllerPage extends StatelessWidget {
     required this.questionData,
   });
 
-  void handleNext(BuildContext context, String response) async {
-    final questionId = questionData['id'];
-    final userId = await Functions.getUserId();
+  @override
+  State<QuestionControllerPage> createState() => _QuestionControllerPageState();
+}
 
-    if (!context.mounted) return;
-
-    context.read<QuestionBloc>().add(
-          SubmitAnswerEvent(
-            userId: userId,
-            questionId: questionId,
-            answer: response,
-          ),
-        );
-  }
+class _QuestionControllerPageState extends State<QuestionControllerPage> {
+  String userResponse = '';
 
   @override
   Widget build(BuildContext context) {
-    final questionWidgetSelect = questionWidget[questionType]?.call(
-      questionData,
-      (response) => handleNext(context, response),
+    final questionWidgetSelect = questionWidget[widget.questionType]?.call(
+      widget.questionData,
+      (response) {
+        setState(() {
+          userResponse = response;
+        });
+      },
     );
 
     return Scaffold(
@@ -86,6 +82,7 @@ class QuestionControllerPage extends StatelessWidget {
         child: Padding(
           padding: const EdgeInsets.all(16.0),
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               if (questionWidgetSelect != null)
                 Expanded(child: questionWidgetSelect),
@@ -93,11 +90,14 @@ class QuestionControllerPage extends StatelessWidget {
               CustomButton(
                 text: 'Next',
                 onPressed: () {
-                  if (questionWidgetSelect != null &&
-                      questionWidgetSelect is StatefulWidget) {
-                    final response = (questionWidgetSelect as dynamic)
-                        .controllerOrCallback();
-                    handleNext(context, response);
+                  if (userResponse.isNotEmpty) {
+                    handleNext(context, userResponse);
+                  } else {
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      const SnackBar(
+                        content: Text('Please select or provide an answer.'),
+                      ),
+                    );
                   }
                 },
               ),
@@ -106,5 +106,20 @@ class QuestionControllerPage extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  void handleNext(BuildContext context, String response) async {
+    final questionId = widget.questionData['id'];
+    final userId = await Functions.getUserId();
+
+    if (!context.mounted) return;
+
+    context.read<QuestionBloc>().add(
+          SubmitAnswerEvent(
+            userId: userId,
+            questionId: questionId,
+            answer: response,
+          ),
+        );
   }
 }

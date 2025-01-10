@@ -76,8 +76,7 @@ class TestsRepository {
         method: 'POST',
         body: model.toJson(),
       );
-
-      if (response['status'] == true) {
+      if (response['success'] == true) {
         return {
           'data': response['data'],
           'success': true,
