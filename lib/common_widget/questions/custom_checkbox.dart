@@ -30,14 +30,24 @@ class _CustomCheckboxState extends State<CustomCheckbox> {
             style: Theme.of(context).textTheme.headlineSmall,
           ),
           const SizedBox(height: 20),
-          ...options.map((option) {
-            final optionTitle = option['title'] ?? 'Option';
-            return _checkboxOption(
-              context,
-              value: optionTitle,
-              label: optionTitle,
-            );
-          }),
+          Expanded(
+            child: SingleChildScrollView(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: options.map((option) {
+                  final optionTitle = option['title'] ?? 'Option';
+                  return Padding(
+                    padding: const EdgeInsets.only(bottom: 12.0),
+                    child: _checkboxOption(
+                      context,
+                      value: optionTitle,
+                      label: optionTitle,
+                    ),
+                  );
+                }).toList(),
+              ),
+            ),
+          ),
         ],
       ),
     );
