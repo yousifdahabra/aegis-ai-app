@@ -64,6 +64,17 @@ class QuestionControllerPage extends StatelessWidget {
                 ),
               ),
             );
+          } else if (state is QuestionFinished) {
+            Navigator.pop(context);
+            Navigator.pushReplacement(
+              context,
+              MaterialPageRoute(
+                builder: (context) => FinishPage(
+                  analysis: state.data['analysis'],
+                  score: state.data['score'],
+                ),
+              ),
+            );
           } else if (state is QuestionError) {
             Navigator.pop(context);
             ScaffoldMessenger.of(context).showSnackBar(
@@ -80,7 +91,14 @@ class QuestionControllerPage extends StatelessWidget {
               const SizedBox(height: 20),
               CustomButton(
                 text: 'Next',
-                onPressed: () {},
+                onPressed: () {
+                  if (questionWidgetSelect != null &&
+                      questionWidgetSelect is StatefulWidget) {
+                    final response = (questionWidgetSelect as dynamic)
+                        .controllerOrCallback();
+                    handleNext(context, response);
+                  }
+                },
               ),
             ],
           ),
