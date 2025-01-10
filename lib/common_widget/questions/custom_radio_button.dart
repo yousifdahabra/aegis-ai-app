@@ -20,32 +20,16 @@ class _CustomRadioButtonState extends State<CustomRadioButton> {
   String selectedOption = 'None Select';
   @override
   Widget build(BuildContext context) {
+    final options = widget.data['options'] as List<dynamic>? ?? [];
+
     return Padding(
       padding: const EdgeInsets.all(16.0),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           Text(
-            "question1",
+            widget.data['title'] ?? 'Question',
             style: Theme.of(context).textTheme.headlineSmall,
-          ),
-          SizedBox(
-            height: 20,
-          ),
-          _radioOption(
-            context,
-            value: "Option 2",
-            groupValue: selectedOption,
-            label: "Option 2",
-          ),
-          SizedBox(
-            height: 20,
-          ),
-          _radioOption(
-            context,
-            value: "Option 1",
-            groupValue: selectedOption,
-            label: "Option 1",
           ),
           SizedBox(
             height: 20,
