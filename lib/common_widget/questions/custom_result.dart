@@ -36,6 +36,11 @@ class CustomResult extends StatelessWidget {
               textAlign: TextAlign.center,
             ),
             const SizedBox(height: 20),
+            Text(
+              'Analysis:',
+              style: Theme.of(context).textTheme.headlineSmall,
+            ),
+            const SizedBox(height: 20),
             CustomButton(
               text: 'Back to Menu',
               onPressed: () {
