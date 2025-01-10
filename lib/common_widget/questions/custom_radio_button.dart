@@ -30,15 +30,24 @@ class _CustomRadioButtonState extends State<CustomRadioButton> {
             style: Theme.of(context).textTheme.headlineSmall,
           ),
           const SizedBox(height: 20),
-          ...options.map((option) {
-            final optionTitle = option['title'] ?? 'Option';
-            return _radioOption(
-              context,
-              value: optionTitle,
-              groupValue: selectedOption,
-              label: optionTitle,
-            );
-          }),
+          Expanded(
+            child: SingleChildScrollView(
+              child: Column(
+                children: options.map((option) {
+                  final optionTitle = option['title'] ?? 'Option';
+                  return Padding(
+                    padding: const EdgeInsets.only(bottom: 12.0),
+                    child: _radioOption(
+                      context,
+                      value: optionTitle,
+                      groupValue: selectedOption,
+                      label: optionTitle,
+                    ),
+                  );
+                }).toList(),
+              ),
+            ),
+          ),
         ],
       ),
     );
