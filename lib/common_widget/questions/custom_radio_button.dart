@@ -1,5 +1,3 @@
-import 'package:ai_safety_app/common_widget/custom_button.dart';
-import 'package:ai_safety_app/common_widget/questions/custom_checkbox.dart';
 import 'package:flutter/material.dart';
 
 class CustomRadioButton extends StatefulWidget {
@@ -17,11 +15,11 @@ class CustomRadioButton extends StatefulWidget {
 }
 
 class _CustomRadioButtonState extends State<CustomRadioButton> {
-  String selectedOption = 'None Select';
+  String? selectedOption;
+
   @override
   Widget build(BuildContext context) {
     final options = widget.data['options'] as List<dynamic>? ?? [];
-
     return Padding(
       padding: const EdgeInsets.all(16.0),
       child: Column(
@@ -31,22 +29,16 @@ class _CustomRadioButtonState extends State<CustomRadioButton> {
             widget.data['title'] ?? 'Question',
             style: Theme.of(context).textTheme.headlineSmall,
           ),
-          SizedBox(
-            height: 20,
-          ),
-          CustomButton(
-            onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) {
-                    return CustomCheckbox();
-                  },
-                ),
-              );
-            },
-            text: 'Next',
-          ),
+          const SizedBox(height: 20),
+          ...options.map((option) {
+            final optionTitle = option['title'] ?? 'Option';
+            return _radioOption(
+              context,
+              value: optionTitle,
+              groupValue: selectedOption,
+              label: optionTitle,
+            );
+          }).toList(),
         ],
       ),
     );
@@ -55,7 +47,7 @@ class _CustomRadioButtonState extends State<CustomRadioButton> {
   Widget _radioOption(
     BuildContext context, {
     required String value,
-    required String groupValue,
+    required String? groupValue,
     required String label,
   }) {
     return InkWell(
@@ -63,21 +55,22 @@ class _CustomRadioButtonState extends State<CustomRadioButton> {
         setState(() {
           selectedOption = value;
         });
+        widget.onResponse(value); // Pass the selected option
       },
       child: Container(
         padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 16),
         decoration: BoxDecoration(
-          color: groupValue == value ? Color(0xFF16354D) : Colors.white,
+          color: groupValue == value ? const Color(0xFF16354D) : Colors.white,
           borderRadius: BorderRadius.circular(10),
           boxShadow: [
             BoxShadow(
-              color: Color.fromARGB(66, 0, 0, 0),
+              color: const Color.fromARGB(66, 0, 0, 0),
               blurRadius: 6,
               offset: const Offset(0, 3),
             ),
           ],
           border: Border.all(
-            color: groupValue == value ? Color(0xFF16354D) : Colors.grey,
+            color: groupValue == value ? const Color(0xFF16354D) : Colors.grey,
             width: 1,
           ),
         ),
@@ -88,12 +81,11 @@ class _CustomRadioButtonState extends State<CustomRadioButton> {
               groupValue: groupValue,
               onChanged: (newValue) {
                 setState(() {
-                  selectedOption = newValue!;
+                  selectedOption = newValue;
                 });
+                widget.onResponse(newValue!); // Pass the selected option
               },
               activeColor: Colors.white,
-              fillColor: WidgetStateProperty.all(
-                  groupValue == value ? Colors.white : Colors.black),
             ),
             const SizedBox(width: 8),
             Text(
