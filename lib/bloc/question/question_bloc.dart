@@ -14,14 +14,15 @@ class QuestionBloc extends Bloc<QuestionEvent, QuestionState> {
     on<SubmitAnswerEvent>((event, emit) async {
       emit(QuestionLoading());
       try {
-        final response = await testsRepository.submitAnswer(SubmitAnswerModel(
+        final responseData =
+            await testsRepository.submitAnswer(SubmitAnswerModel(
           user_id: event.userId,
           question_id: event.questionId,
           option_answer: event.answer,
         ));
-
-        if (response['success'] == true) {
-          if (response['data']['finish'] == true) {
+        final response = responseData['data'];
+        if (response['status']) {
+          if (response['finish']) {
             emit(QuestionFinished(data: response['data']['result']));
           } else {
             emit(
