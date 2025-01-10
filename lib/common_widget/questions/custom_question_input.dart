@@ -1,11 +1,16 @@
 import 'package:ai_safety_app/common_widget/custom_input.dart';
 import 'package:flutter/material.dart';
 
-class CustomQuestionInput extends StatelessWidget {
+class CustomQuestionInput extends StatefulWidget {
   final Map<String, dynamic> data;
 
   const CustomQuestionInput({super.key, required this.data});
 
+  @override
+  State<CustomQuestionInput> createState() => _CustomQuestionInputState();
+}
+
+class _CustomQuestionInputState extends State<CustomQuestionInput> {
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -14,7 +19,7 @@ class CustomQuestionInput extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           Text(
-            data['questionText'] ?? 'Question',
+            widget.data['questionText'] ?? 'Question',
             style: Theme.of(context).textTheme.headlineSmall,
           ),
           const SizedBox(height: 20),
