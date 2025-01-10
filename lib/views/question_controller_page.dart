@@ -1,3 +1,4 @@
+import 'package:ai_safety_app/common_widget/questions/custom_result.dart';
 import 'package:ai_safety_app/utils/functions.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -69,7 +70,7 @@ class QuestionControllerPage extends StatelessWidget {
             Navigator.pushReplacement(
               context,
               MaterialPageRoute(
-                builder: (context) => FinishPage(
+                builder: (context) => CustomResult(
                   analysis: state.data['analysis'],
                   score: state.data['score'],
                 ),
