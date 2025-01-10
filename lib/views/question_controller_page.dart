@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
 
 class QuestionControllerPage extends StatelessWidget {
+  final String questionType;
+  final Map<String, dynamic> questionData;
+
   const QuestionControllerPage({
     super.key,
+    required this.questionType,
+    required this.questionData,
   });
 
   @override
