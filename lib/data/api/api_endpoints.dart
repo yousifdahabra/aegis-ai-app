@@ -4,4 +4,5 @@ class ApiEndpoints {
   static const String expert = '/user_expert_requests';
   static const String geTesttList = '/tests/get-list';
   static const String addTest = '/tests';
+  static const String submitAnswer = '/tests/answer';
 }
