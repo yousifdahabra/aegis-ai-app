@@ -16,6 +16,8 @@ class CustomQuestionInput extends StatefulWidget {
 }
 
 class _CustomQuestionInputState extends State<CustomQuestionInput> {
+  final TextEditingController _controller = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -33,6 +35,13 @@ class _CustomQuestionInputState extends State<CustomQuestionInput> {
             hint: 'Type your answer here',
             icon: const Icon(Icons.question_answer),
             multiLine: true,
+          ),
+          const SizedBox(height: 20),
+          ElevatedButton(
+            onPressed: () {
+              widget.onSubmit(_controller.text);
+            },
+            child: const Text('Submit Answer'),
           ),
         ],
       ),
