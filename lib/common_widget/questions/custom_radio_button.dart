@@ -55,7 +55,7 @@ class _CustomRadioButtonState extends State<CustomRadioButton> {
         setState(() {
           selectedOption = value;
         });
-        widget.onResponse(value); // Pass the selected option
+        widget.onResponse(value);
       },
       child: Container(
         padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 16),
@@ -83,7 +83,7 @@ class _CustomRadioButtonState extends State<CustomRadioButton> {
                 setState(() {
                   selectedOption = newValue;
                 });
-                widget.onResponse(newValue!); // Pass the selected option
+                widget.onResponse(newValue!);
               },
               activeColor: Colors.white,
             ),
