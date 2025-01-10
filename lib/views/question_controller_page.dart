@@ -18,10 +18,25 @@ class QuestionControllerPage extends StatelessWidget {
   void handleNext(BuildContext context, String response) async {
     final questionId = questionData['id'];
     final userId = await Functions.getUserId();
+
+    if (!context.mounted) return;
+
+    context.read<QuestionBloc>().add(
+          SubmitAnswerEvent(
+            userId: userId,
+            questionId: questionId,
+            answer: response,
+          ),
+        );
   }
 
   @override
   Widget build(BuildContext context) {
+    final questionWidgetSelect = questionWidget[questionType]?.call(
+      questionData,
+      (response) => handleNext(context, response),
+    );
+
     return Scaffold(
       appBar: AppBar(
         title: const Text('Test Question'),
@@ -33,6 +48,8 @@ class QuestionControllerPage extends StatelessWidget {
           padding: const EdgeInsets.all(16.0),
           child: Column(
             children: [
+              if (questionWidgetSelect != null)
+                Expanded(child: questionWidgetSelect),
               const SizedBox(height: 20),
               CustomButton(
                 text: 'Next',
