@@ -11,6 +11,5 @@ final Map<String, Widget Function(dynamic data, Function(String) onResponse)>
   '2': (data, onResponse) =>
       CustomRadioButton(data: data, onResponse: onResponse),
 
-  // '2': (data, onResponse) => CustomQuestionCheckbox(data: data, onResponse: onResponse),
   // '3': (data, onResponse) => CustomQuestionRadio(data: data, onResponse: onResponse),
 };

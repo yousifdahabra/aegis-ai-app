@@ -3,7 +3,14 @@ import 'package:ai_safety_app/common_widget/questions/custom_email.dart';
 import 'package:flutter/material.dart';
 
 class CustomCheckbox extends StatefulWidget {
-  const CustomCheckbox({super.key});
+  final Map<String, dynamic> data;
+  final Function(String) onResponse;
+
+  const CustomCheckbox({
+    super.key,
+    required this.data,
+    required this.onResponse,
+  });
 
   @override
   State<CustomCheckbox> createState() => _CustomCheckboxState();
@@ -14,69 +21,51 @@ class _CustomCheckboxState extends State<CustomCheckbox> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Checkbox Selection'),
-      ),
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            Text(
-              "Question",
-              style: Theme.of(context).textTheme.headlineSmall,
-            ),
-            SizedBox(
-              height: 40,
-            ),
-            _checkboxOption(
-              context,
-              value: "Option 2",
-              label: "Option 2",
-            ),
-            SizedBox(
-              height: 20,
-            ),
-            _checkboxOption(
-              context,
-              value: "Option 1",
-              label: "Option 1",
-            ),
-            SizedBox(
-              height: 20,
-            ),
-            _checkboxOption(
-              context,
-              value: "Option 3",
-              label: "Option 3",
-            ),
-            SizedBox(
-              height: 20,
-            ),
-            _checkboxOption(
-              context,
-              value: "Option 4",
-              label: "Option 4",
-            ),
-            SizedBox(
-              height: 20,
-            ),
-            CustomButton(
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) {
-                      return CustomEmail();
-                    },
-                  ),
-                );
-              },
-              text: 'Next',
-            ),
-          ],
-        ),
+    return Padding(
+      padding: const EdgeInsets.all(16.0),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          Text(
+            "Question",
+            style: Theme.of(context).textTheme.headlineSmall,
+          ),
+          SizedBox(
+            height: 40,
+          ),
+          _checkboxOption(
+            context,
+            value: "Option 2",
+            label: "Option 2",
+          ),
+          SizedBox(
+            height: 20,
+          ),
+          _checkboxOption(
+            context,
+            value: "Option 1",
+            label: "Option 1",
+          ),
+          SizedBox(
+            height: 20,
+          ),
+          _checkboxOption(
+            context,
+            value: "Option 3",
+            label: "Option 3",
+          ),
+          SizedBox(
+            height: 20,
+          ),
+          _checkboxOption(
+            context,
+            value: "Option 4",
+            label: "Option 4",
+          ),
+          SizedBox(
+            height: 20,
+          ),
+        ],
       ),
     );
   }
