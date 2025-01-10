@@ -40,6 +40,15 @@ class CustomResult extends StatelessWidget {
               'Analysis:',
               style: Theme.of(context).textTheme.headlineSmall,
             ),
+            const SizedBox(height: 10),
+            Expanded(
+              child: SingleChildScrollView(
+                child: Text(
+                  analysis,
+                  style: Theme.of(context).textTheme.bodyLarge,
+                ),
+              ),
+            ),
             const SizedBox(height: 20),
             CustomButton(
               text: 'Back to Menu',
