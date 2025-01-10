@@ -43,7 +43,17 @@ class QuestionControllerPage extends StatelessWidget {
         backgroundColor: Colors.blue,
       ),
       body: BlocListener<QuestionBloc, QuestionState>(
-        listener: (context, state) {},
+        listener: (context, state) {
+          if (state is QuestionLoading) {
+            showDialog(
+              context: context,
+              barrierDismissible: false,
+              builder: (_) => const Center(
+                child: CircularProgressIndicator(),
+              ),
+            );
+          }
+        },
         child: Padding(
           padding: const EdgeInsets.all(16.0),
           child: Column(
