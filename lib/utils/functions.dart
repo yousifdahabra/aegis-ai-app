@@ -8,4 +8,9 @@ class Functions {
     final userJson = await _secureStorage.read(key: 'user_data');
     return userJson != null ? jsonDecode(userJson) : null;
   }
+
+  static Future<int> getUserId() async {
+    final userData = await getUserData();
+    return userData?['id'];
+  }
 }
