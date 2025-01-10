@@ -17,11 +17,10 @@ class QuestionControllerPage extends StatefulWidget {
 }
 
 class _QuestionControllerPageState extends State<QuestionControllerPage> {
-  String userResponse = ''; // Store the user response dynamically
+  String userResponse = '';
 
   void handleNext() {
-    print('User response: $userResponse'); // Ensure the response is printed
-    // TODO: Submit response to server and fetch the next question
+    print('User response: $userResponse');
   }
 
   @override
@@ -30,7 +29,7 @@ class _QuestionControllerPageState extends State<QuestionControllerPage> {
       widget.questionData,
       (response) {
         setState(() {
-          userResponse = response; // Dynamically update the response
+          userResponse = response;
         });
       },
     );
