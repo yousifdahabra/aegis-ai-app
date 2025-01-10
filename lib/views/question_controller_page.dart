@@ -2,7 +2,7 @@ import 'package:ai_safety_app/common_widget/custom_button.dart';
 import 'package:ai_safety_app/common_widget/questions/question_widget.dart';
 import 'package:flutter/material.dart';
 
-class QuestionControllerPage extends StatelessWidget {
+class QuestionControllerPage extends StatefulWidget {
   final String questionType;
   final Map<String, dynamic> questionData;
 
@@ -13,9 +13,27 @@ class QuestionControllerPage extends StatelessWidget {
   });
 
   @override
+  State<QuestionControllerPage> createState() => _QuestionControllerPageState();
+}
+
+class _QuestionControllerPageState extends State<QuestionControllerPage> {
+  String userResponse = ''; // Store the user response dynamically
+
+  void handleNext() {
+    print('User response: $userResponse'); // Ensure the response is printed
+    // TODO: Submit response to server and fetch the next question
+  }
+
+  @override
   Widget build(BuildContext context) {
-    final questionWidgetSelect =
-        questionWidget[questionType]?.call(questionData);
+    final questionWidgetSelect = questionWidget[widget.questionType]?.call(
+      widget.questionData,
+      (response) {
+        setState(() {
+          userResponse = response; // Dynamically update the response
+        });
+      },
+    );
 
     return Scaffold(
       appBar: AppBar(
@@ -31,7 +49,7 @@ class QuestionControllerPage extends StatelessWidget {
             const SizedBox(height: 20),
             CustomButton(
               text: 'Next',
-              onPressed: () {},
+              onPressed: handleNext,
             ),
           ],
         ),
