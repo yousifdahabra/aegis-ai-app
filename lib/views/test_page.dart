@@ -1,6 +1,7 @@
 import 'package:ai_safety_app/bloc/start_test/start_test_bloc.dart';
 import 'package:ai_safety_app/common_widget/custom_app_bar.dart';
 import 'package:ai_safety_app/common_widget/custom_button.dart';
+import 'package:ai_safety_app/views/question_controller_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:ai_safety_app/theme/app_colors.dart';
@@ -22,6 +23,22 @@ class TestPage extends StatelessWidget {
           );
         } else if (state is StartTestSuccess) {
           Navigator.pop(context);
+          final dataR = state.data['data'];
+          final question = dataR['question'];
+          final questionTypeId = question['question_type_id'];
+          final options = question['options'] ?? [];
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => QuestionControllerPage(
+                questionType: questionTypeId.toString(),
+                questionData: {
+                  ...question,
+                  'options': options,
+                },
+              ),
+            ),
+          );
         } else if (state is StartTestFailure) {
           Navigator.pop(context);
           ScaffoldMessenger.of(context).showSnackBar(
@@ -57,12 +74,12 @@ class TestPage extends StatelessWidget {
                 CustomButton(
                   text: 'Start Test',
                   onPressed: () {
-                    context.read<StartTestBloc>().add(
-                          StartTest(),
-                        );
+                    context.read<StartTestBloc>().add(StartTest());
                   },
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 50, vertical: 15),
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 50,
+                    vertical: 15,
+                  ),
                 ),
                 const SizedBox(height: 20),
                 Text(

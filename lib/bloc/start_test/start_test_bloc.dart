@@ -29,11 +29,9 @@ class StartTestBloc extends Bloc<StartTest, StartTestState> {
           StartTestModel(
             title: 'Test $name',
             user_id: userId,
-            expert_id: event.expertId ?? 3,
             test_state_id: event.testStateId ?? 1,
           ),
         );
-
         if (response['success'] == true) {
           final data = response['data'];
           emit(StartTestSuccess(data: data));
