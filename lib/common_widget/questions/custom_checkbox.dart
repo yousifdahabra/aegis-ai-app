@@ -30,41 +30,6 @@ class _CustomCheckboxState extends State<CustomCheckbox> {
             "Question",
             style: Theme.of(context).textTheme.headlineSmall,
           ),
-          SizedBox(
-            height: 40,
-          ),
-          _checkboxOption(
-            context,
-            value: "Option 2",
-            label: "Option 2",
-          ),
-          SizedBox(
-            height: 20,
-          ),
-          _checkboxOption(
-            context,
-            value: "Option 1",
-            label: "Option 1",
-          ),
-          SizedBox(
-            height: 20,
-          ),
-          _checkboxOption(
-            context,
-            value: "Option 3",
-            label: "Option 3",
-          ),
-          SizedBox(
-            height: 20,
-          ),
-          _checkboxOption(
-            context,
-            value: "Option 4",
-            label: "Option 4",
-          ),
-          SizedBox(
-            height: 20,
-          ),
         ],
       ),
     );
