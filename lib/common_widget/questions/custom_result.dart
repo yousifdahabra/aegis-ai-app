@@ -2,21 +2,22 @@ import 'package:ai_safety_app/common_widget/custom_button.dart';
 import 'package:ai_safety_app/common_widget/navigation_menu.dart';
 import 'package:flutter/material.dart';
 
-class CustomResult extends StatefulWidget {
-  const CustomResult({super.key});
+class CustomResult extends StatelessWidget {
+  final String analysis;
+  final String score;
 
-  @override
-  State<CustomResult> createState() => _CustomResultState();
-}
-
-class _CustomResultState extends State<CustomResult> {
-  final List<String> selectedOptions = [];
+  const CustomResult({
+    super.key,
+    required this.analysis,
+    required this.score,
+  });
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Result'),
+        title: const Text('Test Result'),
+        backgroundColor: Colors.blue,
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
@@ -24,24 +25,27 @@ class _CustomResultState extends State<CustomResult> {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             Text(
-              "Your result",
+              'Your Test Results',
               style: Theme.of(context).textTheme.headlineSmall,
+              textAlign: TextAlign.center,
             ),
-            SizedBox(
-              height: 20,
+            const SizedBox(height: 20),
+            Text(
+              'Score: $score',
+              style: Theme.of(context).textTheme.displayMedium,
+              textAlign: TextAlign.center,
             ),
+            const SizedBox(height: 20),
             CustomButton(
+              text: 'Back to Menu',
               onPressed: () {
-                Navigator.push(
+                Navigator.pushReplacement(
                   context,
                   MaterialPageRoute(
-                    builder: (context) {
-                      return NavigationMenu();
-                    },
+                    builder: (context) => const NavigationMenu(),
                   ),
                 );
               },
-              text: 'Back',
             ),
           ],
         ),
