@@ -19,3 +19,12 @@ class NextQuestionLoaded extends QuestionState {
   @override
   List<Object?> get props => [questionData];
 }
+
+class QuestionFinished extends QuestionState {
+  final Map<String, dynamic> data;
+
+  const QuestionFinished({required this.data});
+
+  @override
+  List<Object?> get props => [data];
+}
