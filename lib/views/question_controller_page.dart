@@ -64,6 +64,11 @@ class QuestionControllerPage extends StatelessWidget {
                 ),
               ),
             );
+          } else if (state is QuestionError) {
+            Navigator.pop(context);
+            ScaffoldMessenger.of(context).showSnackBar(
+              SnackBar(content: Text(state.message)),
+            );
           }
         },
         child: Padding(
