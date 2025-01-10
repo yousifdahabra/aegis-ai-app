@@ -81,6 +81,7 @@ class _CustomCheckboxState extends State<CustomCheckbox> {
           ),
         ),
         child: Row(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Checkbox(
               value: selectedOptions.contains(value),
@@ -95,15 +96,19 @@ class _CustomCheckboxState extends State<CustomCheckbox> {
                 });
               },
               activeColor: Colors.white,
+              checkColor:
+                  selectedOptions.contains(value) ? Colors.black : Colors.grey,
             ),
             const SizedBox(width: 8),
-            Text(
-              label,
-              style: Theme.of(context).textTheme.bodyLarge?.copyWith(
-                    color: selectedOptions.contains(value)
-                        ? Colors.white
-                        : Colors.black,
-                  ),
+            Expanded(
+              child: Text(
+                label,
+                style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+                      color: selectedOptions.contains(value)
+                          ? Colors.white
+                          : Colors.black,
+                    ),
+              ),
             ),
           ],
         ),
