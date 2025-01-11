@@ -41,6 +41,13 @@ class _CustomVoiceInteractionsState extends State<CustomVoiceInteractions> {
     await _flutterTts.setSpeechRate(0.5);
 
     await _flutterTts.speak(text);
+
+    _flutterTts.setCompletionHandler(() {
+      setState(() {
+        _isSpeaking = false;
+      });
+      _startListening();
+    });
   }
 
   Future<void> _startListening() async {
