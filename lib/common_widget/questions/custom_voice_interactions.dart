@@ -57,7 +57,11 @@ class _CustomVoiceInteractionsState extends State<CustomVoiceInteractions> {
   Future<void> _startListening() async {
     bool available = await _speechToText.initialize(
       onStatus: (status) => print("STT Status: $status"),
-      onError: (error) async {},
+      onError: (error) async {
+        if (error.errorMsg == "error_no_match") {
+          _handleNoResponse();
+        }
+      },
     );
 
     if (available) {
@@ -88,6 +92,20 @@ class _CustomVoiceInteractionsState extends State<CustomVoiceInteractions> {
     });
 
     widget.onResponse(_userResponse.isEmpty ? "Not Answered" : _userResponse);
+  }
+
+  void _handleNoResponse() {
+    _retryCount++;
+    if (_retryCount < _maxRetries) {
+      _speakQuestion(
+          "I didn't catch that. Please try again. Attempt $_retryCount of $_maxRetries.");
+    } else {
+      setState(() {
+        _isListening = false;
+        _userResponse = "Not Answered";
+      });
+      widget.onResponse(_userResponse);
+    }
   }
 
   @override
