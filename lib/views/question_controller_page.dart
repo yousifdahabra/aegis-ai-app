@@ -38,6 +38,9 @@ class _QuestionControllerPageState extends State<QuestionControllerPage> {
         setState(() {
           userResponse = response;
         });
+        if (isVoiceInteraction && response.isNotEmpty) {
+          handleNext(context, response);
+        }
       },
     );
 
