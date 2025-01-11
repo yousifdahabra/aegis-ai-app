@@ -143,6 +143,11 @@ class _CustomVoiceInteractionsState extends State<CustomVoiceInteractions> {
                   textAlign: TextAlign.center,
                 ),
               ),
+            const SizedBox(height: 20),
+            ElevatedButton(
+              onPressed: () => _speakQuestion(widget.questionText),
+              child: const Text("Restart Speaking"),
+            ),
           ],
         ),
       ),
