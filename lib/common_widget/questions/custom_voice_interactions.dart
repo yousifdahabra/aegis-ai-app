@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_tts/flutter_tts.dart';
 
 class CustomVoiceInteractions extends StatefulWidget {
   final String questionText;
@@ -16,6 +17,27 @@ class CustomVoiceInteractions extends StatefulWidget {
 }
 
 class _CustomVoiceInteractionsState extends State<CustomVoiceInteractions> {
+  final FlutterTts _flutterTts = FlutterTts();
+  bool _isSpeaking = false;
+
+  Future<void> _speakQuestion(String text) async {
+    setState(() {
+      _isSpeaking = true;
+    });
+
+    await _flutterTts.setLanguage("en-US");
+    await _flutterTts.setPitch(1.0);
+    await _flutterTts.setSpeechRate(0.5);
+
+    await _flutterTts.speak(text);
+
+    _flutterTts.setCompletionHandler(() {
+      setState(() {
+        _isSpeaking = false;
+      });
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -32,8 +54,6 @@ class _CustomVoiceInteractionsState extends State<CustomVoiceInteractions> {
               style: Theme.of(context).textTheme.headlineSmall,
               textAlign: TextAlign.center,
             ),
-            const SizedBox(height: 30),
-            const Text("text here"),
           ],
         ),
       ),
