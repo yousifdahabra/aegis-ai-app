@@ -64,6 +64,15 @@ class _CustomVoiceInteractionsState extends State<CustomVoiceInteractions> {
     }
   }
 
+  Future<void> _stopListening() async {
+    await _speechToText.stop();
+    setState(() {
+      _isListening = false;
+    });
+
+    widget.onResponse(_userResponse);
+  }
+
   @override
   void dispose() {
     _flutterTts.stop();
