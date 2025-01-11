@@ -20,7 +20,9 @@ dependencies:
   flutter_tts: ^4.2.1
   json_annotation: ^4.9.0
   meta: ^1.15.0
+  permission_handler: ^11.3.1
   smooth_page_indicator: ^1.2.0+3
+  speech_to_text: ^7.0.0
 
 dev_dependencies:
   build_runner: ^2.4.14
