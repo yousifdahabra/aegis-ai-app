@@ -128,6 +128,21 @@ class _CustomVoiceInteractionsState extends State<CustomVoiceInteractions> {
                 size: 40,
               ),
             ),
+            const SizedBox(height: 20),
+            if (_isListening)
+              Text(
+                "Listening...",
+                style: Theme.of(context).textTheme.bodyLarge,
+              ),
+            if (_userResponse.isNotEmpty)
+              Padding(
+                padding: const EdgeInsets.symmetric(vertical: 20),
+                child: Text(
+                  "Your Response: $_userResponse",
+                  style: Theme.of(context).textTheme.bodyLarge,
+                  textAlign: TextAlign.center,
+                ),
+              ),
           ],
         ),
       ),
