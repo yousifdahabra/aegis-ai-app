@@ -22,6 +22,13 @@ class QuestionControllerPage extends StatefulWidget {
 
 class _QuestionControllerPageState extends State<QuestionControllerPage> {
   String userResponse = '';
+  bool isVoiceInteraction = false;
+
+  @override
+  void initState() {
+    super.initState();
+    isVoiceInteraction = widget.questionType == '6';
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -86,21 +93,22 @@ class _QuestionControllerPageState extends State<QuestionControllerPage> {
             children: [
               if (questionWidgetSelect != null)
                 Expanded(child: questionWidgetSelect),
-              const SizedBox(height: 20),
-              CustomButton(
-                text: 'Next',
-                onPressed: () {
-                  if (userResponse.isNotEmpty) {
-                    handleNext(context, userResponse);
-                  } else {
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      const SnackBar(
-                        content: Text('Please select or provide an answer.'),
-                      ),
-                    );
-                  }
-                },
-              ),
+              if (!isVoiceInteraction) const SizedBox(height: 20),
+              if (!isVoiceInteraction)
+                CustomButton(
+                  text: 'Next',
+                  onPressed: () {
+                    if (userResponse.isNotEmpty) {
+                      handleNext(context, userResponse);
+                    } else {
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        const SnackBar(
+                          content: Text('Please select or provide an answer.'),
+                        ),
+                      );
+                    }
+                  },
+                ),
             ],
           ),
         ),
