@@ -1,3 +1,4 @@
+import 'package:ai_safety_app/common_widget/custom_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_tts/flutter_tts.dart';
 import 'package:speech_to_text/speech_to_text.dart' as stt;
@@ -23,6 +24,8 @@ class _CustomVoiceInteractionsState extends State<CustomVoiceInteractions> {
   bool _isSpeaking = false;
   bool _isListening = false;
   String _userResponse = "";
+  int _retryCount = 0;
+  final int _maxRetries = 3;
 
   @override
   void initState() {
@@ -34,6 +37,7 @@ class _CustomVoiceInteractionsState extends State<CustomVoiceInteractions> {
     setState(() {
       _isSpeaking = true;
       _isListening = false;
+      _retryCount = 0;
     });
 
     await _flutterTts.setLanguage("en-US");
@@ -53,7 +57,7 @@ class _CustomVoiceInteractionsState extends State<CustomVoiceInteractions> {
   Future<void> _startListening() async {
     bool available = await _speechToText.initialize(
       onStatus: (status) => print("STT Status: $status"),
-      onError: (error) => print("STT Error: $error"),
+      onError: (error) async {},
     );
 
     if (available) {
@@ -83,7 +87,7 @@ class _CustomVoiceInteractionsState extends State<CustomVoiceInteractions> {
       _isListening = false;
     });
 
-    widget.onResponse(_userResponse);
+    widget.onResponse(_userResponse.isEmpty ? "Not Answered" : _userResponse);
   }
 
   @override
@@ -95,66 +99,65 @@ class _CustomVoiceInteractionsState extends State<CustomVoiceInteractions> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Voice Interaction'),
-        backgroundColor: Colors.blue,
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text(
-              widget.questionText,
-              style: Theme.of(context).textTheme.headlineSmall,
-              textAlign: TextAlign.center,
+    return Center(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          Text(
+            widget.questionText,
+            style: Theme.of(context).textTheme.headlineSmall,
+            textAlign: TextAlign.center,
+          ),
+          const SizedBox(height: 30),
+          AnimatedContainer(
+            duration: const Duration(milliseconds: 500),
+            width: _isListening ? 100 : 80,
+            height: _isListening ? 100 : 80,
+            decoration: BoxDecoration(
+              color: _isListening
+                  ? const Color(0xFF289DD2)
+                  : const Color(0xFF16354D),
+              shape: BoxShape.circle,
             ),
-            const SizedBox(height: 30),
-            AnimatedContainer(
-              duration: const Duration(milliseconds: 500),
-              width: _isListening ? 100 : 80,
-              height: _isListening ? 100 : 80,
-              decoration: BoxDecoration(
-                color: _isListening ? Colors.green : Colors.blue,
-                shape: BoxShape.circle,
-              ),
-              child: Icon(
-                _isListening
-                    ? Icons.mic
-                    : _isSpeaking
-                        ? Icons.volume_up
-                        : Icons.mic_off,
-                color: Colors.white,
-                size: 40,
-              ),
+            child: Icon(
+              _isListening
+                  ? Icons.mic
+                  : _isSpeaking
+                      ? Icons.volume_up
+                      : Icons.mic_off,
+              color: Colors.white,
+              size: 40,
             ),
-            const SizedBox(height: 20),
-            if (_isListening)
-              Text(
-                "Listening...",
+          ),
+          const SizedBox(height: 20),
+          if (_isListening && _userResponse.isEmpty)
+            Text("Listening...", style: Theme.of(context).textTheme.bodyLarge),
+          if (_userResponse.isNotEmpty)
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical: 20),
+              child: Text(
+                "Your Response: $_userResponse",
                 style: Theme.of(context).textTheme.bodyLarge,
+                textAlign: TextAlign.center,
               ),
-            if (_userResponse.isNotEmpty)
-              Padding(
-                padding: const EdgeInsets.symmetric(vertical: 20),
-                child: Text(
-                  "Your Response: $_userResponse",
-                  style: Theme.of(context).textTheme.bodyLarge,
-                  textAlign: TextAlign.center,
-                ),
-              ),
-            const SizedBox(height: 20),
-            ElevatedButton(
-              onPressed: () => _speakQuestion(widget.questionText),
-              child: const Text("Restart Speaking"),
             ),
-            if (_isListening)
-              ElevatedButton(
-                onPressed: _stopListening,
-                child: const Text("Stop Listening"),
-              ),
-          ],
-        ),
+          const SizedBox(height: 30),
+          CustomButton(
+            text: 'Restart Speaking',
+            onPressed: () {
+              _speakQuestion(widget.questionText);
+            },
+            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
+          ),
+          const SizedBox(height: 20),
+          if (_isListening || _userResponse.isNotEmpty)
+            CustomButton(
+              text: 'Next',
+              onPressed: _stopListening,
+              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
+            ),
+        ],
       ),
     );
   }
