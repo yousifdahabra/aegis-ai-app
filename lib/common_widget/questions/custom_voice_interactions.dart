@@ -24,6 +24,12 @@ class _CustomVoiceInteractionsState extends State<CustomVoiceInteractions> {
   bool _isListening = false;
   String _userResponse = "";
 
+  @override
+  void initState() {
+    super.initState();
+    _speakQuestion(widget.questionText);
+  }
+
   Future<void> _speakQuestion(String text) async {
     setState(() {
       _isSpeaking = true;
