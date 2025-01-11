@@ -109,6 +109,12 @@ class _CustomVoiceInteractionsState extends State<CustomVoiceInteractions> {
               style: Theme.of(context).textTheme.headlineSmall,
               textAlign: TextAlign.center,
             ),
+            const SizedBox(height: 30),
+            AnimatedContainer(
+              duration: const Duration(milliseconds: 500),
+              width: _isListening ? 100 : 80,
+              height: _isListening ? 100 : 80,
+            ),
           ],
         ),
       ),
