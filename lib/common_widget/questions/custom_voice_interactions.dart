@@ -1,7 +1,14 @@
 import 'package:flutter/material.dart';
 
 class CustomVoiceInteractions extends StatefulWidget {
-  const CustomVoiceInteractions({super.key});
+  final String questionText;
+  final Function(String) onResponse;
+
+  const CustomVoiceInteractions({
+    super.key,
+    required this.questionText,
+    required this.onResponse,
+  });
 
   @override
   State<CustomVoiceInteractions> createState() =>
@@ -11,6 +18,6 @@ class CustomVoiceInteractions extends StatefulWidget {
 class _CustomVoiceInteractionsState extends State<CustomVoiceInteractions> {
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Scaffold();
   }
 }
