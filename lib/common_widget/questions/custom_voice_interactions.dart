@@ -54,6 +54,11 @@ class _CustomVoiceInteractionsState extends State<CustomVoiceInteractions> {
               style: Theme.of(context).textTheme.headlineSmall,
               textAlign: TextAlign.center,
             ),
+            const SizedBox(height: 30),
+            ElevatedButton(
+              onPressed: () => _speakQuestion(widget.questionText),
+              child: const Text("Start Speaking"),
+            ),
           ],
         ),
       ),
