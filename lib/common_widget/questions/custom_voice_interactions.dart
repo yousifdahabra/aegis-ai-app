@@ -65,6 +65,13 @@ class _CustomVoiceInteractionsState extends State<CustomVoiceInteractions> {
   }
 
   @override
+  void dispose() {
+    _flutterTts.stop();
+    _speechToText.stop();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
