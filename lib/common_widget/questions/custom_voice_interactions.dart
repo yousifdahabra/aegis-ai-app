@@ -18,6 +18,25 @@ class CustomVoiceInteractions extends StatefulWidget {
 class _CustomVoiceInteractionsState extends State<CustomVoiceInteractions> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Voice Interaction'),
+        backgroundColor: Colors.blue,
+      ),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(
+              widget.questionText,
+              style: Theme.of(context).textTheme.headlineSmall,
+              textAlign: TextAlign.center,
+            ),
+            const SizedBox(height: 30),
+            const Text("text here"),
+          ],
+        ),
+      ),
+    );
   }
 }
