@@ -148,6 +148,11 @@ class _CustomVoiceInteractionsState extends State<CustomVoiceInteractions> {
               onPressed: () => _speakQuestion(widget.questionText),
               child: const Text("Restart Speaking"),
             ),
+            if (_isListening)
+              ElevatedButton(
+                onPressed: _stopListening,
+                child: const Text("Stop Listening"),
+              ),
           ],
         ),
       ),
