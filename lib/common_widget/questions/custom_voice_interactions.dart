@@ -118,6 +118,15 @@ class _CustomVoiceInteractionsState extends State<CustomVoiceInteractions> {
                 color: _isListening ? Colors.green : Colors.blue,
                 shape: BoxShape.circle,
               ),
+              child: Icon(
+                _isListening
+                    ? Icons.mic
+                    : _isSpeaking
+                        ? Icons.volume_up
+                        : Icons.mic_off,
+                color: Colors.white,
+                size: 40,
+              ),
             ),
           ],
         ),
