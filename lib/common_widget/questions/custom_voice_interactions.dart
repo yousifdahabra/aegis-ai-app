@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_tts/flutter_tts.dart';
+import 'package:speech_to_text/speech_to_text.dart' as stt;
 
 class CustomVoiceInteractions extends StatefulWidget {
   final String questionText;
-  final Function(String) onResponse;
 
   const CustomVoiceInteractions({
     super.key,
     required this.questionText,
-    required this.onResponse,
   });
 
   @override
@@ -18,11 +17,15 @@ class CustomVoiceInteractions extends StatefulWidget {
 
 class _CustomVoiceInteractionsState extends State<CustomVoiceInteractions> {
   final FlutterTts _flutterTts = FlutterTts();
+  final stt.SpeechToText _speechToText = stt.SpeechToText();
   bool _isSpeaking = false;
+  bool _isListening = false;
+  String _userResponse = "";
 
   Future<void> _speakQuestion(String text) async {
     setState(() {
       _isSpeaking = true;
+      _isListening = false;
     });
 
     await _flutterTts.setLanguage("en-US");
@@ -30,12 +33,6 @@ class _CustomVoiceInteractionsState extends State<CustomVoiceInteractions> {
     await _flutterTts.setSpeechRate(0.5);
 
     await _flutterTts.speak(text);
-
-    _flutterTts.setCompletionHandler(() {
-      setState(() {
-        _isSpeaking = false;
-      });
-    });
   }
 
   @override
@@ -53,11 +50,6 @@ class _CustomVoiceInteractionsState extends State<CustomVoiceInteractions> {
               widget.questionText,
               style: Theme.of(context).textTheme.headlineSmall,
               textAlign: TextAlign.center,
-            ),
-            const SizedBox(height: 30),
-            ElevatedButton(
-              onPressed: () => _speakQuestion(widget.questionText),
-              child: const Text("Start Speaking"),
             ),
           ],
         ),
