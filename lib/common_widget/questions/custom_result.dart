@@ -1,3 +1,4 @@
+import 'package:ai_safety_app/common_widget/custom_app_bar.dart';
 import 'package:ai_safety_app/common_widget/custom_button.dart';
 import 'package:ai_safety_app/common_widget/navigation_menu.dart';
 import 'package:flutter/material.dart';
@@ -15,9 +16,8 @@ class CustomResult extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Test Result'),
-        backgroundColor: Colors.blue,
+      appBar: CustomAppBar(
+        mainTitle: 'Your result',
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
