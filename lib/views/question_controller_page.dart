@@ -1,3 +1,4 @@
+import 'package:ai_safety_app/common_widget/custom_app_bar.dart';
 import 'package:ai_safety_app/common_widget/questions/custom_result.dart';
 import 'package:ai_safety_app/utils/functions.dart';
 import 'package:flutter/material.dart';
@@ -45,9 +46,8 @@ class _QuestionControllerPageState extends State<QuestionControllerPage> {
     );
 
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Test Question'),
-        backgroundColor: Colors.blue,
+      appBar: CustomAppBar(
+        mainTitle: 'Test',
       ),
       body: BlocListener<QuestionBloc, QuestionState>(
         listener: (context, state) {
