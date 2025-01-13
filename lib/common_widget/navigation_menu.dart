@@ -27,6 +27,7 @@ class _NavigationMenuState extends State<NavigationMenu> {
       body: _pages[_selectedIndex],
       bottomNavigationBar: NavigationBar(
         backgroundColor: Colors.white,
+        indicatorColor: Color.fromARGB(122, 40, 156, 210),
         selectedIndex: _selectedIndex,
         onDestinationSelected: (int index) {
           setState(() {
