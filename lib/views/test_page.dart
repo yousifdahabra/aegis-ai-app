@@ -83,7 +83,7 @@ class TestPage extends StatelessWidget {
                 ),
                 const SizedBox(height: 20),
                 Text(
-                  "Good luck! We believe in you.",
+                  "Be yourself; everyone else is already taken.",
                   style: Theme.of(context).textTheme.bodySmall,
                   textAlign: TextAlign.center,
                 ),
