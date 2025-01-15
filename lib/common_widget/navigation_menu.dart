@@ -1,8 +1,9 @@
-import 'package:ai_safety_app/views/auth/profile.dart';
-import 'package:ai_safety_app/views/list/expert_request.dart';
+import 'package:ai_safety_app/views/auth/login.dart';
+import 'package:ai_safety_app/views/list/add_expert_request.dart';
 import 'package:ai_safety_app/views/list/test_list.dart';
 import 'package:ai_safety_app/views/test_page.dart';
 import 'package:flutter/material.dart';
+import 'package:ai_safety_app/data/repositories/auth_repository.dart';
 
 class NavigationMenu extends StatefulWidget {
   const NavigationMenu({super.key});
@@ -16,25 +17,42 @@ class _NavigationMenuState extends State<NavigationMenu> {
 
   final List<Widget> _pages = [
     Center(child: TestList()),
-    Center(child: ExpertRequest()),
+    Center(child: AddExpertRequest()),
     Center(child: TestPage()),
-    Center(child: Profile()),
+    const SizedBox(),
   ];
+
+  Future<void> _logout() async {
+    final authRepository = AuthRepository();
+    await authRepository.logout();
+
+    if (!mounted) return;
+
+    Navigator.pushAndRemoveUntil(
+      context,
+      MaterialPageRoute(builder: (context) => const Login()),
+      (route) => false,
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: _pages[_selectedIndex],
+      body: _selectedIndex == 3 ? const SizedBox() : _pages[_selectedIndex],
       bottomNavigationBar: NavigationBar(
         backgroundColor: Colors.white,
-        indicatorColor: Color.fromARGB(122, 40, 156, 210),
+        indicatorColor: const Color.fromARGB(122, 40, 156, 210),
         selectedIndex: _selectedIndex,
-        onDestinationSelected: (int index) {
-          setState(() {
-            _selectedIndex = index;
-          });
+        onDestinationSelected: (int index) async {
+          if (index == 3) {
+            await _logout();
+          } else {
+            setState(() {
+              _selectedIndex = index;
+            });
+          }
         },
-        destinations: [
+        destinations: const [
           NavigationDestination(
             icon: Icon(Icons.list),
             label: 'Test List',
@@ -48,8 +66,8 @@ class _NavigationMenuState extends State<NavigationMenu> {
             label: 'New Test',
           ),
           NavigationDestination(
-            icon: Icon(Icons.person),
-            label: 'Profile',
+            icon: Icon(Icons.logout),
+            label: 'Logout',
           ),
         ],
       ),
