@@ -27,7 +27,7 @@ class CustomResult extends StatelessWidget {
             Image.asset(
               'assets/images/finish_test.gif',
               height: 200,
-              fit: BoxFit.cover,
+              fit: BoxFit.contain,
             ),
             const SizedBox(height: 20),
             Text(
