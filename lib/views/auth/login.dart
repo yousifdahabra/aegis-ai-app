@@ -47,6 +47,7 @@ class Login extends StatelessWidget {
               (route) => false,
             );
           } else if (state is LoginFailure) {
+            Navigator.pop(context);
             showCustomAlert(
               context,
               title: 'Error',

@@ -25,7 +25,15 @@ class Signup extends StatelessWidget {
         ),
         body: BlocListener<AuthBloc, AuthState>(
           listener: (context, state) {
-            if (state is AuthSuccess) {
+            if (state is AuthLoading) {
+              showDialog(
+                context: context,
+                barrierDismissible: false,
+                builder: (_) => const Center(
+                  child: CircularProgressIndicator(),
+                ),
+              );
+            } else if (state is AuthSuccess) {
               showCustomAlert(
                 context,
                 title: 'Success',
@@ -37,6 +45,7 @@ class Signup extends StatelessWidget {
                 MaterialPageRoute(builder: (context) => const NavigationMenu()),
               );
             } else if (state is AuthFailure) {
+              Navigator.pop(context);
               showCustomAlert(
                 context,
                 title: 'Error',
