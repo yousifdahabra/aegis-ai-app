@@ -40,9 +40,11 @@ class Login extends StatelessWidget {
               message: state.message,
               isSuccess: true,
             );
-            Navigator.pushReplacement(
+            Navigator.pop(context);
+            Navigator.pushAndRemoveUntil(
               context,
               MaterialPageRoute(builder: (context) => const NavigationMenu()),
+              (route) => false,
             );
           } else if (state is LoginFailure) {
             showCustomAlert(
