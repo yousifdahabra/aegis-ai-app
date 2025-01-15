@@ -84,7 +84,7 @@ class _CustomRadioButtonState extends State<CustomRadioButton> {
           ),
         ),
         child: Row(
-          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Radio<String>(
               value: value,
