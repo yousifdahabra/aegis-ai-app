@@ -24,6 +24,12 @@ class CustomResult extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
+            Image.asset(
+              'assets/images/finish_test.gif',
+              height: 200,
+              fit: BoxFit.cover,
+            ),
+            const SizedBox(height: 20),
             Text(
               'Your Test Results',
               style: Theme.of(context).textTheme.headlineSmall,
