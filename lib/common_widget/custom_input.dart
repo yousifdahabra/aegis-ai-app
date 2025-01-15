@@ -31,8 +31,8 @@ class CustomInput extends StatelessWidget {
       keyboardType: multiLine
           ? TextInputType.multiline
           : (scure ? TextInputType.text : type),
-      minLines: multiLine ? 3 : 1,
-      maxLines: multiLine ? 5 : (scure ? 1 : 1),
+      minLines: multiLine ? 1 : 1,
+      maxLines: multiLine ? 6 : (scure ? 1 : 1),
       decoration: InputDecoration(
         labelText: label,
         labelStyle: Theme.of(context).textTheme.headlineSmall,
