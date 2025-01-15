@@ -25,7 +25,15 @@ class Login extends StatelessWidget {
       backgroundColor: Colors.white,
       body: BlocListener<LoginBloc, LoginState>(
         listener: (context, state) {
-          if (state is LoginSuccess) {
+          if (state is LoginLoading) {
+            showDialog(
+              context: context,
+              barrierDismissible: false,
+              builder: (_) => const Center(
+                child: CircularProgressIndicator(),
+              ),
+            );
+          } else if (state is LoginSuccess) {
             showCustomAlert(
               context,
               title: 'Success',
