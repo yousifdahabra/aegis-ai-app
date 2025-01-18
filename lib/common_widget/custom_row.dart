@@ -22,13 +22,13 @@ class CustomRow extends StatelessWidget {
           _buildColumn(context, data['questions'] ?? '', "Questions"),
           _buildColumn(context, data['security'] ?? '', "Security"),
           _buildColumn(context, data['status'] ?? '', "Status"),
-          // IconButton(
-          //   icon: Icon(
-          //     Icons.arrow_forward,
-          //     color: AppColors.linksColor,
-          //   ),
-          //   onPressed: () {},
-          // ),
+          IconButton(
+            icon: Icon(
+              Icons.arrow_forward,
+              color: AppColors.linksColor,
+            ),
+            onPressed: () {},
+          ),
         ],
       ),
     );
