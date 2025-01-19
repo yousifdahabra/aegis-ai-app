@@ -20,6 +20,7 @@ class TestList extends StatelessWidget {
             return const Center(child: CircularProgressIndicator());
           } else if (state is TestsListSuccess) {
             final List<Map<String, dynamic>> testData = state.data
+                .where((test) => test['expert_id'] == 0)
                 .map((test) => {
                       'title': test['title'] ?? '',
                       'questions': test['questions_count'].toString(),
