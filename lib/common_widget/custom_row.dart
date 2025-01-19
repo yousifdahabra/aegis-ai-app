@@ -5,31 +5,39 @@ class CustomRow extends StatelessWidget {
   const CustomRow({
     super.key,
     required this.data,
+    required this.onPressed,
   });
+
   final Map<String, dynamic> data;
+  final VoidCallback onPressed;
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
-      decoration: BoxDecoration(
+    return InkWell(
+      onTap: onPressed,
+      borderRadius: BorderRadius.circular(8),
+      child: Container(
+        padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
+        decoration: BoxDecoration(
           color: Theme.of(context).colorScheme.primary.withAlpha(10),
-          borderRadius: BorderRadius.circular(8)),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          _buildColumn(context, data['title'] ?? '', "Title"),
-          _buildColumn(context, data['questions'] ?? '', "Questions"),
-          _buildColumn(context, data['security'] ?? '', "Security"),
-          _buildColumn(context, data['status'] ?? '', "Status"),
-          IconButton(
-            icon: Icon(
-              Icons.arrow_forward,
-              color: AppColors.linksColor,
+          borderRadius: BorderRadius.circular(8),
+        ),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            _buildColumn(context, data['title'] ?? '', "Title"),
+            _buildColumn(context, data['questions'] ?? '', "Questions"),
+            _buildColumn(context, data['security'] ?? '', "Security"),
+            _buildColumn(context, data['status'] ?? '', "Status"),
+            IconButton(
+              icon: Icon(
+                Icons.arrow_forward,
+                color: AppColors.linksColor,
+              ),
+              onPressed: onPressed,
             ),
-            onPressed: () {},
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

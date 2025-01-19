@@ -63,7 +63,10 @@ class ExpertRequest extends StatelessWidget {
                 itemBuilder: (context, index) {
                   return Padding(
                     padding: const EdgeInsets.only(bottom: 10.0),
-                    child: CustomRow(data: expertTests[index]),
+                    child: CustomRow(
+                      data: expertTests[index],
+                      onPressed: () {},
+                    ),
                   );
                 },
               ),

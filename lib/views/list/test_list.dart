@@ -51,7 +51,7 @@ class TestList extends StatelessWidget {
                 itemBuilder: (context, index) {
                   return Padding(
                     padding: const EdgeInsets.only(bottom: 10.0),
-                    child: CustomRow(data: testData[index]),
+                    child: CustomRow(data: testData[index], onPressed: () {}),
                   );
                 },
               ),
