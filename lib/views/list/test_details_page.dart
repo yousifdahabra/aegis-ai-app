@@ -18,7 +18,9 @@ class TestDetailsPage extends StatelessWidget {
       ),
       body: BlocBuilder<TestDetailsBloc, TestDetailsState>(
         builder: (context, state) {
-          if (state is TestDetailsSuccess) {
+          if (state is TestDetailsLoading) {
+            return const Center(child: CircularProgressIndicator());
+          } else if (state is TestDetailsSuccess) {
             final Map<String, dynamic> testDetails = state.test;
             final List<Map<String, dynamic>> questions = state.questions;
 
