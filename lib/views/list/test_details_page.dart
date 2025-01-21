@@ -1,3 +1,4 @@
+import 'package:ai_safety_app/common_widget/custom_app_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:ai_safety_app/bloc/test_details/test_details_bloc.dart';
@@ -12,9 +13,8 @@ class TestDetailsPage extends StatelessWidget {
     context.read<TestDetailsBloc>().add(FetchTestDetailsEvent(testId: testId));
 
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Test Details'),
-        backgroundColor: const Color(0xFF16354D),
+      appBar: CustomAppBar(
+        mainTitle: 'Test Details',
       ),
       body: BlocBuilder<TestDetailsBloc, TestDetailsState>(
         builder: (context, state) {
