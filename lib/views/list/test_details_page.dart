@@ -33,6 +33,7 @@ class TestDetailsPage extends StatelessWidget {
                 children: [
                   _buildTestInfo(context, testDetails),
                   const Divider(height: 30, thickness: 2),
+                  _buildQuestionsSection(context, questions),
                 ],
               ),
             );
