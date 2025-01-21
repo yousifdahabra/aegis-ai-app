@@ -134,6 +134,13 @@ class TestDetailsPage extends StatelessWidget {
                 question['title'] ?? 'Question Title',
                 style: Theme.of(context).textTheme.bodyLarge,
               ),
+              subtitle: Text(
+                'Answer: ${question['option_answer'] ?? 'Not answered'}',
+                style: Theme.of(context)
+                    .textTheme
+                    .bodyMedium
+                    ?.copyWith(color: Colors.grey),
+              ),
             );
           },
         ),
