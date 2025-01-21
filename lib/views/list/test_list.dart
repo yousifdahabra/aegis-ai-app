@@ -1,4 +1,5 @@
 import 'package:ai_safety_app/common_widget/custom_app_bar.dart';
+import 'package:ai_safety_app/views/list/test_details_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:ai_safety_app/common_widget/custom_row.dart';
@@ -19,15 +20,8 @@ class TestList extends StatelessWidget {
           if (state is TestsListLoading) {
             return const Center(child: CircularProgressIndicator());
           } else if (state is TestsListSuccess) {
-            final List<Map<String, dynamic>> testData = state.data
-                .where((test) => test['expert_id'] == 0)
-                .map((test) => {
-                      'title': test['title'] ?? '',
-                      'questions': test['questions_count'].toString(),
-                      'security': test['security'] ?? '-',
-                      'status': test['test_state'] ?? '',
-                    })
-                .toList();
+            final List testData =
+                state.data.where((test) => test['expert_id'] == 0).toList();
 
             if (testData.isEmpty) {
               return Center(
@@ -49,9 +43,27 @@ class TestList extends StatelessWidget {
                 padding: const EdgeInsets.all(8.0),
                 itemCount: testData.length,
                 itemBuilder: (context, index) {
+                  final test = testData[index];
                   return Padding(
                     padding: const EdgeInsets.only(bottom: 10.0),
-                    child: CustomRow(data: testData[index], onPressed: () {}),
+                    child: CustomRow(
+                      data: {
+                        'title': test['title'] ?? '',
+                        'questions': test['questions_count'].toString(),
+                        'security': test['security'] ?? '-',
+                        'status': test['test_state'] ?? '',
+                      },
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => TestDetailsPage(
+                              testId: test['id'],
+                            ),
+                          ),
+                        );
+                      },
+                    ),
                   );
                 },
               ),
