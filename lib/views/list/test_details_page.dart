@@ -18,40 +18,53 @@ class TestDetailsPage extends StatelessWidget {
       ),
       body: BlocBuilder<TestDetailsBloc, TestDetailsState>(
         builder: (context, state) {
-          return SingleChildScrollView(
-            padding: const EdgeInsets.all(16.0),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  'Test Title',
-                  style: Theme.of(context).textTheme.headlineSmall,
-                ),
-                const SizedBox(height: 10),
-                Text(
-                  'User: user_name',
-                  style: Theme.of(context).textTheme.bodyMedium,
-                ),
-                const SizedBox(height: 5),
-                Text(
-                  'Status:test_state',
-                  style: Theme.of(context).textTheme.bodyMedium,
-                ),
-                const SizedBox(height: 5),
-                Text(
-                  'Questions:questions_count ',
-                  style: Theme.of(context).textTheme.bodyMedium,
-                ),
-                const SizedBox(height: 10),
-                const Divider(height: 20, thickness: 2),
-                Text(
-                  'Questions',
-                  style: Theme.of(context).textTheme.headlineSmall,
-                ),
-                const SizedBox(height: 10),
-              ],
-            ),
-          );
+          if (state is TestDetailsSuccess) {
+            final Map<String, dynamic> testDetails = state.test;
+            final List<Map<String, dynamic>> questions = state.questions;
+
+            return SingleChildScrollView(
+              padding: const EdgeInsets.all(16.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    testDetails['title'] ?? 'Test Title',
+                    style: Theme.of(context).textTheme.headlineSmall,
+                  ),
+                  const SizedBox(height: 10),
+                  Text(
+                    'User: ${testDetails['user_name']}',
+                    style: Theme.of(context).textTheme.bodyMedium,
+                  ),
+                  const SizedBox(height: 5),
+                  Text(
+                    'Status: ${testDetails['test_state']}',
+                    style: Theme.of(context).textTheme.bodyMedium,
+                  ),
+                  const SizedBox(height: 5),
+                  Text(
+                    'Questions: ${testDetails['questions_count']}',
+                    style: Theme.of(context).textTheme.bodyMedium,
+                  ),
+                  const SizedBox(height: 10),
+                  if (testDetails['security'] != null)
+                    Text(
+                      'Security: ${testDetails['security']}',
+                      style: Theme.of(context)
+                          .textTheme
+                          .bodyMedium
+                          ?.copyWith(color: Colors.green),
+                    ),
+                  const Divider(height: 20, thickness: 2),
+                  Text(
+                    'Questions',
+                    style: Theme.of(context).textTheme.headlineSmall,
+                  ),
+                  const SizedBox(height: 10),
+                ],
+              ),
+            );
+          }
           return const SizedBox();
         },
       ),
