@@ -104,8 +104,8 @@ class TestsRepository {
       method: 'GET',
     );
 
-    if (response['status']) {
-      return response['data'];
+    if (response['data']['status']) {
+      return response;
     } else {
       throw Exception(response['message']);
     }
