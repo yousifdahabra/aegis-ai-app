@@ -63,6 +63,28 @@ class TestDetailsPage extends StatelessWidget {
           style: Theme.of(context).textTheme.headlineSmall,
         ),
         const SizedBox(height: 10),
+        _infoRow(
+          context,
+          label: 'User:',
+          value: testDetails['user_name'] ?? 'N/A',
+        ),
+        _infoRow(
+          context,
+          label: 'Status:',
+          value: testDetails['test_state'] ?? 'N/A',
+        ),
+        _infoRow(
+          context,
+          label: 'Questions:',
+          value: '${testDetails['questions_count'] ?? 0}',
+        ),
+        if (testDetails['security'] != null)
+          _infoRow(
+            context,
+            label: 'Security:',
+            value: testDetails['security'] ?? 'N/A',
+            valueColor: Colors.green,
+          ),
       ],
     );
   }
