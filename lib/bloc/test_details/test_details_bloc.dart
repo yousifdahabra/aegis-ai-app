@@ -15,10 +15,17 @@ class TestDetailsBloc extends Bloc<TestDetailsEvent, TestDetailsState> {
 
       try {
         final response = await testsRepository.getTestDetails(event.testId);
-        if (response['status']) {
+
+        if (response['data']['status']) {
+          final test = response['data']['data']['test'] as Map<String, dynamic>;
+          final questions =
+              (response['data']['data']['question'] as List<dynamic>)
+                  .map((item) => item as Map<String, dynamic>)
+                  .toList();
+
           emit(TestDetailsSuccess(
-            test: response['data']['test'],
-            questions: response['data']['question'],
+            test: test,
+            questions: questions,
           ));
         } else {
           emit(
