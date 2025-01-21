@@ -79,6 +79,13 @@ class TestDetailsPage extends StatelessWidget {
                 ],
               ),
             );
+          } else if (state is TestDetailsFailure) {
+            return Center(
+              child: Text(
+                "Error: ${state.error}",
+                style: const TextStyle(color: Colors.red),
+              ),
+            );
           }
           return const SizedBox();
         },
