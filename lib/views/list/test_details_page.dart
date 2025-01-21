@@ -61,6 +61,21 @@ class TestDetailsPage extends StatelessWidget {
                     style: Theme.of(context).textTheme.headlineSmall,
                   ),
                   const SizedBox(height: 10),
+                  ...questions.map((question) {
+                    return ListTile(
+                      title: Text(
+                        question['title'] ?? 'Question Title',
+                        style: Theme.of(context).textTheme.bodyLarge,
+                      ),
+                      subtitle: Text(
+                        'Answer: ${question['option_answer'] ?? 'Not answered'}',
+                        style: Theme.of(context)
+                            .textTheme
+                            .bodyMedium
+                            ?.copyWith(color: Colors.grey),
+                      ),
+                    );
+                  }),
                 ],
               ),
             );
