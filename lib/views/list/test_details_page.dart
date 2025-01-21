@@ -122,6 +122,21 @@ class TestDetailsPage extends StatelessWidget {
           style: Theme.of(context).textTheme.headlineSmall,
         ),
         const SizedBox(height: 10),
+        ListView.separated(
+          physics: const NeverScrollableScrollPhysics(),
+          shrinkWrap: true,
+          itemCount: questions.length,
+          separatorBuilder: (_, __) => const Divider(),
+          itemBuilder: (context, index) {
+            final question = questions[index];
+            return ListTile(
+              title: Text(
+                question['title'] ?? 'Question Title',
+                style: Theme.of(context).textTheme.bodyLarge,
+              ),
+            );
+          },
+        ),
       ],
     );
   }
