@@ -66,4 +66,27 @@ class TestDetailsPage extends StatelessWidget {
       ],
     );
   }
+
+  Widget _infoRow(BuildContext context,
+      {required String label, required String value, Color? valueColor}) {
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 5),
+      child: Row(
+        children: [
+          Text(
+            label,
+            style: Theme.of(context).textTheme.bodyMedium,
+          ),
+          const SizedBox(width: 8),
+          Text(
+            value,
+            style: Theme.of(context)
+                .textTheme
+                .bodyMedium
+                ?.copyWith(color: valueColor ?? Colors.black),
+          ),
+        ],
+      ),
+    );
+  }
 }
