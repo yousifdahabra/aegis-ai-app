@@ -19,65 +19,20 @@ class TestDetailsPage extends StatelessWidget {
       body: BlocBuilder<TestDetailsBloc, TestDetailsState>(
         builder: (context, state) {
           if (state is TestDetailsLoading) {
-            return const Center(child: CircularProgressIndicator());
+            return const Center(
+              child: CircularProgressIndicator(),
+            );
           } else if (state is TestDetailsSuccess) {
             final Map<String, dynamic> testDetails = state.test;
             final List<Map<String, dynamic>> questions = state.questions;
 
             return SingleChildScrollView(
-              padding: const EdgeInsets.all(16.0),
+              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(
-                    testDetails['title'] ?? 'Test Title',
-                    style: Theme.of(context).textTheme.headlineSmall,
-                  ),
-                  const SizedBox(height: 10),
-                  Text(
-                    'User: ${testDetails['user_name']}',
-                    style: Theme.of(context).textTheme.bodyMedium,
-                  ),
-                  const SizedBox(height: 5),
-                  Text(
-                    'Status: ${testDetails['test_state']}',
-                    style: Theme.of(context).textTheme.bodyMedium,
-                  ),
-                  const SizedBox(height: 5),
-                  Text(
-                    'Questions: ${testDetails['questions_count']}',
-                    style: Theme.of(context).textTheme.bodyMedium,
-                  ),
-                  const SizedBox(height: 10),
-                  if (testDetails['security'] != null)
-                    Text(
-                      'Security: ${testDetails['security']}',
-                      style: Theme.of(context)
-                          .textTheme
-                          .bodyMedium
-                          ?.copyWith(color: Colors.green),
-                    ),
-                  const Divider(height: 20, thickness: 2),
-                  Text(
-                    'Questions',
-                    style: Theme.of(context).textTheme.headlineSmall,
-                  ),
-                  const SizedBox(height: 10),
-                  ...questions.map((question) {
-                    return ListTile(
-                      title: Text(
-                        question['title'] ?? 'Question Title',
-                        style: Theme.of(context).textTheme.bodyLarge,
-                      ),
-                      subtitle: Text(
-                        'Answer: ${question['option_answer'] ?? 'Not answered'}',
-                        style: Theme.of(context)
-                            .textTheme
-                            .bodyMedium
-                            ?.copyWith(color: Colors.grey),
-                      ),
-                    );
-                  }),
+                  _buildTestInfo(context, testDetails),
+                  const Divider(height: 30, thickness: 2),
                 ],
               ),
             );
@@ -85,13 +40,30 @@ class TestDetailsPage extends StatelessWidget {
             return Center(
               child: Text(
                 "Error: ${state.error}",
-                style: const TextStyle(color: Colors.red),
+                style: Theme.of(context)
+                    .textTheme
+                    .bodyLarge
+                    ?.copyWith(color: Colors.red),
               ),
             );
           }
           return const SizedBox();
         },
       ),
+    );
+  }
+
+  Widget _buildTestInfo(
+      BuildContext context, Map<String, dynamic> testDetails) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          testDetails['title'] ?? 'Test Title',
+          style: Theme.of(context).textTheme.headlineSmall,
+        ),
+        const SizedBox(height: 10),
+      ],
     );
   }
 }
