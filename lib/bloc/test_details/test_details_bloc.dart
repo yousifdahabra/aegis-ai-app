@@ -6,7 +6,8 @@ import 'package:ai_safety_app/data/repositories/tests_repository.dart';
 class TestDetailsBloc extends Bloc<TestDetailsEvent, TestDetailsState> {
   final TestsRepository testsRepository = TestsRepository();
 
-  TestDetailsBloc() : super(TestDetailsLoading()) {
+  TestDetailsBloc(TestsRepository testsRepository)
+      : super(TestDetailsLoading()) {
     on<FetchTestDetailsEvent>((event, emit) async {
       emit(TestDetailsLoading());
       try {
