@@ -141,6 +141,13 @@ class TestDetailsPage extends StatelessWidget {
                     .bodyMedium
                     ?.copyWith(color: Colors.grey),
               ),
+              leading: CircleAvatar(
+                backgroundColor: const Color(0xFF16354D),
+                child: Text(
+                  '${index + 1}',
+                  style: const TextStyle(color: Colors.white),
+                ),
+              ),
             );
           },
         ),
