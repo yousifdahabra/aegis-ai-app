@@ -5,4 +5,5 @@ class ApiEndpoints {
   static const String geTesttList = '/tests/get-list';
   static const String addTest = '/tests';
   static const String submitAnswer = '/tests/answer';
+  static const String getTestSolutions = 'tests/get-test-solutions/';
 }

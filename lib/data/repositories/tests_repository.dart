@@ -97,4 +97,17 @@ class TestsRepository {
       };
     }
   }
+
+  Future<Map<String, dynamic>> getTestDetails(int testId) async {
+    final response = await _dioClient.api.makeRequest(
+      route: '${ApiEndpoints.getTestSolutions}/$testId',
+      method: 'GET',
+    );
+
+    if (response['status']) {
+      return response['data'];
+    } else {
+      throw Exception(response['message']);
+    }
+  }
 }
