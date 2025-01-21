@@ -111,4 +111,18 @@ class TestDetailsPage extends StatelessWidget {
       ),
     );
   }
+
+  Widget _buildQuestionsSection(
+      BuildContext context, List<Map<String, dynamic>> questions) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          'Questions',
+          style: Theme.of(context).textTheme.headlineSmall,
+        ),
+        const SizedBox(height: 10),
+      ],
+    );
+  }
 }
